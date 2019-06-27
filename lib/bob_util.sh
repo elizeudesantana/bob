@@ -78,7 +78,8 @@ function Class_Bob(){
     bobMenuLocation="${enderecoRelativo_view}/bob_menu.sh";              # Diretorio de localização bob_menu.sh
     datasLocation="${enderecoRelativo_lib}/datas";                       # Diretorio de localização datas
     fontsLocation="${scriptPath_Home}/.local/share/fonts";               # Diretorio de localização datas
-    climaLocation="${enderecoRelativo_doc}/clima.tmp";
+    climaLocation="${enderecoRelativo_doc}/clima.tmp";                   # Arquivo para uso do Clima Titulo
+    info_arq="${enderecoRelativo_doc}/bob_snapshot.${myhost}.$tempo";    # Arquivo para manutenção Relatorio
 
     # -----------------------------------------------------------------------------------------    
                                                                             # [ configurações ]
@@ -151,8 +152,6 @@ function Class_Bob(){
     local pid=$(ps -eo pid,comm | awk '$2 == "bob.sh" {print $1 }' | sed -n '1p' );
     #myhost=$(/bin/hostname); 
     #tempo=$(/bin/date +%m%d%y_%H%M%S); 
-    dirTrab=/home/elizeu/Projetos;
-    info_arq=${dirTrab}/bob_snapshot.${myhost}.$tempo;
     hi="";
 
 
