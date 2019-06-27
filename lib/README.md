@@ -1,27 +1,48 @@
-This directory contains the shared libraries and functions that are required by the scripts within this repository.
+#    
 
-# utils.sh
-This script must be sourced from all my additional scripts.  Contained within this are two important functions.  
+Este repository, contem scripts que juntos formam o sistema    .
+Que é um sitema de controle para instalação de programas no sistema linux ubuntu, este nasceu da necessidade
+de instalar programas e configurações sempre que instalava o sistema linux (coisas pra fazer), então surgiu o 
+prototipo de um script para o auxilio no startup do SO.
 
-1. **Logging** -  All scripts use the logging functions.  There are nine different levels of logs.  All log levels are called from within a script in the format `info "some message"`.  The levels of logging are:
-	* **die** - Prints an error and exits the script 
-	* **error** - prints an error and continues to run the script
-	* **warning** - prints a warning
-	* **notice** - prints a notice to the user
-	* **info** - prints information to the user
-	* **debug** - prints debug information.  This output hidden unless scripts are run with the verbose (`-v`) flag
-	* **success** - prints success to a user
-	* **input** - Asks the user for input
-	* **header** - Prints a header to help format logs
-2. **Sourcing Additional Files** - This script reads a list of additional files and sources them.
+# Bob.sh
+Este script é o principal todos os outros são auxiliares nas funções.  
+O sistema tem uma organização MVC, e um menu quantico, as divisões das funções entre os arquivos segue
+este padrão, o controler que é realizado por bob, os modulos lib's e as views que contém o que impresso
+na tela.
 
-# setupScriptFunctions.sh
-This script contains different functions used to install software and configure Mac computers from the scripts contained in the `setupScripts` directory.
+Eles estão distribuidos como segue.  
 
-# sharedVariables.sh
-This script contains variables that can be called from any other script.
+1. **Scripts** -  Lista de todos os scripts.  E suas respectivas descrições: 
+	* **bob_i** - Inicializa o sistema, instalando algumas depêndencias e fontes além de configurar o `bob`.
+	* **/bin/bob** - Sistema de fluxo e controle
+	* **/lib/bob_util** - 
+	* **/lib/bob_bancodados** - 
+	* **/lib/bob_financeiro** - 
+	* **/lib/bob_financeiroDB** - 
+	* **/lib/bob_instalacao** - 
+	* **/lib/bob_lembra** - 
+	* **/lib/bob_lembra_montante** - 
+	* **/lib/bob_manutencao** - 
+	* **/lib/bob_programas** - 
+	* **/lib/bob_python** - 
+	* **/lib/bob_servidor** - 
+	* **/lib/bob_shellfonts** - 
+	* **/lib/bob_texto** - 
+	* **/lib/bob_util_conf** - 
+	* **/lib/bob_util_montante** - 
+	* **/lib/bob_cht** - 
+	* **/lib/bob_fluxograma** - 
+	* **/lib/bob_manutencao** - 
 
-# sharedFunctions.sh
-This script contains many different functions which can be used throughout different scripts.  The script is well commented.
+2. **Sistemnas adicionais inseridos em    ** - This script reads a list of additional files and sources them.
 
+# bob_zzfuncao.sh
+https://funcoeszz.net/ e https://github.com/funcoeszz/funcoeszz
+
+# cht.sh
+http://cht.sh
+
+# datas.sh
+https://thobias.org/datas/index.html
 

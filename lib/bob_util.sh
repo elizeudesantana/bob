@@ -23,32 +23,33 @@ scriptFileVersion="1.0.0" 													# Versão do script
 # ========================================================================================
 # Class Bob
 # ----------------------------------------------------------------------------------------
-# ----------------------------------------------------------------------------------------
+# Função  (não usada) porque foram usadas na versão inicial na próxima revisão deixaram 
+# de exitir.
 # ----------------------------------------------------------------------------------------
 function Class_Bob(){
-    # Rotas
-    
+
+    # -----------------------------------------------------------------------------------------    
+                                                                                      # [Rotas]
+                                            # Variavel  -> pespectiva de localizações do script
     # -----------------------------------------------------------------------------------------
-    # Variavel  -> pespectiva de localizações do script (configuravel)
     instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
     
-    # /* Não modificar ------------------------------------------------------------------------
     scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
     scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
     scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
     
     if [ $scriptPath != $scriptPath_Bob ] ; then
-        utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";                   # Diretorio de localização bob_util.sh
-        enderecoRelativo_bin="${scriptPath_Bob}/bin";                        # Estrutura de diretorio bin
-        enderecoRelativo_lib="${scriptPath_Bob}/lib";                        # Estrutura de diretorio lib
-        enderecoRelativo_view="${scriptPath_Bob}/lib/view";                  # Estrutura de diretorio lib/view
-        enderecoRelativo_doc="${scriptPath_Bob}/doc";                        # Estrutura de diretorio doc          
+        utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
+        enderecoRelativo_bin="${scriptPath_Bob}/bin";                    # Estrutura de diretorio bin
+        enderecoRelativo_lib="${scriptPath_Bob}/lib";                    # Estrutura de diretorio lib
+        enderecoRelativo_view="${scriptPath_Bob}/lib/view";              # Estrutura de diretorio lib/view
+        enderecoRelativo_doc="${scriptPath_Bob}/doc";                    # Estrutura de diretorio doc          
     else
         utilsLocation="${scriptPath}/lib/bob_util.sh"; 
-        enderecoRelativo_bin="${scriptPath}/bin";                            # Estrutura de diretorio bin
-        enderecoRelativo_lib="${scriptPath}/lib";                            # Estrutura de diretorio lib
-        enderecoRelativo_view="${scriptPath}/lib/view";                      # Estrutura de diretorio lib/view
-        enderecoRelativo_doc="${scriptPath}/doc";                            # Estrutura de diretorio doc
+        enderecoRelativo_bin="${scriptPath}/bin";                        # Estrutura de diretorio bin
+        enderecoRelativo_lib="${scriptPath}/lib";                        # Estrutura de diretorio lib
+        enderecoRelativo_view="${scriptPath}/lib/view";                  # Estrutura de diretorio lib/view
+        enderecoRelativo_doc="${scriptPath}/doc";                        # Estrutura de diretorio doc
     fi
 
     bobLocation="${enderecoRelativo_bin}/bob.sh";                        # Diretorio de localização bob.sh
@@ -63,7 +64,7 @@ function Class_Bob(){
     shellfontsLocation="${enderecoRelativo_lib}/bob_shellfonts.sh";      # Diretorio de localização bob_shellfonts.sh
     bancodadosLocation="${enderecoRelativo_lib}/bob_bancodados.sh";      # Diretorio de localização bob_bancodados.sh
     financeiroLocation="${enderecoRelativo_lib}/bob_financeiro.sh";      # Diretorio de localização bob_financeiro.sh
-    financeiroBDLocation="${enderecoRelativo_lib}/bob_financeiro_BD.sh";  # Diretorio de localização bob_financeiroBD.sh
+    financeiroBDLocation="${enderecoRelativo_lib}/bob_financeiro_BD.sh"; # Diretorio de localização bob_financeiroBD.sh
     lembraLocation="${enderecoRelativo_lib}/bob_lembra.sh";              # Diretorio de localização bob_lembra.sh
     lembramontanteLocation="${enderecoRelativo_lib}/bob_lembra_montante.sh"; # Diretorio de localização bob_lembra.sh
     programasLocation="${enderecoRelativo_lib}/bob_programas.sh";        # Diretorio de localização bob_programas.sh
@@ -76,38 +77,84 @@ function Class_Bob(){
     fluxogramasLocation="${enderecoRelativo_lib}/fluxograma.sh";         # Diretorio de localização fluxograma.sh
     bobMenuLocation="${enderecoRelativo_view}/bob_menu.sh";              # Diretorio de localização bob_menu.sh
     datasLocation="${enderecoRelativo_lib}/datas";                       # Diretorio de localização datas
-    fontsLocation="${scriptPath_Home}/.local/share/fonts";
-    climaLocation="${enderecoRelativo_doc}/clima.tmp"
-    # */ -----------------------------------------------------------------------------------
+    fontsLocation="${scriptPath_Home}/.local/share/fonts";               # Diretorio de localização datas
+    climaLocation="${enderecoRelativo_doc}/clima.tmp";
 
-    # configurações ----------------------------------------------------------------------------
-    ### Nome do programa pode ser configurada para se adpatar a gosto do usuario. ###
-    [ -e ${confLocation} ] || { echo "Arquivo bob.conf ausente!"; }; source ${confLocation} 
-    dlc="$Desliga_cores"; clt="$Cor_linha_logotipo"; cls="$Cor_linhas"; ctr="$Cor_texto_result"; 
-    ctm="$Cor_texto_Menu"; clg="$Cor_logo"; lgt="${Logotipo_Titulo}"; nmu="${Nome_do_Usuario}";
-    rlt="${Relogio_tela}"; tle="${Tela_Entrada}";
+    # -----------------------------------------------------------------------------------------    
+                                                                            # [ configurações ]
+                                                             ### carregando o arquivo .conf ###
+    # -----------------------------------------------------------------------------------------  
+    if [ -f "${confLocation}" ]; then       
+        source "${confLocation}";
+        varDebug_conf="Realizado Source no arquivo: ${confLocation}"; 
+    else
+        e_error "Erro carregando ${confLocation}"; Sair;
+    fi
+    #[ -e ${confLocation} ] || { echo "Arquivo bob.conf ausente!"; }; source ${confLocation} 
+    # -----------------------------------------------------------------------------------------    
+    set Desliga_cores="${Desliga_cores}";               ### set constantes ###
+    set Cor_linha_logotipo="${Cor_linha_logotipo}"; 
+    set Cor_linhas="${Cor_linhas}"; 
+    set Cor_texto_result="${Cor_texto_result}"; 
+    set Cor_texto_Menu="$Cor_texto_Menu"; 
+    set Cor_logo="$Cor_logo"; 
+    set Logotipo_Titulo="${Logotipo_Titulo}"; 
+    set Nome_do_Usuario="${Nome_do_Usuario}";
+    set Relogio_tela="${Relogio_tela}"; 
+    set Tela_Entrada="${Tela_Entrada}";
 
-    scriptName=`basename $0`; scriptBasename="$(basename ${scriptName} .sh)"    # Strips '.sh' from scriptName
+    # -----------------------------------------------------------------------------------------    
+                                                                               # [ Constantes ]
+    # -----------------------------------------------------------------------------------------    
+    # array contendo todas as funções da classe -> declare -a
+    declare -a array_Class_Bob;
+    array_Class_Bob=( "_Clima_" "_Anime_" "_Annime_" "progressBar" "display_info" "join" 
+        "is_linux" "is_ubuntu" "is_ubuntu_desktop" "is_exists" "is_not_exists" "is_file" 
+        "is_not_file" "is_dir" "is_not_dir" "is_symlink" "is_not_symlink" "is_empty" 
+        "is_not_empty" "type_not_exists" "is_os" "seek_confirmation_force" "is_confirmed_force" 
+        "is_not_confirmed_force" "skip" "unmountDrive" "help" "pauseScript" "in_array" 
+        "lower" "upper" "ltrim" "rtrim" "trim" "squeeze" "squeeze_lines" );            
+    
+    # arquivos de log
+    declare -a log;
+    log=( 'bob.log' 'setupapp.log' 'bob.conf'); 
+    
+    # banco de dados relacional mysql
+                                                # credit : https://thobias.org/doc/shell_bd.html
+    set sql_root="sudo mysql -u root -pelizeu -e";
+    set sql_user_name="bob"; 
+    set sql_user_senha="senha"; 
+    # ~.my.cnf
+    set agenda_DB="bob_DB"; 
+    set agenda_tabela="agenda"; 
+    set lembrete_tabela="lembrete";
+    set sql_user="mysql -u $sql_user_name -p$sql_user_senha -e "; 
+
+    # -----------------------------------------------------------------------------------------    
+                                                                                # [ Variaveis ]
+    # -----------------------------------------------------------------------------------------    
+    # usuais
+    scriptName=`basename $0`; 
+    scriptBasename="$(basename ${scriptName} .sh)"                              # Scripts '.sh' from scriptName
+    thisHost=$(hostname); 
+
+    # data & hora
     now=$(LC_ALL=C date +"%m-%d-%Y %r")                                         # Returns: 06-14-2015 10:34:40 PM
     datestamp=$(LC_ALL=C date +%Y-%m-%d)                                        # Returns: 2015-06-14
     #hourstamp=$(LC_ALL=C date +%r)                                             # Returns: 10:34:40 PM
+    hourstamp=`date | cut -d" " -f4 | cut -d: -f1`; 
     timestamp=$(LC_ALL=C date +%Y%m%d_%H%M%S)                                   # Returns: 20150614_223440
     today=$(LC_ALL=C date +"%m-%d-%Y")                                          # Returns: 06-14-2015
     longdate=$(LC_ALL=C date +"%a, %d %b %Y %H:%M:%S %z")                       # Returns: Sun, 10 Jan 2016 20:47:53 -0500
     gmtdate=$(LC_ALL=C date -u -R | sed 's/\+0000/GMT/')                        # Returns: Wed, 13 Jan 2016 15:55:29 GMT
-    thisHost=$(hostname); hourstamp=`date | cut -d" " -f4 | cut -d: -f1`; 
-
-    # Constantes --------------------------------------------------------------------------------
-    log=( 'bob.log' 'setupapp.log' 'bob.conf'); sql_root="sudo mysql -u root -pelizeu -e";
-    sql_user_name="bob"; sql_user_senha="senha"; # usar ~.my.cnf não precisa colocar a senha
-    agenda_DB="bob_DB"; agenda_tabela="agenda"; lembrete_tabela="lembrete";
-    sql_user="mysql -u $sql_user_name -p$sql_user_senha -e "; hi="";
-
-    # Variaveis --------------------------------------------------------------------------------
-    pid=$(ps -eo pid,comm | awk '$2 == "bob.sh" {print $1 }' | sed -n '1p' );
-    dirpath="${PWD}"; maquina="${OSTYPE}"; #inicio=$(cat tmp.txt)  # consertar isso
-    myhost=$(/bin/hostname); tempo=$(/bin/date +%m%d%y_%H%M%S); dirTrab=/home/elizeu/Projetos;
+    
+    local pid=$(ps -eo pid,comm | awk '$2 == "bob.sh" {print $1 }' | sed -n '1p' );
+    #myhost=$(/bin/hostname); 
+    #tempo=$(/bin/date +%m%d%y_%H%M%S); 
+    dirTrab=/home/elizeu/Projetos;
     info_arq=${dirTrab}/bob_snapshot.${myhost}.$tempo;
+    hi="";
+
 
     COMPACTARDIR=/home/elizeu/Documentos        # Diretorio para Compactação
     BACKUPDIR=/home/elizeu/Documentos           # Directory to backup
@@ -117,12 +164,15 @@ function Class_Bob(){
     Driver=https://drive.google.com/drive/my-drive
 
     # ----------------------------------------------------------------------------------------
-    function ClimaTempo(){
+                                                      # (O arquivo de saída é usado em Titulo)
+    # ----------------------------------------------------------------------------------------                                                    
+    function _Clima_(){                               
         curl 'wttr.in/{Guaratiba}?format=%l:%c+%t+%h+%M+%w+%p+%P+%m' >${climaLocation}
     }
-    # -----------------------------------------------------------------------------------------
-    #sleep 3 & Anime1
-    function Anime1(){ 
+    # ----------------------------------------------------------------------------------------
+                                                              # sleep 3 & _Anime_  (não usada)
+    # ----------------------------------------------------------------------------------------                                                               
+    function _Anime_(){ 
         local i=2 
         while [[ ! -z $(ps | grep "$!") ]]; do  
             printf "Processando [          ]" | sed "s/ /\-\>/$i" 
@@ -138,8 +188,9 @@ function Class_Bob(){
         printf "Processando [---feito---]\n"
     }
     # -----------------------------------------------------------------------------------------
-    #sleep 3 & Anime2
-    function Anime2(){
+                                                             # sleep 3 & _Annime_  (bancodados)
+    # -----------------------------------------------------------------------------------------                                                             
+    function _Annime_(){
         spinner=(\\ \| / -)
         while [[ ! -z $(ps | grep "$!") ]]; do
             i=0
@@ -151,14 +202,15 @@ function Class_Bob(){
         printf "Processando [*]\n"
     }
     # -----------------------------------------------------------------------------------------
+                                                                # (não usada)
+                                                                # progressBar
+                                                                # uso:
+                                                                #   for 1 in $(seq 0 100); do
+                                                                #     sleep 1
+                                                                #     progressBar 100
+                                                                #   done
+    # -----------------------------------------------------------------------------------------
     progressBar() {
-        # progressBar
-        # uso:
-        #   for 1 in $(seq 0 100); do
-        #     sleep 1
-        #     progressBar 100
-        #   done
-        # -----------------------------------
         if [[ "${quiet}" = "true" ]] || [ "${quiet}" == "1" ]; then
             return
         fi
@@ -204,315 +256,356 @@ function Class_Bob(){
         fi
         tput cnorm
     }
-
-    # Uso:
-    #   join , a "b c" d #a,b c,d
-    #   join / var local tmp #var/local/tmp
-    #   join , "${FOO[@]}" #a,b,c
+    # -----------------------------------------------------------------------------------------
+                                                                                  # (não usada)
+    # -----------------------------------------------------------------------------------------
+    function display_info(){
+        d_title=$USER@$HOSTNAME
+        d=$(cat /proc/version | egrep -o '\([A-Z][a-z]+ ' | tr -d \()
+        d_os=$(uname -o)
+        d_kname=$(cat /proc/sys/kernel/ostype)
+        d_kversion=$(cat /proc/sys/kernel/osrelease)
+        d_uptime=$(uptime | awk '{print $3}' | tr -d ,)" min"
+        d_shell=$(basename $SHELL)
+        d_res=$(xrandr | sed -n '1p' | sed 's/.*current.//g;s/,.*//g;s/ //g')
+        d_desk=$XDG_SESSION_DESKTOP
+        d_font=$(fc-match | sed 's/\..*//g')
+        d_cpu=$(cat /proc/cpuinfo | grep -o 'model name.*' | sed -n 1p | sed 's/.*:.//g;s/(.*)//g')
+        d_mem=$(echo $(cat /proc/meminfo | sed -n 1p | tr -d [A-Za-z:' ']) / 1000000 | bc)" MB"
+        d_memfree=$(echo "scale=2;$(cat /proc/meminfo | sed -n 2p | tr -d [A-Za-z:' '])" / 1000000 | bc)" MB"
+        d_arch=$(getconf LONG_BIT)"-bit"
+        d_browser=$(xdg-settings get default-web-browser | sed 's/userapp-//g;s/-.*//g;s/\..*//g')
+        d_char=$(expr length "$d_title"); qtd=
+        for i in $(seq 1 $d_char); do
+            qtd="$qtd─"
+        done
+    }
+    # -----------------------------------------------------------------------------------------
+                                                        # (não usada)
+                                                        # Uso:
+                                                        #   join , a "b c" d #a,b c,d
+                                                        #   join / var local tmp #var/local/tmp
+                                                        #   join , "${FOO[@]}" #a,b,c
     # -----------------------------------------------------------------------------------------
     function join() { local IFS="${1}"; shift; echo "${*}"; }
     # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
+    # -----------------------------------------------------------------------------------------
     function is_linux(){
         if [ $(uname) = 'Linux' ] ; then
-          return 0
+            return 0
         fi
         return 1
     }
     # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
+    # -----------------------------------------------------------------------------------------
     function is_ubuntu(){
-        #[[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
+        #[[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1           # faz o mesmo
         d=$(cat /proc/version | egrep -o '\([A-Z][a-z]+ ' | tr -d \()
         if [ ${d} = 'Ubuntu' ] ; then
-          return 0
+            return 0
         fi
         return 1
     }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
+    # -----------------------------------------------------------------------------------------
     function is_ubuntu_desktop() {
         dpkg -l ubuntu-desktop >/dev/null 2>&1 || return 1
     }
     # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
+    # -----------------------------------------------------------------------------------------
     function is_exists() {
-      if [[ -e "$1" ]]; then
-        return 0
-      fi
-      return 1
+        if [[ -e "$1" ]]; then
+            return 0
+        fi
+        return 1
     }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
     # -----------------------------------------------------------------------------------------
     function is_not_exists() {
-      if [[ ! -e "$1" ]]; then
-        return 0
-      fi
-      return 1
+        if [[ ! -e "$1" ]]; then
+            return 0
+        fi
+        return 1
     }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
     # -----------------------------------------------------------------------------------------
     function is_file() {
-      if [[ -f "$1" ]]; then
-        return 0
-      fi
-      return 1
+        if [[ -f "$1" ]]; then
+            return 0
+        fi
+        return 1
     }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
     # -----------------------------------------------------------------------------------------
     function is_not_file() {
-      if [[ ! -f "$1" ]]; then
-        return 0
-      fi
-      return 1
+        if [[ ! -f "$1" ]]; then
+            return 0
+        fi
+        return 1
     }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
     # -----------------------------------------------------------------------------------------
     function is_dir() {
-      if [[ -d "$1" ]]; then
-        return 0
-      fi
-      return 1
+        if [[ -d "$1" ]]; then
+           return 0
+          fi
+        return 1
     }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
     # -----------------------------------------------------------------------------------------
     function is_not_dir() {
-      if [[ ! -d "$1" ]]; then
-        return 0
-      fi
-      return 1
+        if [[ ! -d "$1" ]]; then
+            return 0
+        fi
+        return 1
     }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
     # -----------------------------------------------------------------------------------------
     function is_symlink() {
-      if [[ -L "$1" ]]; then
-        return 0
-      fi
-      return 1
+        if [[ -L "$1" ]]; then
+            return 0
+        fi
+        return 1
     }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
     # -----------------------------------------------------------------------------------------
     function is_not_symlink() {
-      if [[ ! -L "$1" ]]; then
-        return 0
-      fi
-      return 1
+        if [[ ! -L "$1" ]]; then
+            return 0
+        fi
+        return 1
     }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
     # -----------------------------------------------------------------------------------------
     function is_empty() {
-      if [[ -z "$1" ]]; then
-        return 0
-      fi
-      return 1
+        if [[ -z "$1" ]]; then
+            return 0
+        fi
+        return 1
     }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
     # -----------------------------------------------------------------------------------------
     function is_not_empty() {
-      if [[ -n "$1" ]]; then
-        return 0
-      fi
-      return 1
+        if [[ -n "$1" ]]; then
+            return 0
+        fi
+        return 1
     }
-
-    # Test whether a command exists
-    # ------------------------------------------------------
-    # Usage:
-    #    if type_exists 'git'; then
-    #      some action
-    #    else
-    #      some other action
-    #    fi
+    # -----------------------------------------------------------------------------------------    
+                                                                # (não usada)
+                                                                # Usage:
+                                                                #    if type_exists 'git'; then
+                                                                #      some action
+                                                                #    else
+                                                                #      some other action
+                                                                #    fi
     # -----------------------------------------------------------------------------------------
+                                                                                # (não usada)
+    # -----------------------------------------------------------------------------------------    
     function type_exists() {
-      if [ "$(type -P "$1")" ]; then
-        return 0
-      fi
-      return 1
+        if [ "$(type -P "$1")" ]; then
+            return 0
+        fi
+        return 1
     }
-
     # -----------------------------------------------------------------------------------------
+                                                                                # (não usada)
+    # -----------------------------------------------------------------------------------------    
     function type_not_exists() {
-      if [ ! "$(type -P "$1")" ]; then
-        return 0
-      fi
-      return 1
+        if [ ! "$(type -P "$1")" ]; then
+            return 0
+        fi
+        return 1
     }
-
-    # Test which OS the user runs
-    # $1 = OS to test
-    # Usage: if is_os 'darwin'; then
     # -----------------------------------------------------------------------------------------
+                                                                                # (não usada)
+    # -----------------------------------------------------------------------------------------    
     function is_os() {
-      if [[ "${OSTYPE}" == $1* ]]; then
-        return 0
-      fi
-      return 1
+        if [[ "${OSTYPE}" == $1* ]]; then
+            return 0
+        fi
+        return 1
     }
     # -----------------------------------------------------------------------------------------
+                                                                    # (será usada futuramente)
+    # -----------------------------------------------------------------------------------------    
     function seek_confirmation_force() {
-      # echo ""
-      input "$@"
-      if "${force}"; then
-        notice "Forcing confirmation with '--force' flag set"
-      else
-        read -p " (y/n) " -n 1
-        echo ""
-      fi
+        # echo ""
+        input "$@"
+        if "${force}"; then
+            notice "Forcing confirmation with '--force' flag set"
+        else
+            read -p " (y/n) " -n 1
+            echo ""
+        fi
     }
-
-    # Test whether the result of an 'ask' is a confirmation
     # -----------------------------------------------------------------------------------------
+                                                                    # (será usada futuramente)
+    # -----------------------------------------------------------------------------------------    
     function is_confirmed_force() {
-      if "${force}"; then
-        return 0
-      else
-        if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
-          return 0
+        if "${force}"; then
+            return 0
+        else
+            if [[ "${REPLY}" =~ ^[Yy]$ ]]; then
+                return 0
+            fi
+            return 1
         fi
-        return 1
-      fi
     }
     # -----------------------------------------------------------------------------------------
+                                                                    # (será usada futuramente)
+    # -----------------------------------------------------------------------------------------    
     function is_not_confirmed_force() {
-      if "${force}"; then
-        return 1
-      else
-        if [[ "${REPLY}" =~ ^[Nn]$ ]]; then
-          return 0
+        if "${force}"; then
+            return 1
+        else
+            if [[ "${REPLY}" =~ ^[Nn]$ ]]; then
+                return 0
+            fi
+            return 1
         fi
-        return 1
-      fi
     }
-    # Skip something
-    # ------------------------------------------------------
-    # Offer the user a chance to skip something.
-    # Credit: https://github.com/cowboy/dotfiles
-    # ------------------------------------------------------
-    function skip() {
-      REPLY=noskip
-      read -t 5 -n 1 -s -p "${bold}To skip, press ${underline}X${reset}${bold} within 5 seconds.${reset}"
-      if [[ "$REPLY" =~ ^[Xx]$ ]]; then
-        notice "  Skipping!"
-        return 0
-      else
-        notice "  Continuing..."
-        return 1
-      fi
-    }
-
-    # unmountDrive
-    # ------------------------------------------------------
-    # If an AFP drive is mounted as part of a script, this
-    # will unmount the volume.  This will only work on Macs.
-    # ------------------------------------------------------
-    function unmountDrive() {
-      if [ -d "$1" ]; then
-        diskutil unmount "$1"
-      fi
-    }
-
-    # help
-    # ------------------------------------------------------
-    # Prints help for a script when invoked from the command
-    # line.  Typically via '-h'.  If additional flags or help
-    # text is available in the script they will be printed
-    # in the '$usage' variable.
-    # ------------------------------------------------------
-    function help () {
-      echo "" 1>&2
-      input "   $@" 1>&2
-      if [ -n "${usage}" ]; then # print usage information if available
-        echo "   ${usage}" 1>&2
-      fi
-      echo "" 1>&2
-      exit 1
-    }
-
     # -----------------------------------------------------------------------------------------
-    function pauseScript() {
-      # A simple function used to pause a script at any point and
-      # only continue on user input
-      seek_confirmation "Ready to continue?"
-      if is_confirmed; then
-        info "Continuing"
-      else
-        warning "Exiting Script."
-        safeExit
-      fi
+                                                                                  # (não usada)
+                                                   # Credit: https://github.com/cowboy/dotfiles
+    # -----------------------------------------------------------------------------------------    
+    function skip() {
+        REPLY=noskip
+        read -t 5 -n 1 -s -p "${bold}To skip, press ${underline}X${reset}${bold} within 5 seconds.${reset}"
+        if [[ "$REPLY" =~ ^[Xx]$ ]]; then
+            notice "  Skipping!"
+            return 0
+        else
+            notice "  Continuing..."
+            return 1
+        fi
     }
-
+    # -----------------------------------------------------------------------------------------
+                                                                                # (não usada)
+    # -----------------------------------------------------------------------------------------    
+    function unmountDrive() {
+        if [ -d "$1" ]; then
+            diskutil unmount "$1"
+        fi
+    }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (será usada futuramente)
+    # -----------------------------------------------------------------------------------------    
+    function help () {
+        echo "" 1>&2
+        input "   $@" 1>&2
+        if [ -n "${usage}" ]; then # print usage information if available
+            echo "   ${usage}" 1>&2
+        fi
+        echo "" 1>&2
+        exit 1
+    }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (será usada futuramente)
+    # -----------------------------------------------------------------------------------------    
+    function pauseScript() {
+        seek_confirmation "Ready to continue?"
+        if is_confirmed; then
+            info "Continuing"
+        else
+            warning "Exiting Script."
+            safeExit
+        fi
+    }
+    # -----------------------------------------------------------------------------------------
+                                                                    # (função comumente usada)
+                                                        # Determine if a value is in an array.
+                                            # Usage: if in_array "VALUE" "${ARRAY[@]}"; then ...
     # -----------------------------------------------------------------------------------------
     function in_array() {
-        # Determine if a value is in an array.
-        # Usage: if in_array "VALUE" "${ARRAY[@]}"; then ...
         local value="$1"; shift
         for arrayItem in "$@"; do
             [[ "${arrayItem}" == "${value}" ]] && return 0
         done
         return 1
     }
-
-    # Text Transformations
-    # -----------------------------------
-    # Transform text using these functions.
-    # Adapted from https://github.com/jmcantrell/bashful
-    # -----------------------------------
-    lower() {
-      # Convert stdin to lowercase.
-      # usage:  text=$(lower <<<"$1")
-      #         echo "MAKETHISLOWERCASE" | lower
-      tr '[:upper:]' '[:lower:]'
-    }
-
     # -----------------------------------------------------------------------------------------
-    upper() {
-      # Convert stdin to uppercase.
-      # usage:  text=$(upper <<<"$1")
-      #         echo "MAKETHISUPPERCASE" | upper
-      tr '[:lower:]' '[:upper:]'
+                                                                                # (não usada)
+                                                    # Convert stdin to lowercase.
+                                                    # usage:  text=$(lower <<<"$1")
+                                                    #         echo "MAKETHISLOWERCASE" | lower
+                                            # Adapted from https://github.com/jmcantrell/bashful
+    # -----------------------------------------------------------------------------------------    
+    function lower() {
+        tr '[:upper:]' '[:lower:]'
     }
-
     # -----------------------------------------------------------------------------------------
-    ltrim() {
-      # Removes all leading whitespace (from the left).
-      local char=${1:-[:space:]}
+                                                                                # (não usada)
+                                                    # Convert stdin to uppercase.
+                                                    # usage:  text=$(upper <<<"$1")
+                                                    #         echo "MAKETHISUPPERCASE" | upper
+    # -----------------------------------------------------------------------------------------
+    function upper() { 
+        tr '[:lower:]' '[:upper:]'
+    }
+    # -----------------------------------------------------------------------------------------
+                                                                                # (não usada)
+                                            # Removes all leading whitespace (from the left).
+    # -----------------------------------------------------------------------------------------
+    function ltrim() {
+        local char=${1:-[:space:]}
         sed "s%^[${char//%/\\%}]*%%"
     }
-
     # -----------------------------------------------------------------------------------------
-    rtrim() {
-      # Removes all trailing whitespace (from the right).
-      local char=${1:-[:space:]}
-      sed "s%[${char//%/\\%}]*$%%"
+                                                                                # (não usada)
+                                            # Removes all trailing whitespace (from the right).
+    # -----------------------------------------------------------------------------------------
+    function rtrim() {
+        local char=${1:-[:space:]}
+        sed "s%[${char//%/\\%}]*$%%"
     }
-
     # -----------------------------------------------------------------------------------------
-    trim() {
-      # Removes all leading/trailing whitespace
-      # Usage examples:
-      #     echo "  foo  bar baz " | trim  #==> "foo  bar baz"
-      ltrim "$1" | rtrim "$1"
+                                                                                # (não usada)
+                                      # Removes all leading/trailing whitespace
+                                      # Usage examples:
+                                      #     echo "  foo  bar baz " | trim  #==> "foo  bar baz"
+    # -----------------------------------------------------------------------------------------
+    function trim() {
+        ltrim "$1" | rtrim "$1"
     }
-
     # -----------------------------------------------------------------------------------------
-    squeeze() {
-      # Removes leading/trailing whitespace and condenses all other consecutive
-      # whitespace into a single space.
-      #
-      # Usage examples:
-      #     echo "  foo  bar   baz  " | squeeze  #==> "foo bar baz"
-
-      local char=${1:-[[:space:]]}
-      sed "s%\(${char//%/\\%}\)\+%\1%g" | trim "$char"
+                                                                                # (não usada)
+                      # Removes leading/trailing whitespace and condenses all other consecutive
+                      # whitespace into a single space.
+                                  # Usage examples:
+                                  #     echo "  foo  bar   baz  " | squeeze  #==> "foo bar baz"
+    # -----------------------------------------------------------------------------------------
+    function squeeze() {
+        local char=${1:-[[:space:]]}
+        sed "s%\(${char//%/\\%}\)\+%\1%g" | trim "$char"
     }
-
     # -----------------------------------------------------------------------------------------
-    squeeze_lines() {
-        # <doc:squeeze_lines> {{{
-        #
-        # Removes all leading/trailing blank lines and condenses all other
-        # consecutive blank lines into a single blank line.
-        #
-        # </doc:squeeze_lines> }}}
-
+                                                                                # (não usada)
+                            # <doc:squeeze_lines> {{{
+                            #
+                            # Removes all leading/trailing blank lines and condenses all other
+                            # consecutive blank lines into a single blank line.
+                            #
+                            # </doc:squeeze_lines> }}}
+    # -----------------------------------------------------------------------------------------
+    function squeeze_lines() {
         sed '/^[[:space:]]\+$/s/.*//g' | cat -s | trim_lines
     }
-
-
     # -----------------------------------------------------------------------------------------
-    if [ -f "${confLocation}" ]; then       ### carregando o arquivo .conf ###
-        source "${confLocation}";
-        varDebug_conf="Realizado Source no arquivo: ${confLocation}" 
-    else
-        e_error "Erro carregando ${confLocation}"; Sair;
-    fi
+                                                                      # {Carregando os scripts}
     # -----------------------------------------------------------------------------------------
     if [ -f "${montanteLocation}" ]; then       ### carregando o arquivo .conf ###
         source "${montanteLocation}";
@@ -594,121 +687,8 @@ function Class_Bob(){
     else
         e_error "Erro carregando ${bancodadosLocation}"; Sair;
     fi
- 
- 
-    # function BobChildren_ClimaTempo(){
-    #     curl 'wttr.in/{Guaratiba}?format=%l:%c+%t+%h+%M+%w+%p+%P+%m' > ${climaLocation}
-    # }
-
-
 }
-# -----------------------------------------------------------------------------------------
-# Função funcoes
-# -----------------------------------------------------------------------------------------
-# lista de todas as funções, de bob. 
-# n/u - nunca usada  (considerando a retirada do sistema)
-# n/a - discontinuada (foi utilizada em versões anteriores, considerar retirar do sistema)
-# n/c - não contabilizada (devido a grande uso)
-# -----------------------------------------------------------------------------------------
-function funcoes(){
-    bob_util_cores=(
-        "[bob_util_cores]"
-        "All_cores_tput"            # n/u
-        "tituloAscii"               # bob_util_titulo - linha 65
-        "e_header"                  # n/c
-        "e_arrow"                   # n/c
-        "e_success"                 # n/c
-        "e_error"                   # n/c
-        "e_warning"                 # n/c
-        "e_underline"               # n/c
-        "e_bold"                    # n/c
-        "e_note"                    # n/c
-        "seek_confirmation"         # n/c
-        "seek_confirmation_head"    # n/u
-        "is_confirmed"              # n/c
-        "_alert"                    # pouco uso contabilizar, estudar discontinuação
-        "die"                       #
-        "error"                     #
-        "warning"                   #
-        "notice"                    #
-        "info"                      #
-        "debug"                     # ...
-        "success"
-        "input"
-        "header"
-        "verbose"
-        "fromhex"
-        "tohex"
-        "CorRGB" )
 
-    bob_util_montante=( 
-        "bob_util_montante"
-        "ClimaTempo"
-        "mostraRelogio"
-        "DiversasZZ"
-        "Com"
-        "Aquarium"
-        "comprimento"
-        "Anime1"
-        "Anime2"
-        "readFile"
-        "needSudo"
-        "convertsecs"
-        "pushover"
-        "join"
-        "is_linux"
-        "is_ubuntu"
-        "is_exists"
-        "is_not_exists"
-        "is_file"
-        "is_not_file"
-        "is_dir"
-        "is_not_dir"
-        "is_symlink"
-        "is_not_symlink"
-        "is_empty"
-        'is_not_empty'
-        "type_exists"
-        "type_not_exists"
-        "is_os"
-        "seek_confirmation_force"
-        "is_confirmed_force"
-        "is_not_confirmed_force"
-        "skip"
-        "unmountDrive"
-        "help"
-        "pauseScript"
-        "in_array"
-        "makeCSV"
-        "writeCSV"
-        "json2yaml"
-        "yaml2json")
-
-     bob_texto=(
-        "bob_texto"
-        "Dependencias"
-        "MenuTexto"
-        "MenuTextoContinucao"
-        "SubMenuTexto"
-        "SelecionaArquivo"
-        "SelecionaPalavra"
-        "SelecionaListagem"
-        "Linhas")
-    echo "-------------------------------------------------------------------------------"
-    for ((i=0;i<=${#bob_util_cores};i++)) ; do
-        e_arrow "${bob_util_cores[${i}]}" 
-    done
-    echo "-------------------------------------------------------------------------------"
-    for ((i=0;i<=${#bob_util_montante};i++)) ; do
-        e_arrow "${bob_util_montante[${i}]}" 
-    done
-    echo "-------------------------------------------------------------------------------"
-    for ((i=0;i<=${#bob_texto};i++)) ; do
-        e_arrow "${bob_texto[${i}]}" 
-    done
-    echo "-------------------------------------------------------------------------------"
-    e_arrow -l "Você pode selecionar e copiar o nome da função com o ."; read toma
-}
 # =========================================================================================
 # ## DEBUG ###
 # if [ $1 = "-d" ] ; then

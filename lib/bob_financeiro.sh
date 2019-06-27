@@ -51,7 +51,7 @@ PRINT="echo -ne"
 #
 # -----------------------------------------------------------------------------------------
 function Financeiro(){
-    sleep 3 & Anime2; $sql_user "show databases;" $agenda_DB;
+    sleep 3 & _Annime_BancoDados; $sql_user "show databases;" $agenda_DB;
     e_arrow "Base de dados pronta. $(e_success)"; sleep 3
     clear; curl http://${moedaDefalt}.rate.sx; read    
 

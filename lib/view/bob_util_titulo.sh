@@ -86,8 +86,8 @@ function Titulo_Inicial(){
 # -----------------------------------------------------------------------------------------
 function Aux_logo(){
 	cat ${climaLocation}
-    e_arrow "${red}${reset} http://github.com/elizeudesantana/bob";
-    e_arrow "${red}﫸${reset}EliSoftWare - version 2019.01 - MIT License Copyright (c) 2019 Elizeu de Santana";
+    e_arrow "${red} ${reset}  http://github.com/elizeudesantana/bob";
+    e_arrow "${red} ${reset}  EliSoftWare - version 2019.01 - MIT License Copyright (c) 2019 Elizeu de Santana";
 }
 
 # -----------------------------------------------------------------------------------------
@@ -97,29 +97,6 @@ function Sair(){
 	curl 'qrenco.de/EliSoftWare - version 2019.01 - MIT License Copyright (c) 2019 Elizeu de Santana'
 	trap EXIT INT TERM
 	exit
-}
-
-# by: Elizeu de Santana / 02-06-2019 -------------------------------------------------------
-function display_info(){
-	d_title=$USER@$HOSTNAME
-	d=$(cat /proc/version | egrep -o '\([A-Z][a-z]+ ' | tr -d \()
-	d_os=$(uname -o)
-	d_kname=$(cat /proc/sys/kernel/ostype)
-	d_kversion=$(cat /proc/sys/kernel/osrelease)
-	d_uptime=$(uptime | awk '{print $3}' | tr -d ,)" min"
-	d_shell=$(basename $SHELL)
-	d_res=$(xrandr | sed -n '1p' | sed 's/.*current.//g;s/,.*//g;s/ //g')
-	d_desk=$XDG_SESSION_DESKTOP
-	d_font=$(fc-match | sed 's/\..*//g')
-	d_cpu=$(cat /proc/cpuinfo | grep -o 'model name.*' | sed -n 1p | sed 's/.*:.//g;s/(.*)//g')
-	d_mem=$(echo $(cat /proc/meminfo | sed -n 1p | tr -d [A-Za-z:' ']) / 1000000 | bc)" MB"
-	d_memfree=$(echo "scale=2;$(cat /proc/meminfo | sed -n 2p | tr -d [A-Za-z:' '])" / 1000000 | bc)" MB"
-	d_arch=$(getconf LONG_BIT)"-bit"
-	d_browser=$(xdg-settings get default-web-browser | sed 's/userapp-//g;s/-.*//g;s/\..*//g')
-	d_char=$(expr length "$d_title"); qtd=
-	for i in $(seq 1 $d_char); do
-		qtd="$qtd─"
-	done
 }
 
 # by: Elizeu de Santana / 02-06-2019 -------------------------------------------------------
@@ -151,7 +128,6 @@ function Logo(){
 	clear
 	display_info
 	d=${d,,}
-
 	gentoo=$(jp2a --size=50x25 ubuntu.jpg | pygmentize)
 	ubuntu=$(jp2a --size=45x17 ubuntu.jpg) # | pygmentize)
 	outra=$(jp2a --size=50x25 ubuntu.jpg | pygmentize)
@@ -162,17 +138,5 @@ function Logo(){
 			'arch') distro="$arch" ;;
 			*) distro="$outra" ;;
 	esac
-
-	# if [[ "$1" ]]; then
-	# 		while [[ "$1" ]]; do
-	# 				case "$1" in						
-	# 						-h|--help) usage && exit 0 ;;
-	# 						-v|--version) echo Version 1.0 && exit 0 ;;
-	# 						*) echo "Invalid option" && exit 1 ;;							
-	# 				esac
-	# 				shift
-	# 		done
-	# else
 	paste <(printf "%s" "$distro") <(printf "%s" "$(set_info)") #| lolcat
-	# fi
 }

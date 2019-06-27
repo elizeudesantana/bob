@@ -705,7 +705,7 @@ function BobMenu(){
             e_note -c "outro menu ou a execução do comando."
             }
     elif [ ${1} = "bancodados" ] ; then         ### aqui o usuario escolheu compactacao     
-        pic=""             # define picture default
+        local pic=""             # define picture default
         if [[ $(which postgres 2>/dev/null) ]]; then  ### existe o aplicativo
             picgres=""
         else
@@ -717,9 +717,9 @@ function BobMenu(){
             picmy=""
         fi
         if [[ $(which workbench 2>/dev/null) ]]; then  ### existe o aplicativo
-            picmy=""
+            picwor=""
         else
-            picmy=""
+            picwor=""
         fi
         m=( " ${picgres} Instalar Banco de Dados Relacional [ PostGres ]."
             " ${picmy} Instalar Banco de Dados Relacional [ MySQL-Server 5.7 ]."
