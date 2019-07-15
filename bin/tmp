@@ -1,0 +1,206 @@
+{
+    "vlc": {
+        "Description": "multimedia player and streamer",
+        "version": "3.0.3-1-1ubuntu1 and others",
+        "Homepage": "https://www.videolan.org/vlc/index.pt-BR.html",
+        "Install": {
+            "apt": "sudo apt install vlc -y",
+            "aptitude": "sudo aptitude install vlc -y",
+            "apt-get": "sudo apt-get install vlc -y"
+        }
+    },
+    "StreamlinkTwitchGUI": {
+        "Description": "Chat application to Chatty",
+        "version": "v1.5.0-linux64",
+        "Homepage": "https://streamlink.github.io/streamlink-twitch-gui/",
+        "Note": "Click Settings.",
+        "Install": {
+            "comandos[0]": "sudo apt install streamlink -y",
+            "comandos[1]": "URL=https://github.com/streamlink/streamlink-twitch-gui",
+            "comandos[2]": "URL=/releases/download/v1.5.0/streamlink-twitch-gui-v1.5.0-linux64.tar.gz",
+            "comandos[3]": "wget -q  -O /tmp/streamlink-twitch-gui.tar.gz",
+            "comandos[4]": "sudo tar -xzvf /tmp/streamlink-twitch-gui.tar.gz -C /opt",
+            "comandos[5]": "sudo apt install xdg-utils libgconf-2-4 -y",
+            "comandos[6]": "sudo /opt/streamlink-twitch-gui/add-menuitem.sh",
+            "comandos[7]": "sudo ln -s /opt/streamlink-twitch-gui/start.sh /usr/bin/streamlink-twitch-gui"
+        }
+    },
+    "Chatty_StreamlinkTwitchGUI": {
+        "Description": "Twitch Chat Client/multimedia player and streamer",
+        "version": "0.9.1/1.5.0",
+        "Homepage": "https://streamlink.github.io/streamlink-twitch-gui/",
+        "Install": {
+            "comandos[0]": "sudo apt install default-jre -y",
+            "comandos[1]": "URL=https://github.com/chatty/chatty/releases/download/v0.9.1",
+            "comandos[2]": "URL=/Chatty_0.9.1.zip",
+            "comandos[3]": "wget -q  -O /tmp/Chatty.zip",
+            "comandos[4]": "sudo unzip /tmp/Chatty.zip -d /opt/chatty",
+            "comandos[5]": "sudo apt install streamlink -y",
+            "comandos[6]": "URL=https://github.com/streamlink/streamlink-twitch-gui",
+            "comandos[7]": "URL=/releases/download/v1.5.0/streamlink-twitch-gui-v1.5.0-linux64.tar.gz",
+            "comandos[8]": "wget -q  -O /tmp/streamlink-twitch-gui.tar.gz",
+            "comandos[9]": "sudo tar -xzvf /tmp/streamlink-twitch-gui.tar.gz -C /opt",
+            "comandos[10]": "sudo apt install xdg-utils libgconf-2-4 -y",
+            "comandos[11]": "sudo /opt/streamlink-twitch-gui/add-menuitem.sh",
+            "comandos[12]": "sudo ln -s /opt/streamlink-twitch-gui/start.sh /usr/bin/streamlink-twitch-gui"
+        }
+    },
+    "Glade": {
+        "Description": "Glade is a RAD tool to enable quick & easy development of user interfaces for the GTK+ toolkit and the GNOME desktop environment.",
+        "version": "3.20.0.1",
+        "Homepage": "https://gitlab.gnome.org/GNOME/glade",
+        "Install": {
+            "snap": "sudo snap install glade"
+        }
+    },
+    "android_studio": {
+        "Description": "Android Studio",
+        "version": "3.20.0.1",
+        "Homepage": "https://developer.android.com/studio/install?hl=pt-br",
+        "Install": {
+            "snap": "sudo snap install android-studio --classic"
+        }
+    },
+    "Anaconda3": {
+        "Description": "Anaconda Enterprise",
+        "version": "Anaconda 2019.03 for Linux Installer",
+        "Homepage": "https://www.anaconda.com/distribution/",
+        "Install": {
+            "comandos[0]": "curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh",
+            "comandos[1]": "mv Anaconda3-2019.03-Linux-x86_64.sh /tmp",
+            "comandos[2]": "cd /tmp",
+            "comandos[3]": "bash Anaconda3-2019.03-Linux-x86_64.sh"
+        }
+    },
+    "eclipse": {
+        "Description": "Eclipse",
+        "version": "1.0.0",
+        "Homepage": "https://www.eclipse.org",
+        "Install": {
+            "comandos[0]": "wget http://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/2019-03/R/eclipse-java-2019-03-R-linux-gtk-x86_64.tar.gz",
+            "comandos[1]": "sudo tar -zxvf eclipse-java-2019-*-R-linux-gtk-x86_64.tar.gz -C /usr/",
+            "comandos[2]": "sudo ln -s /usr/eclipse/eclipse /usr/bin/eclipse"
+        }
+    },
+    "sublime_text": {
+        "Description": "A sophisticated text editor for code, markup and prose",
+        "version": "Sublime Text 3 (Build 3207)",
+        "Homepage": "https://www.sublimetext.com/",
+        "Install": {
+            "comandos[0]": "wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -",
+            "comandos[1]": "sudo apt install apt-transport-https",
+            "comandos[2]": "echo 'deb https://download.sublimetext.com/apt/stable/' | sudo tee /etc/apt/sources.list.d/sublime-text.list",
+            "comandos[3]": "sudo apt-get update",
+            "comandos[4]": "sudo apt install sublime-text"
+        }
+    },
+    "code": {
+        "Description": "code microsoft",
+        "version": "",
+        "Homepage": "",
+        "Install": {
+            "comandos[0]": "sudo apt install software-properties-common apt-transport-https",
+            "comandos[1]": "wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -",
+            "comandos[2]": "sudo add-apt-repository 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main'",
+            "comandos[3]": "sudo apt update",
+            "comandos[4]": "sudo apt install code"
+        }
+    },
+    "codium": {
+        "Description": "Codium editor code sem telemetria",
+        "version": "",
+        "Homepage": "",
+        "Install": {
+            "comandos[0]": "wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add -",
+            "comandos[1]": "echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee --append /etc/apt/sources.list",
+            "comandos[2]": "sudo apt update",
+            "comandos[3]": "sudo apt install codium"
+        }
+    },
+    "atom": {
+        "Description": "Atom hackeading",
+        "version": "",
+        "Homepage": "",
+        "Install": {
+            "comandos[0]": "sudo add-apt-repository ppa:webupd8team/atom",
+            "comandos[1]": "sudo apt-get update",
+            "comandos[2]": "sudo apt-get install atom",
+            "comandos[3]": "sudo snap install atom"
+        }
+    },
+    "geany": {
+        "Description": "Geany",
+        "version": "",
+        "Homepage": "",
+        "Install": {
+            "apt": "sudo apt install geany -y",
+            "aptitude": "sudo aptitude install geany -y",
+            "apt-get": "sudo apt-get install geany -y"
+        }
+    },
+    "wine": {
+        "Description": "wine emulador windows",
+        "version": "",
+        "Homepage": "",
+        "Install": {
+            "comandos[0]": "wget -nc https://dl.winehq.org/wine-builds/winehq.key",
+            "comandos[1]": "sudo apt-key add winehq.key",
+            "comandos[2]": "sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'",
+            "comandos[3]": "sudo apt update",
+            "comandos[4]": "sudo apt install winehq-stable -y",
+            "comandos[5]": "winecfg",
+            "comandos[6]": "winetricks"
+        }
+    },
+    "playonlinux": {
+        "Description": "Playonlinux para wine",
+        "version": "",
+        "Homepage": "",
+        "Install": {
+            "comandos[0]": "wget -q 'http://deb.playonlinux.com/public.gpg' -O- | sudo apt-key add -",
+            "comandos[1]": "sudo wget http://deb.playonlinux.com/playonlinux_bionic.list -O /etc/apt/sources.list.d/playonlinux.list",
+            "comandos[2]": "sudo apt-get update",
+            "comandos[3]": "sudo apt-get install playonlinux -y"
+        }
+    },
+    "tilix": {
+        "Description": "Tilix",
+        "version": "",
+        "Homepage": "",
+        "Install": {
+            "apt": "sudo apt install tilix -y",
+            "aptitude": "sudo aptitude install tilix -y",
+            "apt-get": "sudo apt-get install tilix -y"
+        }
+    },
+    "terminology": {
+        "Description": "Terminology",
+        "version": "",
+        "Homepage": "",
+        "Install": {
+            "apt": "sudo apt install terminology -y",
+            "aptitude": "sudo aptitude install terminology -y",
+            "apt-get": "sudo apt-get install terminology -y"
+        }
+    },
+    "Neovim": {
+        "Description": "Neovim",
+        "version": "v0.3.8",
+        "Homepage": "https://github.com/neovim/neovim/wiki/Installing-Neovim",
+        "Install": {
+            "comandos[0]": "mkdir -p ~/.config/nvim",
+            "comandos[1]": "sudo apt install neovim python3 python3-pip git exuberant-ctags",
+            "comandos[2]": "python3 -m pip install virtualenv",
+            "comandos[3]": "python3 -m virtualenv -p python3 ~/.config/nvim/env",
+            "comandos[4]": "source ~/.config/nvim/env/bin/activate",
+            "comandos[5]": "pip install neovim==0.2.6 jedi psutil setproctitle yapf",
+            "comandos[6]": "deactivate",
+            "comandos[7]": "curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+            "comandos[8]": "echo -e  >> ~/.bashrc",
+            "comandos[9]": "sed '/call plug#end/q' init.vim > ~/.config/nvim/init.vim",
+            "comandos[10]": "nvim -c ':PlugInstall' -c ':UpdateRemotePlugins' -c ':qall'",
+            "comandos[11]": "rm ~/.config/nvim/init.vim",
+            "comandos[12]": "cp init.vim ~/.config/nvim/"
+        }
+    }
+}

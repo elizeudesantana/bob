@@ -20,22 +20,22 @@ scriptFileVersion="1.0.0"
 # by: Elizeu de Santana -------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------------------
-# Prover uma variavel com a pespectiva de localizações do script
-instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
-scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
-scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
-scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
-if [ $scriptPath != $scriptPath_Bob ] ; then
-    utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
-else
-    utilsLocation="${scriptPath}/lib/bob_util.sh"; 
-fi
-if [ -f "${utilsLocation}" ]; then
-    source "${utilsLocation}";
-else
-    echo "Por favor procure bob_util.sh e adicione referência a este script. Saindo.";
-    exit 1;
-fi
+# # Prover uma variavel com a pespectiva de localizações do script
+# instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
+# scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
+# scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
+# scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
+# if [ $scriptPath != $scriptPath_Bob ] ; then
+#     utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
+# else
+#     utilsLocation="${scriptPath}/lib/bob_util.sh"; 
+# fi
+# if [ -f "${utilsLocation}" ]; then
+#     source "${utilsLocation}";
+# else
+#     echo "Por favor procure bob_util.sh e adicione referência a este script. Saindo.";
+#     exit 1;
+# fi
 
 function Plota(){
 	Titulo

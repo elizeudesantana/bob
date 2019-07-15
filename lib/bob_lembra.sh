@@ -21,28 +21,28 @@ scriptFileVersion="1.0.0"
 
 # -----------------------------------------------------------------------------------------
 # Prover uma variavel com a pespectiva de localizações do script
-instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
-scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
-scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
-scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
-# -----------------------------------------------------------------------------------------
-if [ $scriptPath != $scriptPath_Bob ] ; then
-    utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
-else
-    utilsLocation="${scriptPath}/lib/bob_util.sh"; 
-fi
-# -----------------------------------------------------------------------------------------
-if [ -f "${utilsLocation}" ]; then
-    source "${utilsLocation}";
-else
-    e_error "Erro carregando ${utilsLocation}"; Sair;
-fi
-# -----------------------------------------------------------------------------------------
-if [ -f "${lembramontanteLocation}" ]; then
-    source "${lembramontanteLocation}";
-else
-    e_error "Erro carregando ${lembramontanteLocation}"; Sair;
-fi
+# instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
+# scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
+# scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
+# scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
+# # -----------------------------------------------------------------------------------------
+# if [ $scriptPath != $scriptPath_Bob ] ; then
+#     utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
+# else
+#     utilsLocation="${scriptPath}/lib/bob_util.sh"; 
+# fi
+# # -----------------------------------------------------------------------------------------
+# if [ -f "${utilsLocation}" ]; then
+#     source "${utilsLocation}";
+# else
+#     e_error "Erro carregando ${utilsLocation}"; Sair;
+# fi
+# # -----------------------------------------------------------------------------------------
+# if [ -f "${lembramontanteLocation}" ]; then
+#     source "${lembramontanteLocation}";
+# else
+#     e_error "Erro carregando ${lembramontanteLocation}"; Sair;
+# fi
 # -----------------------------------------------------------------------------------------
 # Função Agenda
 # -----------------------------------------------------------------------------------------
@@ -50,8 +50,15 @@ fi
 # 22/06 implentado novo menu e lembretes ###
 # -----------------------------------------------------------------------------------------
 function Agenda(){
-    h=$(date '+%m'); a=$(date '+%y'); source "${datasLocation}" $h 20$a; printf "\n"
-    e_header "::\d $(date) :: Você pode fazer as seguintes escolhas."
+    Principal
+    if [ ${1} = "lembretes"]; then
+    	BobMenu lembretes
+    else
+    	BobMenu contatos 
+    fi
+    
+    
+    #e_header "::\d $(date) :: Você pode fazer as seguintes escolhas."
 }
 # -----------------------------------------------------------------------------------------
 # Função Bob_Lembrete
@@ -123,7 +130,7 @@ function Bob_Lembrete(){
             
 			Agenda lembretes ;;
 		l) 
-			Titulo_Inicial; printf "\n\n"; h=$(date '+%m'); a=$(date '+%y'); ./datas $h 20$a
+			Titulo_Inicial; printf "\n\n"; h=$(date '+%m'); a=$(date '+%y'); ${datasLocation} $h 20$a
 			printf "\n"; e_arrow " Listar tudo."; printf "\n"
 			$sql_user "select * from $lembrete_tabela \G" $agenda_DB; 
 			printf "\n"; e_arrow " Listar tudo, completo.$(e_success)"; printf "\n"
@@ -138,7 +145,7 @@ function Bob_Lembrete(){
 			echo -ne "${ctm} (s)air menu bob, (i)r para menu agenda : ${dlc}"; read opt
 			
 			if [ ${opt} == "s" ] ; then
-				. 'bob.sh'
+				Principal
 			else
 				Agenda lembretes
 			fi 
@@ -153,7 +160,7 @@ function Bob_Lembrete(){
 			if [ $confirma = "s" -o $confirma = "S" ]; then
 				echo
 			fi
-			Agenda lembretes ;;
+			Agenda lembretes;;
 	esac
 }
 
@@ -182,7 +189,7 @@ function Bob_Agenda(){
 				$sql_user "insert into $agenda_tabela values('$nome','$fone','$mail','$aniver');" $agenda_DB
 				[ "$?" = "0" ] && e_success "Operacao pronta." || e_error "Operação falhou."
 			fi
-			Agenda contatos;;
+			Agenda ;;
 		e) 
 			Titulo
 			echo -e "${ctm} \n Editar contato : ${dlc}";
@@ -214,7 +221,7 @@ function Bob_Agenda(){
                     $sql_user "update $agenda_tabela set aniversario = '${dados}' where nome = '${n}'" $agenda_DB ;;
 				*) ;;
 			esac
-			Agenda contatos ;;
+			Agenda ;;
 		d) 
 			Titulo;
 			echo -e "${ctm} \n Apagar contato : ${dlc}";
@@ -231,13 +238,13 @@ function Bob_Agenda(){
 			fi 
 			#DeletaRegistro $nome				
             
-			Agenda contatos ;;
+			Agenda ;;
 		l) 
-			Titulo_Inicial; printf "\n\n"; h=$(date '+%m'); a=$(date '+%y'); ./datas $h 20$a
+			Titulo_Inicial; printf "\n\n"; h=$(date '+%m'); a=$(date '+%y'); ${datasLocation} $h 20$a
 			printf "\n"; e_arrow " Listar tudo."; printf "\n"
 			$sql_user "select * from $agenda_tabela \G" $agenda_DB; 
 			printf "\n"; e_arrow " Listar tudo, completo.$(e_success)"; printf "\n"
-			e_note "Pressione qualquer tecla para retornar a agenda."; read; Agenda contatos ;;
+			e_note "Pressione qualquer tecla para retornar a agenda."; read; Agenda ;;
 		q)
 			Titulo;
 			echo -e "${ctm} Procurar contato : ${dlc}";		
@@ -250,7 +257,7 @@ function Bob_Agenda(){
 			if [ ${opt} == "s" ] ; then
 				. 'bob.sh'
 			else
-				Agenda contatos
+				Agenda;
 			fi 
 			;;
 		f) 
@@ -263,7 +270,7 @@ function Bob_Agenda(){
 			if [ $confirma = "s" -o $confirma = "S" ]; then
 				echo
 			fi
-			Agenda contatos ;;
+			Agenda ;;
 	esac
 }
 

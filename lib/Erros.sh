@@ -19,26 +19,26 @@ scriptFileVersion="1.0.0"
 #
 # by: Elizeu de Santana -------------------------------------------------------------------
 
-instalacao="/Projetos/bob/"                                         # Diretorio de Instalação apartir de HOME
-scriptPath_Home="${HOME}";                                          # Diretorio HOME (~)
-scriptPath_Bob="${scriptPath_Home}${instalacao}";                   # Diretrio de Instalação do Bob
-scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"      # Diretorio de instalação do script 
-if [ $scriptPath != $scriptPath_Bob ] ; then
-    utilsLocation="${scriptPath_Bob}/lib/bob_util.sh"               # Diretorio de localização bob_util.sh
-    confLocation="${scriptPath_Bob}/doc/bob.conf"                   # Diretorio de localização bob.conf
-    enderecoRelativo_lib="${scriptPath_Bob}/bin/"                   # Estrutura de diretorio bin
-    enderecoRelativo_lib="${scriptPath_Bob}/lib/"                   # Estrutura de diretorio lib
-    enderecoRelativo_lib="${scriptPath_Bob}/lib/view"               # Estrutura de diretorio lib/view
-    enderecoRelativo_doc="${scriptPath_Bob}/doc/"                   # Estrutura de diretorio doc
-else
-    utilsLocation="${scriptPath}/lib/bob_util.sh" 
-    confLocation="${scriptPath}/doc/bob.conf"
-    enderecoRelativo_lib="${scriptPath}/bin/"                       # Estrutura de diretorio lib
-    enderecoRelativo_lib="${scriptPath}/lib/"                       # Estrutura de diretorio lib
-    enderecoRelativo_lib="${scriptPath}/lib/view"                   # Estrutura de diretorio lib/view
-    enderecoRelativo_doc="${scriptPath}/doc/"                       # Estrutura de diretorio doc
-fi
-# if [ -f "${utilsLocation}" ]; then
+# instalacao="/Projetos/bob/"                                         # Diretorio de Instalação apartir de HOME
+# scriptPath_Home="${HOME}";                                          # Diretorio HOME (~)
+# scriptPath_Bob="${scriptPath_Home}${instalacao}";                   # Diretrio de Instalação do Bob
+# scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"      # Diretorio de instalação do script 
+# if [ $scriptPath != $scriptPath_Bob ] ; then
+#     utilsLocation="${scriptPath_Bob}/lib/bob_util.sh"               # Diretorio de localização bob_util.sh
+#     confLocation="${scriptPath_Bob}/doc/bob.conf"                   # Diretorio de localização bob.conf
+#     enderecoRelativo_lib="${scriptPath_Bob}/bin/"                   # Estrutura de diretorio bin
+#     enderecoRelativo_lib="${scriptPath_Bob}/lib/"                   # Estrutura de diretorio lib
+#     enderecoRelativo_lib="${scriptPath_Bob}/lib/view"               # Estrutura de diretorio lib/view
+#     enderecoRelativo_doc="${scriptPath_Bob}/doc/"                   # Estrutura de diretorio doc
+# else
+#     utilsLocation="${scriptPath}/lib/bob_util.sh" 
+#     confLocation="${scriptPath}/doc/bob.conf"
+#     enderecoRelativo_lib="${scriptPath}/bin/"                       # Estrutura de diretorio lib
+#     enderecoRelativo_lib="${scriptPath}/lib/"                       # Estrutura de diretorio lib
+#     enderecoRelativo_lib="${scriptPath}/lib/view"                   # Estrutura de diretorio lib/view
+#     enderecoRelativo_doc="${scriptPath}/doc/"                       # Estrutura de diretorio doc
+# fi
+# # if [ -f "${utilsLocation}" ]; then
 #     source "${utilsLocation}"
 # else
 #     echo "Por favor procure bob_util.sh e adicione referência a este script. Saindo."

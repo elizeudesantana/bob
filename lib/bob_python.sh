@@ -20,53 +20,28 @@ scriptFileVersion="1.0.0"
 # by: Elizeu de Santana -------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------------------
-# Prover uma variavel com a pespectiva de localizações do script
-instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
-scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
-scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
-scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
-if [ $scriptPath != $scriptPath_Bob ] ; then
-    utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
-else
-    utilsLocation="${scriptPath}/lib/bob_util.sh"; 
-fi
-if [ -f "${utilsLocation}" ]; then
-    source "${utilsLocation}";
-else
-    echo "Por favor procure bob_util.sh e adicione referência a este script. Saindo.";
-    exit 1;
-fi
+# # Prover uma variavel com a pespectiva de localizações do script
+# instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
+# scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
+# scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
+# scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
+# if [ $scriptPath != $scriptPath_Bob ] ; then
+#     utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
+# else
+#     utilsLocation="${scriptPath}/lib/bob_util.sh"; 
+# fi
+# if [ -f "${utilsLocation}" ]; then
+#     source "${utilsLocation}";
+# else
+#     echo "Por favor procure bob_util.sh e adicione referência a este script. Saindo.";
+#     exit 1;
+# fi
 
-function Dependencias() {
-	### Instala dependencias necessarias para o programa rodar. ###
-	deps=("ruby" "ruby-dev" "ruby-colorize" "colorls")
-    e_arrow "Iniciando configuração dependências. $(e_success)"
-    for i in ${deps[@]}; do
-        if [[ ! $(which $i 2>/dev/null) ]]; then
-            seek_confirmation "${USER}, existe a seguinte dependência  ${i}, permite a manutenção do sistema ?" 
-            if is_confirmed; then
-                e_arrow -d "Instalando : $i."
-                if [ ${i} = "aptitude" ] ; then
-                    sudo apt install ${i}
-                else
-                    sudo aptitude install ${i}
-                fi
-            else
-                e_error "Sem a manutenção do sistema, não é possível a execução ${lgt}, supra as dependências e execute novamente."
-                Sair
-            fi
-        fi
-        if [[ ! $(which colorls 2>/dev/null) ]]; then
-            seek_confirmation "${USER}, existe a seguinte dependência  ${i}, permite a manutenção do sistema ?" 
-            sudo gem install colorls
-            e_arrow -d "Configuração dependência instalado gem colors. $(e_success)"
-        fi 
-        e_arrow -d "Configuração dependência ${i} terminada. $(e_success)"
-    done; sleep 1
-}
+	
 
 # by: Elizeu de Santana / 31-05-2019 -------------------------------------------------------
 function MenuPython(){
+    deps=("ruby" "ruby-dev" "ruby-colorize" "colorls")
     ### Menu Principal com as opções para escolha dos usuários, com coisas (assuntos) iniciais . ###
     Dependencias; Titulo
     while true; do

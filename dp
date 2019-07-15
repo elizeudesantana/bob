@@ -1,0 +1,49 @@
+/usr/bin/yad
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/bob_util_montante.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/view/bob_util_titulo.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/view/bob_menu.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/bob_python.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/bob_instalacao.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/bob_lembra.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/bob_financeiro.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/fluxograma.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/bob_manutencao.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/bob_bancodados.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/view/bob_util_fonts.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/bob_programas.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/view/bob_util_cores.sh(B[m
+[38;5;76m✔ Carregado ... /home/elizeu/projetos/bob/lib/bob_util_conf.sh(B[m
+[38;5;76m➜(B[m O [31m(B[m[38;5;38m   (B[m instala vários aplicativos,
+    	conforme o usuários faz uso do software.
+
+Total de Nomes de Pacotes: 82168 (1.643 k)
+Total de estruturas de pacotes: 123582 (5.438 k)
+  Pacotes normais: 88459
+  Pacotes puramente virtuais: 2469
+  Pacotes virtuais únicos: 10338
+  Pacotes virtuais misturados: 5102
+  Faltando: 17214
+Total de versões distintas: 108474 (8.678 k)
+Total de descrições distintas: 197712 (4.745 k)
+Total de dependências: 863841/254160 (21,3 M)
+Total de relações ver/arquivo: 28734 (690 k)
+Total de relações Desc/Arquivo: 1104 (26,5 k)
+Total de mapeamentos "Provides": 37402 (898 k)
+Total de strings "globbed": 181877 (4.144 k)
+Total de espaço frouxo: 13,8 k
+Total de espaço contabilizado para: 48,0 M
+Total buckets in PkgHashTable: 50503
+  Unused: 9831
+  Used: 40672
+  Utilization: 80.5338%
+  Average entries: 3.0385
+  Longest: 60
+  Shortest: 1
+Total buckets in GrpHashTable: 50503
+  Unused: 9831
+  Used: 40672
+  Utilization: 80.5338%
+  Average entries: 2.02026
+  Longest: 11
+  Shortest: 1
+

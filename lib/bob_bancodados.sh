@@ -22,22 +22,22 @@ scriptFileVersion="1.0.0"
 
 # -----------------------------------------------------------------------------------------
 # Prover uma variavel com a pespectiva de localizações do script
-instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
-scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
-scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
-scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
-# -----------------------------------------------------------------------------------------
-if [ $scriptPath != $scriptPath_Bob ] ; then
-    utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
-else
-    utilsLocation="${scriptPath}/lib/bob_util.sh"; 
-fi
-# -----------------------------------------------------------------------------------------
-if [ -f "${utilsLocation}" ]; then
-    source "${utilsLocation}";
-else
-    e_error "Erro carregando ${utilsLocation}"; Sair;
-fi
+# instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
+# scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
+# scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
+# scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
+# # -----------------------------------------------------------------------------------------
+# if [ $scriptPath != $scriptPath_Bob ] ; then
+#     utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
+# else
+#     utilsLocation="${scriptPath}/lib/bob_util.sh"; 
+# fi
+# # -----------------------------------------------------------------------------------------
+# if [ -f "${utilsLocation}" ]; then
+#     source "${utilsLocation}";
+# else
+#     e_error "Erro carregando ${utilsLocation}"; Sair;
+# fi
 # -----------------------------------------------------------------------------------------
 #
 # -----------------------------------------------------------------------------------------
@@ -47,70 +47,7 @@ function MenuBD(){
     e_header "Você pode fazer as  seguintes escolhas." 
 }
 
-# by: Elizeu de Santana / 23-05-2019 -------------------------------------------------------
-# by: Elizeu de Santana / 06-06-2019 -------------------------------------------------------
-function InstallPostGres(){  
-    ### ###
-    Titulo
-    tmpD="$(date)"
-    tmpL=" Processo: Instalado postgresql postgresql-contrib"
-    echo -e "${ctr} Instalando postgresql postgresql-contrib ... ${dlc}"
 
-    sudo apt install postgresql postgresql-contrib -y
-    printf  "\n%s" " Log Instalação: $tmpD" "$tmpL" >> BdadosLog.log
-    
-    echo -e "${ctr} Instalado postgresql postgresql-contrib. ${dlc}"
-    echo -e "${cls} ----------------------------------------------------------------------   ${dlc}"
-    sleep 5
-    MenuBD
-    #sudo -i -u postgres
-    #psql 
-}
-
-# by: Elizeu de Santana / 23-05-2019 -------------------------------------------------------
-# by: Elizeu de Santana / 06-06-2019 -------------------------------------------------------
-function InstallMySQL(){
-    ### ###
-    Titulo
-    tmpD="$(date)"
-    tmpL=" Processo: Executando service mysql status"
-    echo -e "${ctr} Executando service mysql status ... ${dlc}"
-
-    sudo service mysql status #> service_mysql_status.log
-
-    printf  "\n%s" " Log Instalação: $tmpD" "$tmpL" >> BdadosLog.log
-    echo -e "${cls} ----------------------------------------------------------------------   ${dlc}"
-    notify-send -i important " Banco de Dados Relacional mysql pronto."
-    sleep 10 
-    echo -e "${ctr} \n Instalando Banco de Dados Relacional mysql-server ... ${dlc}"
-    
-    tmpL=" Processo: install mysql-server"
-    sudo apt install mysql-server -y #> apt_mysql_install.log
-    printf  "\n%s" " Log Instalação: $tmpD" "$tmpL" >> BdadosLog.log
-    
-    echo -e "${ctr} \n Instalado Banco de Dados Relacional mysql-server. ${dlc}"
-    echo -e "${cls} ----------------------------------------------------------------------   ${dlc}"
-    echo -e "${ctr} \n No plugin [n - y - y - y - y] ${dlc}"
-    notify-send -i important "No plugin [n - y - y - y - y]"            
-    echo -e "${cls} ----------------------------------------------------------------------   ${dlc}"
-    echo -e "${ctr} \n Executando mysql_secure_installation ... ${dlc}"
-
-    tmpL=" Processo: Executando mysql_secure_installation"
-    sudo mysql_secure_installation
-    printf  "\n%s" " Log Instalação: $tmpD" "$tmpL" >> BdadosLog.log
-    
-    echo -e "${ctr} \n Executado mysql_secure_installation ... ${dlc}"
-    echo -e "${cls} ----------------------------------------------------------------------   ${dlc}"
-    echo -e "${ctr} \n Executado systemctl start mysql ... ${dlc}"
-
-    tmpL=" Processo: Executando sudo systemctl start mysql"
-    sudo systemctl start mysql
-    printf  "\n%s" " Log Instalação: $tmpD" "$tmpL" >> BdadosLog.log
-    echo -e "${cls} ----------------------------------------------------------------------   ${dlc}"
-    sleep 10
-
-    MenuBD                  #Volta ao fluxo!    
-}
 
 # by: Elizeu de Santana / 23-05-2019 -------------------------------------------------------
 # by: Elizeu de Santana / 06-06-2019 -------------------------------------------------------
@@ -209,103 +146,6 @@ function ConfiguraUsuarioPSQL(){
 
 # by: Elizeu de Santana / 21-05-2019 -------------------------------------------------------
 # by: Elizeu de Santana / 06-06-2019 -------------------------------------------------------
-function ConfigMySQL(){
-    Titulo
-    tmpD="$(date)"
-    echo -e "${ctr} mysql_secure_installation.                                       ${dlc}"
-    
-    echo -e "${ctr} Responda com as seguintes strings as perguntas a seguir:         ${dlc}"
-    echo -e "${ctr} n -> Para o plugin secure.                                       ${dlc}"
-    echo -e "${ctr} y -> Para os demais ...                                          ${dlc}"
-    echo -e "${cls} ---------------------------------------------------------------- ${dlc}"
-    notify-send -i important "Configurando MySQL!"
-    
-    sudo mysql_secure_installation
-    
-    echo -e "${cls} ---------------------------------------------------------------- ${dlc}"
-    
-    sudo systemctl start mysql
-      
-    printf  "\n%s" " Log Instalação: $tmpD" "$tmpL" >> BdadosLog.log
-    echo -e "${ctr} mysql_secure_installation pronto.                                ${dlc}"
-    echo -e "${cls} ---------------------------------------------------------------- ${dlc}"
-    sleep 5
-    MenuBD
-}
-
-# by: Elizeu de Santana / 21-05-2019 -------------------------------------------------------
-# by: Elizeu de Santana / 06-06-2019 -------------------------------------------------------
-function InstalarPhPphppgAdmin(){
-    Titulo
-    tmpD="$(date)"
-    echo -e "${ctr} php7.2 phppgadmin php7.2-pgsql. ${dlc}"
-
-    sudo apt install php7.2 phppgadmin php7.2-pgsql -y
-
-    echo -e "${cls} ---------------------------------------------------------------- ${dlc}"
-    notify-send -i important "Comente 'Require local' adicionando '#'"
-    echo -e "${ctr} Comente 'Require local' adicionando '#'!  ${dlc}"
-    echo -e "${ctr} Use mause selecione copie dentro apostrofos: 'Require all granted'$Color_Off"
-    sleep 30
-    sudo nvim /etc/apache2/conf-available/phppgadmin.conf
-    echo -e "${cls} ---------------------------------------------------------------- ${dlc}"
-   
-    notify-send -i important "$conf['extra_login_security'] = true; <- para false"
-    echo -e "${ctr} $conf['extra_login_security'] = true; <- para false ${dlc}"
-    echo -e "${ctr} Idem, a linha a cima copie. ${dlc}"
-    sleep 30
-    sudo nvim /etc/phppgadmin/config.inc.php
-    echo -e "${cls} ---------------------------------------------------------------- ${dlc}"
-    echo -e "${ctr} Restart postgres e apache2. ${dlc}"
-    sudo systemctl restart postgresql
-    sudo systemctl restart apache2
-    netstat -plntu
-
-    printf  "\n%s" " Log Instalação: $tmpD" "$tmpL" >> BdadosLog.log
-    echo -e "${ctr} Sistema pronto. ${dlc}"
-    echo -e "${cls} ---------------------------------------------------------------- ${dlc}"
-    sleep 20
-    MenuBD
-}
-
-# by: Elizeu de Santana / 21-05-2019 -------------------------------------------------------
-# by: Elizeu de Santana / 06-06-2019 -------------------------------------------------------
-function InstalarMyphpadmin(){
-    ### ###
-    Titulo
-    echo -e "${ctr} \n Instalando phpmyadmin php-mbstring php-gettext ... ${dlc}"
-
-    sudo apt install phpmyadmin php-mbstring php-gettext -y > apt_phpmyadmin_install.log
-    tmp="$(date)"; printf "%s" "$tmp" " * apt instalpmyadmin phl php-mbstring php-gettext" >>  BdadosLog.log
-
-    echo -e "${ctr} Instalado phpmyadmin php-mbstring php-gettext. ${dlc}"
-    echo -e "${cls} ---------------------------------------------------------------- ${dlc}"
-    echo -e "${ctr} Ativando mbstring ... ${dlc}"
-
-    sudo phpenmod mbstring >> apt_phpmyadmin_install.log
-    tmp="$(date)"; printf "%s" "$tmp" " * phpenmod mbstring" >> LogSistema_LampMysql.log    
-       
-    echo -e "${ctr} Instalado phpmyadmin php-mbstring php-gettext. ${dlc}"
-    echo -e "${cls} ---------------------------------------------------------------- ${dlc}"
-    echo -e "${ctr} Restartando apache2... ${dlc}"
-
-    sudo systemctl restart apache2 >> apt_phpmyadmin_install.log
-    tmp="$(date)"; printf "%s" "$tmp" " * systemctl restart apache2" >> LogSistema_LampMysql.log    
-    
-    echo -e "${ctr} Restartado apache2. ${dlc}"
-    echo -e "${cls} ---------------------------------------------------------------- ${dlc}"
-    echo -e "${ctr} Restartando apache2... ${dlc}"
- 
-    sleep 10
-    
-    ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-    FLUSH PRIVILEGES;
-
-    MenuBD           #Volta ao fluxo!   
-}
-
-# by: Elizeu de Santana / 21-05-2019 -------------------------------------------------------
-# by: Elizeu de Santana / 06-06-2019 -------------------------------------------------------
 function StatusMySQL(){
     ### ###
     #-------------------------------------------------------------
@@ -379,92 +219,3 @@ UnistallMySQL(){
 }
 
 
-# by: Elizeu de Santana / 21-05-2019------------------------------
-InstalarWorkbench(){
-    Titulo
-    echo -e "${ctr} \n Instalando aplicativo de gerenciamento de B.Dados Workbench ... ${dlc}"
-    
-    sudo apt install mysql-workbench -y #> apt_workbench_install.log
-    tmp="$(date)"; printf "%s\n" "$tmp" " * apt install mysql-workbench" >> LogSistema_LampMysql.log
-
-    echo -e "${ctr} \n Instalado aplicativo de gerenciamento de B.Dados Workbench. ${dlc}"
-    echo -e "${cls} \n ---------------------------------------------------------------- ${dlc}"
-    echo -e "${ctr} \n Executando apt autoremove ... ${dlc}"
-    
-    sudo apt autoremove
-    tmp="$(date)"; printf "%s\n" "$tmp" " * apt autoremove" >> LogSistema_LampMysql.log
-    
-    echo -e "${ctr} \n Executado apt autoremove. ${dlc}" 
-    echo -e "${cls} \n ---------------------------------------------------------------- ${dlc}"
-
-    MenuServidor                  #Volta ao fluxo!    
-
-    #-------------------------------------------------------------
-    #wget -q http://cdn.mysql.com/Downloads/MySQLGUITools/mysql-workbench-community_8.0.12-1ubuntu18.04_amd64.deb -O mysql-workbench-community.deb
-    #sudo dpkg -i mysql-workbench-community.deb
-    #sudo apt -f install
-}
-
-# by: Elizeu de Santana / 21-05-2019------------------------------
-PhpMysql(){
-    Titulo
-    #-------------------------------------------------------------
-    echo -e "${ctr} \n Instalando aplicativo de gerenciamento [browser] myphpadmin. [aguarde...] ${dlc}"
-    
-    sudo apt install php7.2 libapache2-mod-php7.2 php7.2-mysql php-common php7.2-cli php7.2-common php7.2-json php7.2-opcache php7.2-readline  -y > apt_php7-2_install.log
-    tmp="$(date)"; printf "%s\n" "$tmp" " * apt install php7.2 libapache2-mod-php7.2 php7.2-mysql php-common php7.2-cli php7.2-common php7.2-json php7.2-opcache php7.2-readline" >> LogSistema_LampMysql.log
-
-    echo -e "${ctr} \n Instalado aplicativo de gerenciamento [browser] myphpadmin. ${dlc}"
-    echo -e "${cls} \n ---------------------------------------------------------------- ${dlc}"
-    echo -e "${ctr} \n Ativando modulo php7.2 ... ${dlc}"
-
-    sudo a2enmod php7.2
-    tmp="$(date)"; printf "%s\n" "$tmp" " * a2enmod php7.2" >> LogSistema_LampMysql.log
-
-    echo -e "${ctr} \n Ativado modulo php7.2. ${dlc}"
-    echo -e "${cls} \n ---------------------------------------------------------------- ${dlc}"
-    echo -e "${ctr} \n Restartando apache2 ... ${dlc}"
-
-    sudo systemctl restart apache2
-    tmp="$(date)"; printf "%s\n" "$tmp" " * systemctl restart apache2" >> LogSistema_LampMysql.log
-    
-    echo -e "${ctr} \n Restartado apache2 ... ${dlc}"
-    echo -e "${cls} \n ---------------------------------------------------------------- ${dlc}"
-    echo -e "${ctr} \n Version ... ${dlc}"
-
-    php --version
-    tmp="$(date)"; printf "%s\n" "$tmp" " * systemctl restart apache2" >> LogSistema_LampMysql.log
-    
-    echo -e "${ctr} \n Fim Version. ${dlc}"    
-    echo -e "${cls} \n ---------------------------------------------------------------- ${dlc}"
-    echo -e "${ctr} \n Criando arquivo /var/www/html/info.php ... ${dlc}"
-
-    #sudo cat info.php > /var/www/html/info.php
-    sudo cp info.php /var/www/html/
-    tmp="$(date)"; printf "%s\n" "$tmp" " * cat info.php > /var/www/html/info.php" >> LogSistema_LampMysql.log
-
-    echo -e "${ctr} \n Criando arquivo /var/www/html/info.php ... ${dlc}"
-    echo -e "${cls} \n ---------------------------------------------------------------- ${dlc}"
-    echo -e "${ctr} \n Aguarde 10 seg. ${dlc}"
-    sleep 10
-
-    #-------------------------------------------------------------
-    # #PHP-FPM. (fast cgi)
-    # #Disable the Apache PHP7.2 module.
-    # sudo a2dismod php7.2
-
-    # Install PHP-FPM.
-    # sudo apt install php7.2-fpm
-    # sudo a2enmod proxy_fcgi setenvif #Enable proxy_fcgi and setenvif module.
-
-    # #Enable the /etc/apache2/conf-available/php7.2-fpm.conf configuration file.
-    # sudo a2enconf php7.2-fpm
-    # #Restart Apache for the changes to take effect.
-    # sudo systemctl restart apache2
-
-    # #to prevent prying eyes.
-    # sudo rm /var/www/html/info.php
-    #-------------------------------------------------------------
-    
-    MenuServidor           #Volta ao fluxo!
-}

@@ -1,0 +1,9 @@
+Package: bob
+Version: 0.1
+Architecture: all
+Maintainer: elizeu de Santana <elizeudesantana@hotmail.com>
+Installed-Size: 10
+# usar este campo para baixar e instalar as dependencias de forma automatica
+Depends: debconf-2.0, python-qt4
+Description: Software - bob
+# Software de utilidade, gerais desde instalação de software ate agenda...

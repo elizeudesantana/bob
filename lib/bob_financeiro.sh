@@ -51,7 +51,7 @@ PRINT="echo -ne"
 #
 # -----------------------------------------------------------------------------------------
 function Financeiro(){
-    sleep 3 & _Annime_BancoDados; $sql_user "show databases;" $agenda_DB;
+    sleep 3 & _Annime_; $sql_user "show databases;" $agenda_DB;
     e_arrow "Base de dados pronta. $(e_success)"; sleep 3
     clear; curl http://${moedaDefalt}.rate.sx; read    
 
@@ -64,7 +64,7 @@ function Financeiro(){
 function Cripto(){
     while true ; do
         clear
-        curl http://${moedaDefalt}.rate.sx
+        paste<(curl http://${moedaDefalt}.rate.sx)<(
         echo -e "${cls} ---------------------------------------------------------------------- ${dlc}"
         echo -ne "${ctm} (B)TC, (E)TH, (X)RP, (L)TC, B(C)H, E(O)S, B(N)B, B(S)V, (U)SDT, XL(M) | Out(r)os | (s)air : ${dlc}"; read opt
         case ${opt} in
@@ -82,7 +82,7 @@ function Cripto(){
             r) MenuCript ;; 
             s) Financeiro ;; 
             *) echo -e "${ctm} Comando desconhecido Cripto! ${dlc}"; read ;;
-        esac        
+        esac        )
     done
 }
 
@@ -194,43 +194,3 @@ function ConvCrpt(){
     done
 }
 
-# by: Elizeu de Santana / 18-06-2019 -------------------------------------------------------
-marquee_left()
-{
-    string="$*"
-    let eidx=${#string}+1
-    for i in $(seq 1 $eidx)
-    do
-        let j=i-1; strout="$(echo "$string" |cut -b $i-)"
-        [ $j -ne 0 ] && strout="$strout$(echo "$string" |cut -b -$j)"
-        $PRINT "$strout\r"; sleep $INTERVAL
-    done
-}
-# by: Elizeu de Santana / 18-06-2019 -------------------------------------------------------
-marquee_right()
-{
-    string="$*"
-    let eidx=${#string}+1
-    for i in $(seq 1 $eidx)
-    do
-        let j=$eidx-$i+1; strout="$(echo "$string" | cut -b $j-)"; let --j
-        [ $j -gt 0 ] && strout="$strout$(echo "$string" | cut -b -$j)"
-        $PRINT "$strout\r"; sleep $INTERVAL
-    done
-}
-
-# by: Elizeu de Santana / 18-06-2019 -------------------------------------------------------
-marquee()
-{
-    [ -z "$*" ] && echo "Uso: $(basename $0) <string>" && exit 1
-    for SIG in INT TERM
-        do trap "$PRINT '' && exit" $SIG
-    done
-    n=0
-    while true
-    do
-        let "$n"; n=$?
-        [ $n -ne 0 ] && marquee_right "$*" || marquee_left "$*"
-        sleep $INTERVAL2
-    done
-}

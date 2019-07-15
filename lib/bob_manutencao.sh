@@ -1,55 +1,29 @@
 #!/bin/bash
 ############################################################################################
 #
-# Bob utilities script bash 
+#   Bob utilities script bash 
 #
-version="2019.01"               # Sets version variable
+#                                                                      The MIT License (MIT)
+#                                                         Copyright (c) 2019 elizeudesantana
 #
-scriptFileVersion="1.0.0"
+version="2019.01";                                                      # Versão do Programa
+#
+scriptFileVersion="1.0.0";                                                # Versão do script
 #
 # History:
-#   1.0.0  script version inicial, estrutura de diretorio.
-#   2019.01  Dividido em diretorios criação de route e tipando de forma MVC (23/06/2019)
+#   1.0.0                                                            Script version inicial.
+#   2019.01      Dividido em diretorios criação de route e tipando de forma MVC (23/06/2019)
 #
-# Dependências:
+# Dependências:                                                     Nome do arquivo: bob.sh
 #   function Dependencias()
 #
 # * Retorno: n/a
-# * Data: n/a
+# * Data: 25/06/2019
 #
 # by: Elizeu de Santana -------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------------------
-# Prover uma variavel com a pespectiva de localizações do script
-instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
-scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
-scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
-scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
-# -----------------------------------------------------------------------------------------
-if [ $scriptPath != $scriptPath_Bob ] ; then
-    utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
-else
-    utilsLocation="${scriptPath}/lib/bob_util.sh"; 
-fi
-# -----------------------------------------------------------------------------------------
-if [ -f "${utilsLocation}" ]; then
-    source "${utilsLocation}";
-else
-    echo "Por favor procure bob_util.sh e adicione referência a este script. Saindo.";
-    exit 1;
-fi
-# -----------------------------------------------------------------------------------------
-# Função Manutencao
-# -----------------------------------------------------------------------------------------
-#
-# -----------------------------------------------------------------------------------------
-function Manutencao(){
-    e_header "${hi}, seja bem-vindo. As seguintes escolhas estão disponíveis."
-}
-# -----------------------------------------------------------------------------------------
-# Função Monitoracao
-# -----------------------------------------------------------------------------------------
-#
+																	 # (Função Monitoracao)
 # -----------------------------------------------------------------------------------------
 function Monitoracao(){
 	if [ "${1}" = "atop" ] ; then
@@ -83,7 +57,7 @@ function Monitoracao(){
 			fi
 			byobu-tmux attach -t bob
 		else
-			Manutencao
+			Principal
 		fi
 	elif [ "${1}" = "io" ] ; then
 		Titulo_Inicial;	printf "\n\n\n\n\n"
@@ -100,7 +74,7 @@ function Monitoracao(){
 			fi
 			byobu-tmux attach -t bob
 		else
-			Manutencao
+			Principal
 		fi
 	elif [ "${1}" = "SO" ] ; then
 		if [ -z "$(byobu list-sessions | grep bob)" ] ; then
@@ -132,11 +106,16 @@ function Monitoracao(){
 # monitorar o systema
 # glances
 }
-
 # -----------------------------------------------------------------------------------------
-# Função AbreMonitorix
+																		  # Função Latencia
 # -----------------------------------------------------------------------------------------
-#
+function Latencia(){
+	Titulo_Inicial;
+	curl http://cheat.sh/latency;
+	Principal
+}
+# -----------------------------------------------------------------------------------------
+																	 # Função AbreMonitorix
 # -----------------------------------------------------------------------------------------
 function AbreMonitorix(){
 	### ###
@@ -144,8 +123,9 @@ function AbreMonitorix(){
 	#x-www-browser http://localhost:8080/monitorix
 	#echo "ERROR: Sem permissão para criar diretorio "
 	#$(python p.py)
+	which epiphany || Dependencias epiphany; 
 	epiphany "http://localhost:8080/monitorix-cgi/monitorix.cgi?mode=localhost&graph=all&when=1day&color=black"
-	Manutencao
+	Principal
 	#URL="http://localhost:8080/monitorix"
 	#BROWSER="epiphany"
 	#[[ -x $BROWSER ]] && exec "$BROWSER" "$URL"
@@ -176,9 +156,7 @@ function CheckDir(){
 
 }
 # -----------------------------------------------------------------------------------------
-#
-# -----------------------------------------------------------------------------------------
-#
+																		  # ( Função Manut)
 # -----------------------------------------------------------------------------------------
 function Manut(){
 	### Recebe argumento para informações ###
@@ -247,9 +225,11 @@ function Manut(){
 				lspci ;;
 		get_long_devdir_listing) 
 				ls -l /dev ;;
-		get_defined_disks) 		
+		get_defined_disks) 	
+				
 				sudo fdisk -l ;;
 		get_defined_pdisks) 	#10
+				Titulo_Inicial;	
 				pydf ;;
 		get_cdrom)  			
 				lsblk

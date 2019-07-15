@@ -168,7 +168,7 @@ function Indice(){
     l=${#clicked[@]} 
     for ((i=0;i<l;i++))
     do
-        Titulo
+        Titulo_Inicial
         if [ "${clicked[${c}]}" = "[x]" ] ; then
             echo -e "${ctr} \n$((${c}+1))) ${clicked[${c}]} ${alfabeto[${c}]} ${dlc}"
             echo -e "${cls} ---------------------------------------------------------------- ${dlc}"

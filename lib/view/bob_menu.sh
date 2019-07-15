@@ -3,35 +3,42 @@
 #
 #   Bob utilities script bash 
 #
-version="2019.01";                                                  # Versão do Programa
+#                                                                      The MIT License (MIT)
+#                                                         Copyright (c) 2019 elizeudesantana
 #
-scriptFileVersion="1.0.0";                                          # Versão do script
+version="2019.01";                                                      # Versão do Programa
+#
+scriptFileVersion="1.0.0";                                                # Versão do script
 #
 # History:
-#   1.0.0    script version inicial, [tela 1], configura screen e supre dependêncas.
-#   2019.01  Dividido em diretorios criação de route e tipando de forma MVC (23/06/2019)
+#   1.0.0                                                            Script version inicial.
+#   2019.01      Dividido em diretorios criação de route e tipando de forma MVC (23/06/2019)
 #
-# Dependências:
+# Dependências:                                                Nome do arquivo: bob_menu.sh
 #   function Dependencias()
 #
 # * Retorno: n/a
-# * Data: n/a
+# * Data: 25/06/2019
 #
 # by: Elizeu de Santana -------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------------------
-# Arg () menu Principal : p
-#
+                                                                         # (função BobMenu)
+                                                    # usado com argumentos (nome dos menus)
 # -----------------------------------------------------------------------------------------
 function BobMenu(){
-    if [ ${1} = "principal" ] ; then
+    # ---------------------------------------------------------------------------------------------
+                                                                   if [ ${1} = "principal" ] ; then
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (menu) principal
+    # ---------------------------------------------------------------------------------------------
         m=( "  Python  Django." 
-            "  Instalações." 
-            "  Agenda." 
+            "  Services." 
+            "  Web Radio." 
             "  Arquivos." 
-            " ﰁ Snippers." #5
-            " ﰁ Como." 
-            "  Financeiro." 
+            " ﰁ Cht.sh" #5
+            " ﰁ " 
+            "  xxxxxxx." 
             "   zz." 
             "  Configuração." 
             " 襁 Manutenção." #10
@@ -40,11 +47,11 @@ function BobMenu(){
             " ${red}${reset} Sair." 
             "  Proteção de tela.")      
         e=( "MenuPython" 
-            "MenuInstacaoPrincipal" 
-            "BobMenu contatos" #"Agenda contatos" 
-            "MenuTexto" 
+            "_Services_" 
+            "Inicia_radio"   
+            "Principal.bob_texto_1" 
             "Cht" #5
-            "Com" 
+            "" 
             "Financeiro" 
             "DiversasZZ" 
             "Configurar" 
@@ -52,28 +59,30 @@ function BobMenu(){
             "Plota" 
             "rm ${log[0]}" 
             "Sair" 
-            "Aquarium")
+            "Aquarium")  # configurar cron, capturar evento maouse ou outro
         h1(){
-            e_note "Python Django é uma escola para quem quer montar máquinas virtuais"
-            e_note -c "desmontar criar novos aplicativos deletar aplicativos e aida modulos."
-            e_note -c ""
-            e_note -c ""
+            e_note "Python Django é uma escolha para quem quer montar máquinas virtuais";
+            e_note -c "desmontar criar novos aplicativos deletar aplicativos e aida modulos.";
+            e_note -c "";
+            e_note -c "";
             }
         h2(){
-            e_note "Instalações de programas, esta dividido em quatro partes ,"
-            e_note -c "Servidores: Apache2, ppmyadmin, ppadmin,LAMP byTeddysun, lamp via repositorio."
-            e_note -c "desistalação, configuração, cria chave RSA, update e uprade,Server Monitor Cockpit."
-            e_note -c "Monitor Server Nagios4, Server E-mail PostFix, Monitor Server Nagios xi."
-            e_note -c "Web Server WebWin, Web Server WordPress."
+            oooO='_services';
+            e_note "Semelhante a todos os outros sistemas operacionais, o Linux possui serviços e outros processos";
+            e_note -c "executados em segundo plano para executar certas funções essenciais enquanto o sistema";
+            e_note -c "está em execução. Quando o sistema inicializa, os serviços são iniciados automaticamente";
+            e_note -c "e continuam sendo executados em segundo plano até que o sistema seja desligado.";
+            e_note -c "Nesta opção você pode monitorar a execução e também iniciar/parar e reiniciar os serviços.";
             }
         h3(){
-            e_note "Bob lembra, é uma agenda de contatos, com tecnologia a banco de dados relacional,"
-            e_note -c "MySQL. Oferece a principio 4 escolhas de campo, mas pode ser configurado para"
-            e_note -c "tantos campos, quanto se queira. Oferece, ainda um agendador TODO, que lhe avisa "
-            e_note -c "por e-mail ou/e celular no tempo estipulado a ocorrência, além de mostrar na tela"
-            e_note -c "principal as ocorrencias do mês vigente."
+            oooO='_radio';
+            e_note "Seu script de Rádio online. Você; irá encontrar os mais diversos gêneros musicais.";
+            e_note -c "A lista de rádios são obtidas apartir da fonte https://www.internet-radio.com.";
+            e_note -c "Para começar, escolha o seu gênero músical, clicando no botão 'Gêneros' ";
+            e_note -c "Obs: Todas as informações contidas na lista, são sincronizadas com a fonte.";
             }
         h4(){
+            # oooO='_bob_texto_1';
             e_note ""
             e_note -c ""
             e_note -c ""
@@ -81,13 +90,20 @@ function BobMenu(){
             e_note -c ""
             }
         h5(){
-            e_note ""
-            e_note -c ""
-            e_note -c ""
-            e_note -c ""
-            e_note -c ""
+            oooO='_cht';
+            e_note "Acesso unificado aos melhores repositórios de folhas de dicas orientadas pela comunidade do mundo."
+            e_note -c "Vamos imaginar por um momento que existe uma 'cheat sheet' ideal. com o que isso deveria" 
+            e_note -c "parecer? Quais recursos ele deve ter?"
+            e_note -c "o Concise - Deve conter apenas as coisas que você precisa e nada mais."
+            e_note -c "o Rápido - deve ser possível usá-lo instantaneamente."
+            e_note -c "o Abrangente - Deve conter respostas para todas as perguntas possíveis."
+            e_note -c "o Universal - Deve estar disponível em qualquer lugar, a qualquer momento, sem qualquer preparação."
+            e_note -c "o Discreto - não deve distraí-lo da sua tarefa principal."
+            e_note -c "o Explicações - Deve ajudá-lo a aprender o assunto."
+            e_note -c "o Imperceptível - Deve ser possível usá-lo completamente despercebido."
             }
         h6(){
+            oooO='';
             e_note ""
             e_note -c ""
             e_note -c ""
@@ -149,12 +165,11 @@ function BobMenu(){
             e_note -c "quando o (e) é digitado, o menu é desmontado e inicia o procsso para"
             e_note -c "outro menu ou a execução do comando."
             }
-    ### Aqui o menu realiza chamada com opção (contatos)                   ###
-    ### Testa se existe o banco de dados mysql que é utilizado  com bancos ###
-    ### e tabelas, os dados são inseridos em duas tabelas definas em util. ###
-    ### existindo o aplicativo os glypcons assumem cores verde ou vermelho ###
-    ###
-    elif [ ${1} = "contatos" ] ; then    ### aqui o usuario escolheu contatos
+    # ---------------------------------------------------------------------------------------------
+                                                                elif [ ${1} = "contatos" ] ; then
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (menu) contatos
+    # ---------------------------------------------------------------------------------------------
         if [[ $(which mysql 2>/dev/null) ]]; then  ### existe o aplicativo
             Ac="${green}   ${reset}"; Ec="${green}   ${reset}"                  
             At="${green}   ${reset}"; Lt="${green}   ${reset}"                      
@@ -210,7 +225,7 @@ function BobMenu(){
             if is_confirmed; then
                 echo "manut"
             else
-                . 'bob.sh'
+                Principal
             fi
         fi
         h1(){
@@ -240,7 +255,11 @@ function BobMenu(){
             e_note -c "quando o (e) é digitado, o menu é desmontado e inicia o processo para"
             e_note -c "outro menu ou a execução do comando."
             }
-    elif [ ${1} = "lembretes" ] ; then         ### aqui o usuario escolheu lembretes
+    # ---------------------------------------------------------------------------------------------
+                                                                elif [ ${1} = "lembretes" ] ; then
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (menu) lembretes
+    # ---------------------------------------------------------------------------------------------
         if [[ $(which mysql 2>/dev/null) ]]; then  ### existe o aplicativo
             Ac="${green}   ${reset}"; Ec="${green}   ${reset}"                  
             At="${green}   ${reset}"; Lt="${green}   ${reset}"                      
@@ -318,7 +337,11 @@ function BobMenu(){
             e_note -c "quando o (e) é digitado, o menu é desmontado e inicia o processo para"
             e_note -c "outro menu ou a execução do comando."
             }
-    elif [ ${1} = "manutencao" ] ; then         ### aqui o usuario escolheu manutencao
+    # ---------------------------------------------------------------------------------------------
+                                                                elif [ ${1} = "manutencao" ] ; then
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (menu) manutencao
+    # ---------------------------------------------------------------------------------------------
         m=( " ﯑ Serviço Monitoração." 
             "  Imprimir Relatorio." 
             " ﱨ Monitoração grafica and testes no cpu." 
@@ -369,12 +392,13 @@ function BobMenu(){
             " Manut get_installed_filesets"
             " Manut check_for_broken_filesets; cat tmp"
             " Manut last_logins"
-            " curl http://cheat.sh/latency" #25
+            " Latencia" #25
             " Principal")
         h1(){
+            oooO="_monitorix";
             e_note "Serviço de monitoração completo banco de dados, rede, kernel, etc."
             e_note -c "Click neste link ➜ http://localhost:8080/monitorix ( direito|abrir link)."
-            e_note -c "parta utilizar seu browser padrão, ou (s) para utilizar o epiphany browser modular."
+            e_note -c "parta utilizar seu browser padrão, ou (e) para utilizar o epiphany browser modular."
             }
         h2(){
             e_note "Imprimir em um arquivo snaphot todo o conteúdo de seu hardware com vários ,"
@@ -480,7 +504,11 @@ function BobMenu(){
             e_note -c "quando o s é digitado, o menu é desmontado e inicia o procsso para"
             e_note -c "outro menu ou a execução do comando."
             }
-    elif [ ${1} = "financeiro" ] ; then         ### aqui o usuario escolheu financeiro
+    # ---------------------------------------------------------------------------------------------
+                                                                elif [ ${1} = "financeiro" ] ; then
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (menu) financeiro
+    # ---------------------------------------------------------------------------------------------
         m=( "   Cripto moedas - analise grafica." 
             "   Indice de termos financeiros."    
             " ${red}廒${reset} Sair." )     
@@ -515,7 +543,11 @@ function BobMenu(){
             e_note -c "quando o s é digitado, o menu é desmontado e inicia o procsso para"
             e_note -c "outro menu ou a execução do comando."
             }
-    elif [ ${1} = "instalacao" ] ; then         ### aqui o usuario escolheu instalacao        
+    # ---------------------------------------------------------------------------------------------
+                                                                elif [ ${1} = "instalacao" ] ; then
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (menu) instalação
+    # ---------------------------------------------------------------------------------------------
         m=( " ${red}${reset}${blue}   ${reset} Shell & Fonts." 
             "   Programas Diversos NetWork, Midias, Desenvolvimento e Editores" 
             "   Servidor de Internet [LAMP]." 
@@ -622,7 +654,11 @@ function BobMenu(){
             e_note -c "quando o s é digitado, o menu é desmontado e inicia o procsso para"
             e_note -c "outro menu ou a execução do comando."
             }
-    elif [ ${1} = "instalacao.MenuInstalarProgramas" ] ; then         # Sub menu
+    # ---------------------------------------------------------------------------------------------
+                                          elif [ ${1} = "instalacao.MenuInstalarProgramas" ] ; then
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (sub menu) instalação -> [Programas div ... (2)] -> instalacao.MenuInstalarProgramas
+    # ---------------------------------------------------------------------------------------------
         m=( " Instalar Programas Multimidia   [ Som & Video ]."
             " Programas Desenvolvimento      [ Copiladores ]."     
             " Instalar Programas Editores    [ Editores texto ]."    
@@ -644,7 +680,11 @@ function BobMenu(){
             e_note -c "quando o s é digitado, o menu é desmontado e inicia o procsso para"
             e_note -c "outro menu ou a execução do comando."
             }
-    elif [ ${1} = "compactacao" ] ; then         ### aqui o usuario escolheu compactacao     
+    # ---------------------------------------------------------------------------------------------
+                                                               elif [ ${1} = "compactacao" ] ; then
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (Sub menu)  //não chamado
+    # ---------------------------------------------------------------------------------------------
         m=( "  Compactar para .tar"
             "  Compactar para .tar.gz "
             "  Compactar para .bz2" 
@@ -704,7 +744,11 @@ function BobMenu(){
             e_note -c "quando o s é digitado, o menu é desmontado e inicia o procsso para"
             e_note -c "outro menu ou a execução do comando."
             }
-    elif [ ${1} = "bancodados" ] ; then         ### aqui o usuario escolheu compactacao     
+    # ---------------------------------------------------------------------------------------------
+                                                                elif [ ${1} = "bancodados" ] ; then
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (Menu) banco(d)ados
+    # ---------------------------------------------------------------------------------------------
         local pic=""             # define picture default
         if [[ $(which postgres 2>/dev/null) ]]; then  ### existe o aplicativo
             picgres=""
@@ -783,14 +827,292 @@ function BobMenu(){
         hd(){
             e_note "${USER}, você pode escolher qualquer número do indice, do 1 ao ${i},"
             e_note -c "digitando o mesmo número desclica, para sair, você digita a letra (s)."
+            e_note -c "quando o s é digitado, o menu é desmontado e inicia o processo para"
+            e_note -c "outro menu ou a execução do comando."
+            }
+    # ---------------------------------------------------------------------------------------------
+                                                    elif [ ${1} = "Principal.bob_texto_1" ] ; then         
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (sub menu) principal -> [arquivo (2)] -> bob_texto_1
+    ### (sub menu) principal -> [arquivo (2)] -> [bob_texto_1 (1)] -> [bob_texto_2 (1)] -> bob_texto_1
+    ### (sub menu) principal -> [arquivo (2)] -> [bob_texto_1 (1)] -> [bob_texto_3 (1)] -> bob_texto_1
+    # ---------------------------------------------------------------------------------------------
+        m=( "Sub menu bob_texto 2"
+            "Sub menu bob_texto 3"
+            "Seleciona o arquivo, objeto de trabalho." #1
+            "Imprimir somente as linhas com uma determinada string." 
+            "Imprimir somente a primeira ocorrência da linha com determinada string."
+            "Imprimir a última ocorrência da linha com determinada string"  
+            "Imprimir da primeira ocorrência da string até o final" #5                 
+            "Imprimir da última ocorrência da string até o final"   
+            "Apagar as linhas com uma determinada string"               
+            "Apagar apenas a primeira linha com determinada string I"             
+            "Apagar apenas a primeira linha com determinada string II"
+            "Adicionar texto no início da linha"   #10
+            "Adicionar texto no final da linha"    
+            "Retirar linhas em branco"         
+            "Incluir texto no início da linha N"         
+            "Incluir texto no final da linha N"          
+            "Incluir texto na linha N apagando o conteúdo existente"  #15
+            "Incluir texto antes da linha N"   
+            "Incluir linha após a última"                                  
+            "Imprimir somente a linha N"                        
+            "Retirar a linha N"                   
+            "Extrair um trecho de uma linha" #20
+            "Retirar espaços em branco repetidos"
+            "Retirar espaços em branco no início da linha" ) #22
+        e=( "Principal.bob_texto_2"
+            "Principal.bob_texto_3"
+            "SelecionaArquivo" #1
+            "Linhas 0"
+            "Linhas 1"
+            "Linhas 2"
+            "Linhas 3" #5
+            "Linhas 4"
+            "Linhas 5"
+            "Linhas 6"
+            "Linhas 7"
+            "Linhas 8" #10
+            "Linhas 9"
+            "Linhas 10"
+            "Linhas 11"
+            "Linhas 12"
+            "Linhas 13" #15
+            "Linhas 14"
+            "Linhas 15"
+            "Linhas 16"
+            "Linhas 17"
+            "Linhas 18" #20
+            "Linhas 19"
+            "Linhas 20" )  #22  
+        h1(){
+            e_note "Abre o sub menu Principal -> Arquivo -> bob_texto 2"
+            e_note -c ""
+            }
+        h2(){
+            e_note "Abre o sub menu Principal -> Arquivo -> bob_texto 3"
+            e_note -c ""
+            }
+        h3(){
+            e_note "Abre a dialog para a seleção do arquivo objeto de traabalho deste menu."   #1
+            e_note -c ""
+            }
+        h4(){
+            e_note "Imprimir somente as linhas com uma determinada string."
+            e_note -c "submodulo_sed[0]=$(sed -n "/${palavra}/p" ${arquivo})"
+            }
+        h5(){
+            e_note ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            }
+        h6(){
+            e_note ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            }
+        hd(){
+            e_note "${USER}, você pode escolher qualquer número do indice, do 1 ao ${i},"
+            e_note -c "digitando o mesmo número desclica, para sair, você digita a letra (s)."
+            e_note -c "quando o s é digitado, o menu é desmontado e inicia o procsso para"
+            e_note -c "outro menu ou a execução do comando."
+            }  
+    # ---------------------------------------------------------------------------------------------
+                                                     elif [ ${1} = "Principal.bob_texto_2" ] ; then         
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (sub menu) principal -> [arquivo (2)] -> [bob_texto_1 (1)] -> bob_texto_2
+    ### (sub menu) principal -> [arquivo (2)] -> [bob_texto_1 (2)] -> [bob_texto_3 (2)] -> bob_texto_2
+    # ---------------------------------------------------------------------------------------------
+        m=( "Sub menu bob_texto 1"
+            "Sub menu bob_texto 3"
+            "Apagar uma string do início da linha "
+            "Apagar do início da linha até uma string "
+            "Apagar de uma string até o final da linha"
+            "Apagar a última string da linha"
+            "Colocar todas as linhas em uma só"
+            "Juntar a linha com a próxima"       
+            "Substituir caractere por outro até uma TAG"
+            "Substituir caractere por outro entre TAGs"
+            "Substituir string por outra somente em certas linhas"
+            "Substituir string por outra somente em certas linhas II"
+            "Substituir a última ocorrência de uma string por outra"             
+            "Trocar a ordem das palavras (última vira prim. penúltima vira seg.)"
+            "Trocar a ordem das letras (igual ao comando rev)" 
+            "Trocar de maiúsculas para minúsculas"                    
+            "Trocar de minúsculas para maiúsculas" )
+        e=( "Principal.bob_texto_1"
+            "Principal.bob_texto_3"
+            "Linhas 21"
+            "Linhas 22"
+            "Linhas 23"
+            "Linhas 24"
+            "Linhas 25"
+            "Linhas 26"
+            "Linhas 27"
+            "Linhas 28"
+            "Linhas 29"
+            "Linhas 30"
+            "Linhas 31"
+            "Linhas 32"
+            "Linhas 33"
+            "Linhas 34"
+            "Linhas 35" )
+        h1(){
+            e_note "Python Django é uma escola para quem quer montar máquinas virtuais"
+            e_note -c "desmontar criar novos aplicativos deletar aplicativos e aida modulos."
+            e_note -c ""
+            e_note -c ""
+            }
+        h2(){
+            e_note "Instalações de programas, esta dividido em quatro partes ,"
+            e_note -c "Servidores: Apache2, ppmyadmin, ppadmin,LAMP byTeddysun, lamp via repositorio."
+            e_note -c "desistalação, configuração, cria chave RSA, update e uprade,Server Monitor Cockpit."
+            e_note -c "Monitor Server Nagios4, Server E-mail PostFix, Monitor Server Nagios xi."
+            e_note -c "Web Server WebWin, Web Server WordPress."
+            }
+        h3(){
+            e_note "Bob lembra, é uma agenda de contatos, com tecnologia a banco de dados relacional,"
+            e_note -c "MySQL. Oferece a principio 4 escolhas de campo, mas pode ser configurado para"
+            e_note -c "tantos campos, quanto se queira. Oferece, ainda um agendador TODO, que lhe avisa "
+            e_note -c "por e-mail ou/e celular no tempo estipulado a ocorrência, além de mostrar na tela"
+            e_note -c "principal as ocorrencias do mês vigente."
+            }
+        h4(){
+            e_note ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            }
+        h5(){
+            e_note ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            }
+        h6(){
+            e_note ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            }
+        hd(){
+            e_note "${USER}, você pode escolher qualquer número do indice, do 1 ao ${i},"
+            e_note -c "digitando o mesmo número desclica, para sair, você digita a letra (s)."
             e_note -c "quando o s é digitado, o menu é desmontado e inicia o procsso para"
             e_note -c "outro menu ou a execução do comando."
             }
-    elif [ ${1} = "" ] ; then         ### aqui o usuario escolheu compactacao     
+    # ---------------------------------------------------------------------------------------------
+                                                     elif [ ${1} = "Principal.bob_texto_3" ] ; then
+    ### Entradas dos Menus ------------------------------------------------------------------------
+    ### (sub menu) principal -> [arquivo (2)] -> [bob_texto_1 (2)] -> bob_texto_3
+    ### (sub menu) principal -> [arquivo (2)] -> [bob_texto_1 (2)] -> [bob_texto_2 (2)] -> bob_texto_3
+    # ---------------------------------------------------------------------------------------------
+        m=( "Sub menu bob_texto 1"
+            "Sub menu bob_texto 2"
+            "Imprimir a linha antes de uma string"
+            "Imprimir a linha antes de uma string e a linha da string"
+            "Imprimir a linha após uma string"
+            "Imprimir a linha após uma string e a linha da string"
+            "Imprimir a linha anterior, posterior e a linha que contém uma string " #5
+            "Imprimir a linha anterior e posterior a linha que contém uma string  "
+            "Imprimir N linhas antes, a linha da string e M linhas após uma string I "
+            "Imprimir N linhas antes, a linha da string e M linhas após uma string II "
+            "Adicionar linha antes de uma string "
+            "Adicionar linha após a linha com uma determinada string "              #10
+            "Imprimir somente entre linha N e M "
+            "Substituir uma string por outra somente entre determinadas linhas "
+            "Imprimir linhas que contém uma ou outra string"
+            "Imprimir linhas que contém uma e outra string "
+            "Extrair um trecho do arquivo "                                         #15
+            "Extrair trecho que pode ou não estar na mesma linha "
+            "Extrair trecho que pode ou não estar na mesma linha tirando os delimitadores "
+            "Apagar o que está entre delimitadores"
+            "Apagar um trecho se ele contém um padrão"
+            "Trocar de lugar a linha com a próxima (troca de lugar linha 1 com 2, 3 com 4...) I"    #20
+            "Trocar de lugar a linha com a próxima (troca de lugar linha 1 com 2, 3 com 4...) II "
+            "Retirar comandos HTML (tudo entre < e >)"
+            "Pesquisar se existe algum usuário sem senha no /etc/passwd" )       #23
+        e=( "Principal.bob_texto_1"
+            "Principal.bob_texto_2"
+            "Linhas 36"
+            "Linhas 37"
+            "Linhas 38"
+            "Linhas 39"
+            "Linhas 40"
+            "Linhas 41"
+            "Linhas 42"
+            "Linhas 43"
+            "Linhas 44"
+            "Linhas 45"
+            "Linhas 46"
+            "Linhas 47"
+            "Linhas 48"
+            "Linhas 49"
+            "Linhas 50"
+            "Linhas 51"
+            "Linhas 52"
+            "Linhas 53"
+            "Linhas 54"
+            "Linhas 55"
+            "Linhas 56"
+            "Linhas 57"
+            "Linhas 58" )
+        h1(){
+            e_note "Python Django é uma escola para quem quer montar máquinas virtuais"
+            e_note -c "desmontar criar novos aplicativos deletar aplicativos e aida modulos."
+            e_note -c ""
+            e_note -c ""
+            }
+        h2(){
+            e_note "Instalações de programas, esta dividido em quatro partes ,"
+            e_note -c "Servidores: Apache2, ppmyadmin, ppadmin,LAMP byTeddysun, lamp via repositorio."
+            e_note -c "desistalação, configuração, cria chave RSA, update e uprade,Server Monitor Cockpit."
+            e_note -c "Monitor Server Nagios4, Server E-mail PostFix, Monitor Server Nagios xi."
+            e_note -c "Web Server WebWin, Web Server WordPress."
+            }
+        h3(){
+            e_note "Bob lembra, é uma agenda de contatos, com tecnologia a banco de dados relacional,"
+            e_note -c "MySQL. Oferece a principio 4 escolhas de campo, mas pode ser configurado para"
+            e_note -c "tantos campos, quanto se queira. Oferece, ainda um agendador TODO, que lhe avisa "
+            e_note -c "por e-mail ou/e celular no tempo estipulado a ocorrência, além de mostrar na tela"
+            e_note -c "principal as ocorrencias do mês vigente."
+            }
+        h4(){
+            e_note ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            }
+        h5(){
+            e_note ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            }
+        h6(){
+            e_note ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            e_note -c ""
+            }
+        hd(){
+            e_note "${USER}, você pode escolher qualquer número do indice, do 1 ao ${i},"
+            e_note -c "digitando o mesmo número desclica, para sair, você digita a letra (s)."
+            e_note -c "quando o s é digitado, o menu é desmontado e inicia o procsso para"
+            e_note -c "outro menu ou a execução do comando."
+            }
+    fi
+}
         #                        
         #                       ${red}廒${reset} Sair.
         #           ﯑ 
-        echo   
-
-    fi
-}

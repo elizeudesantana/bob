@@ -83,7 +83,9 @@ function InstalarThemeDraculaTerminal(){
 
 # falta wheater
  
-# by: Elizeu de Santana / 17-06-2019 -------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+													  # function InstalargoogleNotoEmoji()
+# ----------------------------------------------------------------------------------------
 function InstalargoogleNotoEmoji() {
 	fonts_dir="${HOME}/.local/share/fonts"
 	if [ ! -d "${fonts_dir}" ]; then
@@ -95,7 +97,7 @@ function InstalargoogleNotoEmoji() {
 	fi
 	file_path="${HOME}/.local/share/fonts/NotoEmoji-Regular.ttf"
 	file_url="https://noto-website-2.storage.googleapis.com/pkgs/NotoEmoji-unhinted.zip"
-	file_local="${HOME}/Projetos/NotoEmoji.zip"
+	file_local="${notoemojiLocation}"
 	if [ ! -e "${file_path}" ]; then
 		e_error "Não encontrado font, ${file_path} $(e_error)"
 		wget -O "${file_local}" "${file_url}"
@@ -105,9 +107,11 @@ function InstalargoogleNotoEmoji() {
 		e_arrow -d "Configuração existe fonts, google Noto Emoji terminado. $(e_success)"
 	fi
 }
-
-# by: Elizeu de Santana / 17-06-2019 -------------------------------------------------------
-# by: Elizeu de Santana / 12-06-2019 -------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+															# function InstalarNerdFonts()
+													  # by: Elizeu de Santana / 17-06-2019 
+													  # by: Elizeu de Santana / 12-06-2019 
+# ----------------------------------------------------------------------------------------
 function InstalarNerdFonts() {
 	fonts_dir="${HOME}/.local/share/fonts"
 	if [ ! -d "${fonts_dir}" ]; then
@@ -117,19 +121,24 @@ function InstalarNerdFonts() {
 	else
 		e_arrow -d "Configuração diretorio, $fonts_dir terminado. $(e_success)"
 	fi
+	file_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.0.0/Ubuntu.zip"
+	file_local="${nerdfontLocation}"
 	file_path="${HOME}/.local/share/fonts/Ubuntu Bold Italic Nerd Font Complete.ttf"
 	if [ ! -e "${file_path}" ]; then
 		e_error "Não encontrado font, ${file_path} $(e_error)"
-		sudo unzip Ubuntu.zip $fonts_dir
+		wget -O "${file_local}" "${file_url}"
+		sudo unzip $file_local $fonts_dir
 		e_arrow -d "Configuração instalado fonts, Nerd Fonts terminado. $(e_success)"
 	else
 		e_arrow -d "Configuração existe fonts, Nerd Fonts terminado. $(e_success)"
 	fi
 }
-
-# by: Elizeu de Santana / 17-06-2019 -------------------------------------------------------
-# by: Elizeu de Santana / 12-06-2019 -------------------------------------------------------
-# by: Elizeu de Santana / 06-06-2019 -------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+													   # function InstalarFontsPowerline()
+													  # by: Elizeu de Santana / 17-06-2019
+													  # by: Elizeu de Santana / 12-06-2019
+				   									  # by: Elizeu de Santana / 06-06-2019
+# ----------------------------------------------------------------------------------------									
 function InstalarFontsPowerline() {
 	fonts_dir="${HOME}/.local/share/fonts"
 	if [ ! -d "${fonts_dir}" ]; then
@@ -161,9 +170,11 @@ function InstalarFontsPowerline() {
 	# cd fonts && ./install.sh
 	# cd .. && rm -rf fonts
 }
-
-# by: Elizeu de Santana / 17-06-2019 -------------------------------------------------------
-# by: Elizeu de Santana / 12-06-2019 -------------------------------------------------------
+# ----------------------------------------------------------------------------------------
+																 # function FontFiraCode()
+													  # by: Elizeu de Santana / 17-06-2019
+													  # by: Elizeu de Santana / 12-06-2019
+# ----------------------------------------------------------------------------------------
 function FontFiraCode() {
 	# https://github.com/tonsky/FiraCode/releases
 	fonts_dir="${HOME}/.local/share/fonts"
