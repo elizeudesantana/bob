@@ -37,7 +37,7 @@ function BobMenu(){
             "  Web Radio." 
             "  Arquivos." 
             " ﰁ Cht.sh" #5
-            " ﰁ " 
+            " ﰁ Evolução bob" 
             "  xxxxxxx." 
             "   zz." 
             "  Configuração." 
@@ -51,7 +51,7 @@ function BobMenu(){
             "Inicia_radio"   
             "Principal.bob_texto_1" 
             "Cht" #5
-            "" 
+            "Evolution__" 
             "Financeiro" 
             "DiversasZZ" 
             "Configurar" 
@@ -103,12 +103,12 @@ function BobMenu(){
             e_note -c "o Imperceptível - Deve ser possível usá-lo completamente despercebido."
             }
         h6(){
-            oooO='';
-            e_note ""
-            e_note -c ""
-            e_note -c ""
-            e_note -c ""
-            e_note -c ""
+            oooO='_gource';
+            e_note "Basicamente um sistema de controle de versão guarda datas "
+            e_note -c "de modificação, arquivos modificados, o usuário de "
+            e_note -c "versionamento e uma mensagem deste que submeteu a "
+            e_note -c "mudança. Isso já parece ótimo para a maioria dos"
+            e_note -c "programadores, e convenhamos, já é o suficiente."
             }
         h7(){
             e_note "Financeiro, um grande dicionario de termos técnicos-finaceiro, para pesquisa. Explore até 500 "

@@ -12,8 +12,15 @@ scriptFileVersion="1.0.0"                                                 # Vers
 #
 # History:
 # 	0.0.1                                    script version inicial, estrutura de diretório.
+#   0.0.2                                                                 Modificado o menu.
+#   0.0.3                                                               Acrescentado change.
+#   0.0.4                                                                Iniciado Class bob.
+#   0.0.5                                                               Várias modificações.
+#   0.0.6                                                              Acrescentado _Clima_.
+#   0.0.7                                                         Acrescentado __Instalador.
+#   0.0.8                                                                Acrescentado radio.
 #   2019.01      Dividido em diretórios criação de route e tipando de forma MVC (23/06/2019)
-#
+#.
 # Dependências:                                                Nome do arquivo: bob_util.sh
 #	function Dependencias()
 #
@@ -79,17 +86,19 @@ function Location(){
     botLocation="${enderecoRelativo_lib}/shellbot.sh";                   # Arquivo bob_shellbot   
     notoemojiLocation="${enderecoRelativo_doc}/NotoEmoji.zip";           # Arquivo font   
     nerdfontLocation="${enderecoRelativo_doc}/ubuntu.zip";               # Arquivo font   
-    #codecsjasonLocation="${enderecoRelativo_doc}/codecs.json";           # Arquivo auxiliar dependencias json
-    #browsersjasonLocation="${enderecoRelativo_doc}/browsers.json";       # Arquivo auxiliar dependencias json
-    #desenvolvimentojasonLocation="${enderecoRelativo_doc}/desenvolvimento.json"; # Arquivo auxiliar dependencias json
-    #diversosjasonLocation="${enderecoRelativo_doc}/diversos.json";       # Arquivo auxiliar dependencias json
-    #outrosjasonLocation="${enderecoRelativo_doc}/outros.json";       # Arquivo auxiliar dependencias json
+    deviconsLocation="${enderecoRelativo_doc}/devicons.zip";             # Arquivo font   
 }    
-
 # -----------------------------------------------------------------------------------------
                                                                   # {Carregando os scripts}
 # -----------------------------------------------------------------------------------------
 function Change(){
+    # -----------------------------------------------------------------------------------------    
+    if [ -f "${coresLocation}" ]; then      ### carregando o arquivo de cores ###
+        source "${coresLocation}";
+        e_success "Carregado ... ${coresLocation}";
+    else
+        e_error "Erro carregando ${coresLocation}"; Sair;
+    fi
     # -----------------------------------------------------------------------------------------
     if [ -f "${montanteLocation}" ] ; then       ### carregando o arquivo util montante ###
         source "${montanteLocation}";
@@ -187,13 +196,6 @@ function Change(){
     else
         e_error "Erro carregando ${programasLocation}"; Sair;
     fi 
-    # -----------------------------------------------------------------------------------------    
-    if [ -f "${coresLocation}" ]; then      ### carregando o arquivo de cores ###
-        source "${coresLocation}";
-        e_success "Carregado ... ${coresLocation}";
-    else
-        e_error "Erro carregando ${coresLocation}"; Sair;
-    fi
     # -----------------------------------------------------------------------------------------
     if [ -f "${confLocation}" ]; then       ### carregando o arquivo .conf ###
         source "${confLocation}";
@@ -204,12 +206,9 @@ function Change(){
     #[ -e ${confLocation} ] || { echo "Arquivo bob.conf ausente!"; }; source ${confLocation} 
 }
 
-# ========================================================================================
+#/* ========================================================================================
 # Class Bob
-# ----------------------------------------------------------------------------------------
-   # Função  (não usada) porque foram usadas na versão inicial na próxima revisão deixaram 
-                                                                              # de existir.
-# ----------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------*/
 function Class_Bob(){
     Location; Change;
     # -----------------------------------------------------------------------------------------    
@@ -378,11 +377,11 @@ function Class_Bob(){
                                                                      # (Ator para help escreve)
            # boy, dog unicornio whirly(nuvem) xes(circulo)  twisted (quadro) spring  scroll-akn  
                 # santa (papai-noel) peek nuke mouse ian_jones girl boxquote(mp3)  capgirl  cat
-                                                                        # uso :
+                                                                                        # uso :
                                                                           # Escreve string ator
     # -----------------------------------------------------------------------------------------
     function Escreve(){
-        which boxes || Dependencias boxes; 
+        which boxes &>/dev/null || Dependencias boxes; 
         echo -e $1 | boxes -d $2 > ${searchLocation}
     }
     # -----------------------------------------------------------------------------------------
@@ -399,312 +398,358 @@ function Class_Bob(){
             ((i=$i+1))
         done
     }
-    
+    # -----------------------------------------------------------------------------------------
+                                                                   #( Evolução do repositorio )
+    # -----------------------------------------------------------------------------------------
+    function Evolution__(){
+        which gource &>/dev/null || Dependencias gource; 
+        gource --background-image $HOME/projetos/bob/doc/sky.jpg;
+        Principal;
+    }
     # -----------------------------------------------------------------------------------------
                                                                        # REVIEW  (function dp )
     # -----------------------------------------------------------------------------------------
-    function Bob_dp(){
-        declare codecs_dp=();                          # NOTE Matrizes contendo as dependências.
-        declare develop_dp=();
-        declare browser_dp=();
-        declare diversos_dp=();
-        declare outros_dp=();
-
-        codecs_dp=( "libdvdnav4" "libdvdread4" "gstreamer1_0_plugins_bad" 
-            "gstreamer1_0_plugins_ugly" "ubuntu_restricted_extras" );
-        develop_dp=( "kdevelop" "codeblocks_contrib" "codeblocks" "mingw_w64"
-            "build_essential" "gcc" "g_plus_plus" "gpp" "bluefish_plugins" "bluefish" 
-            "openjdk_8_jdk" "python3_pip" "python_pip" "anjuta_extra" "anjuta" );
-        browser_dp=( "google" "links" "chromium" "epiphany_browser" "tor" 
-            "torbrowser_launcher" );
-        diversos_dp=( "tilix" "terminology" "playonlinux" "wine" "geany" "atom" 
-            "codium" "Neovim" "code" "sublime_text" "eclipse" "Anaconda3" 
-            "android_studio" "Glade" "Chatty_StreamlinkTwitchGUI" "StreamlinkTwitchGUI" 
-            "vlc");
-        outros_dp=( "libgdbm-dev" "tmux-xpanes" "ansible" "zlib1g-dev" "libgdbm3" "libffi-dev" 
-            "libncurses5-dev" "libreadline6-dev" "libyaml-dev" "libssl-dev" "build-essential" 
-            "bison" "autoconf" "rvm" "handbrake-cli" "vim" "silentcast" "yad" "xdg-utils" 
-            "python-cairo" "python-gobject" "wmctrl" "wininfo" "xdotool" "x11-xserver-utils" 
-            "libav-tools" "php7.2-opcache" "php7.2-readline" "php7.2-json" "php7.2-common" 
-            "php7.2-cli" "php-common" "php7.2-mysql" "libapache2-mod-php7.2" "php-gettext" 
-            "php7.2-pgsql" "phppgadmin" "php7.2" "mysql-server" "postgresql-contrib" "postgresql"
-            "mysql-workbench" "tree"  "telnet" "sl" "thefuck" "silversearcher-ag" "nmap" "python-pip"
-            "mercurial" "jq" "imagemagick" "id3tool" "hollywood" "groff" "git-core" "docker-compose"
-            "docker.io" "curl" "cowsay" "cmatrix" "build-essential" "awscli" "neofetch" "irssi" "htop"
-            "tput" "figlet" "awk" "grep" "nmcli" "byobu" "aptitude" "xampp" );
-
-        echo $1
-        
-        ___Dependencia desenvolvimento; e_success "Carregado ... desenvolvimento";   # 0 .. 14
-        for ((i=0;i<=14;i++)); do
-            echo "${'desenvolvimentoNome_'${i}}"
-            echo "${'desenvolvimentoDescription_'$[i]}"
-            echo "${'desenvolvimentoversion_'${i}}"
-            echo "${'desenvolvimentoHomepage_'${i}}"
-            echo "${'desenvolvimentoInstall_'${i}'[0]'}"
-            echo "${'desenvolvimentoInstall_'${i}'[1]'}"
-            echo "${'desenvolvimentoInstall_'${i}'[2]'}";
-        done
-        read
-        ___Dependencia browsers; e_success "Carregado ... browsers";                 # 0 .. 5
-        ___Dependencia codecs; e_success "Carregado ... codecs";                     # 0 .. 4
-        ___Dependencia diversos; e_success "Carregado ... diversos";                 # 0 .. 16
-        ___Dependencia outros; e_success "Carregado ... outros";                     # 0 .. 74
-
-        echo Nome_74
-        echo Description_74
-        echo version_74
-        echo Homepage_74
-        echo Install_74 # "sudo apt install tmux-xpanes -${Yn}" );
-        read;
-        #//-\_(``)_/-
-    }
-    # -----------------------------------------------------------------------------------------
-    # Função Construtor_Apt_Get
-    # -----------------------------------------------------------------------------------------
-    # Construtor para o gerenciador apt-get linux ubuntu
-    # -----------------------------------------------------------------------------------------
-    function Construtor_Apt_Get1(){
-        # is_ubuntu || return 1
-
-        clear
-        e_arrow "O ${red}${reset}${blue}   ${reset} instala vários aplicativos, conforme o usuários faz uso do software."
-        printf "\n"; apt-cache stats; printf "\n";
-        e_note "Você pode ter a lista de todos os pacotes (${purple}i${reset}${blue})nstalados ou uma (${purple}l${reset}${blue})ista de todos os"
-        e_note -c "pacotes disponiveis para instalação no aplicativo gerênciador de pacotes, ainda"
-        e_note -c "pode pesquisar por um pacote (${purple}e${reset}${blue})specífico, bastando digitar o nome do aplicativo"
-        e_note -c "abaixo, contendo dependências e informações diversas, pode ainda pesquisar por pacotes"
-        e_note -c "(${purple}q${reset}${blue})uebrados. Ou mesmo (${purple}a${reset}${blue})tualizar com update e fazer upgrade. O (${purple}h${reset}${blue})olding de pacotes" 
-        e_note -c "significa que ele não pode ser atualizado até você voltar a usá-lo novamente."
-        e_note -c "Aqui (${purple}u${reset}${blue})nhold. Se quizer editar o arquivo de o(${purple}r${reset}${blue})igem, sera mostrado uma"
-        e_note -c "lista com os editores disponiveis aconselhamos o uso do indicado pela seta. Gostaria" 
-        e_note -c "de usar o au(${purple}t${reset}${blue})oremove + purge. E re(${purple}m${reset}${blue})over e purgar, digite o nome abaixo."
-        e_note -c "E se deseja i(${purple}n${reset}${blue})stalar. Descubra todo o pacote Debian que pode"
-        e_note -c "ser usado para detecção de intru(${purple}s${reset}${blue})ão. Descubra todos os pacotes sni(${purple}f${reset}${blue})fer."
-        e_note -c "E por último, tudo em um só lu(${purple}g${reset}${blue})ar aptitude."
-        read -p "Digite uma das letras entre parenteses, acima : " opt
-        # -----------------------------------------------------------------------------------------    
-                                                                  # [ lista de pacotes instalados ]
-        # -----------------------------------------------------------------------------------------
-        if [ ${opt} = "i" ] ; then
-            apt list --installed; 
-            seek_confirmation "Gostaria de mais detalhes."
-            if is_confirmed; then
-                dpkg -l; 
-            fi
-            read; 
-        # -----------------------------------------------------------------------------------------    
-                                                               # [ Programa de controle de pacote ]
-        # -----------------------------------------------------------------------------------------
-        elif [ ${opt} = "g" ] ; then
-            aptitude
-        # -----------------------------------------------------------------------------------------    
-                                              # [ lista de pacotes que compẽm o conjunto snniffer ]
-        # -----------------------------------------------------------------------------------------
-        elif [ ${opt} = "f" ] ; then
-            apt-cache search sniffer; read;
-        # -----------------------------------------------------------------------------------------    
-                                  # [ lista de pacotes que compẽm o conjunto Intrusion Detectioln ]
-        # -----------------------------------------------------------------------------------------
-        elif [ ${opt} = "s" ] ; then
-            apt-cache search "Intrusion Detection"; read;
-        # -----------------------------------------------------------------------------------------    
-                                                                           # [ Remover de pacotes ]
-        # -----------------------------------------------------------------------------------------
-        elif [ ${opt} = "m" ] ; then
-            read -p "Digite o nome do pacote, para remover e purgar : " pac
-            sudo apt remove ${pac};
-            sudo apt purge ${pac}; read;
-        # -----------------------------------------------------------------------------------------    
-                                                                          # [ Instalar de pacotes ]
-        # -----------------------------------------------------------------------------------------
-        elif [ ${opt} = "n" ] ; then
-            read -p "Digite o nome do pacote, para instalar : " pac
-            sudo apt install ${pac}; read;
-        # -----------------------------------------------------------------------------------------    
-                                                 # [ lista de pacotes disponiveis para instalação ]
-        # -----------------------------------------------------------------------------------------
-        elif [ ${opt} = "l" ] ; then
-            local count=0;
-            declare apt_depens_search;
-            if is_not_exists ${aptlistLocation}; then  
-                echo "aqui"
-                apt-cache pkgnames > ${aptlistLocation}
-            fi 
-            function carrega_apt_depens(){
-                while IFS="\n" read package; do 
-                    count=$((${count} + 1)); 
-                    apt_depens[${count}]=${count}" - ${package}"
-                done < ${aptlistLocation}
-            }
-            carrega_apt_depens; clear
-            e_header "listando APT pacotes, totalizando (${#apt_depens[@]})"; i=0;
-            if [[ ${#apt_depens[@]} -lt 100 ]]; then
-                for package in "${apt_depens[@]}"; do
-                    printf "$(e_arrow "$package")\t"
-                    ((i=$i+1))
-                done
+    function p(){                             #-\_(``)_/-#
+        unset __dp; declare __dp=();
+        __dp=( "libdvdnav4" "libdvdread4" "gstreamer1_0_plugins_bad" "bluefish" "anjuta" "tor" "byobu"
+            "gstreamer1_0_plugins_ugly" "ubuntu_restricted_extras" "bluefish_plugins" "eclipse" "grep"
+            "figlet" "codeblocks_contrib" "codeblocks" "mingw_w64" "build_essential" "gcc"  "aptitude"
+            "g_plus_plus" "gpp" "openjdk_8_jdk" "python3" "python_pip" "anjuta_extra" "tilix"  "nmcli"
+            "google" "links" "chromium" "epiphany_browser" "torbrowser_launcher"  "terminology"  "awk"
+            "playonlinux" "wine" "geany" "atom"  "vscodium" "Neovim" "vscode"  "sublime_text"  "boxes"
+            "Anaconda3"  "android_studio"  "Glade"  "Chatty_StreamlinkTwitchGUI" "StreamlinkTwitchGUI" 
+            "vlc"  "libgdbm-dev"  "gource"  "npm"  "ffmpeg"  "sublime-merge"  "tmux-xpanes"  "ansible" 
+            "zlib1g-dev" "libgdbm3" "libffi-dev"  "postgresql"  "python-pip" "xampp" "libncurses5-dev" 
+            "libreadline6-dev"  "libyaml-dev"  "libssl-dev" "build-essential" "bison" "autoconf" "rvm" 
+            "handbrake-cli"  "vim"  "silentcast"  "yad"  "xdg-utils"  "python-cairo"  "python-gobject" 
+            "wmctrl" "wininfo" "xdotool"  "x11-xserver-utils"  "libav-tools"  "php7.2-opcache" "irssi"
+            "php7.2-readline" "php7.2-json" "php7.2-common" "php7.2-cli"  "php-common"  "php7.2-mysql" 
+            "libapache2-mod-php7.2" "php-gettext" "php7.2-pgsql" "phppgadmin" "php7.2"  "mysql-server" 
+            "postgresql-contrib" "mysql-workbench" "tree" "telnet" "sl" "thefuck"  "silversearcher-ag" 
+            "nmap" "mercurial" "jq" "imagemagick" "id3tool" "hollywood" "groff" "git-core" "docker.io"
+            "docker-compose" "curl" "cowsay" "cmatrix" "build-essential"  "awscli"  "neofetch"  "htop" 
+            "tput" "kdevelop" );
+        l=${#__dp[@]};
+        for ((i=0;i<=l;i++)); do
+             clicked[$i]="[ ]"
+        done; c=0
+        while true ; do
+            Titulo_Inicial; printf "\n\n\n\n"; e_arrow "Click as dependências para instalação : "
+            for ((i=0;i<l;i++)) ; do
+                e_arrow -d "$((${i}+1)))\t${clicked[${i}]}${__dp[${i}]}\t"            
+            done
+            e_arrow -l "(${red}s${reset})air | Número [ 1 .. $i ] :${blue}${bold} "; read opt
+            if [ "${opt}" = "s" ] ; then
+                break
             else
-                for package in "${apt_depens[@]}"; do
-                    printf "$(e_arrow "$package")\t"
-                    ((i=$i+1))
-                    if [ $i = 100 ] ; then
-                        break
-                    fi
-                done
-            fi
-            printf "\n\n"; seek_confirmation "Estamos falando de (${#apt_depens[@]}) pacotes, gotaria de realizar um search?"
-            if is_confirmed; then
-                while true; do
-                    unset apt_depens_search;
-                    printf "\nDigite a palavra para a busca ou (i)nstalar, (s)air : "; read string
-                    if [ ${string} = "s" ] ; then
-                        break
-                    fi
-                    if [ ${string} = "i" ] ; then
-                        printf "\nDigite o nome do pacote para instalar ou (s)air : "; read string
-                        if [ ${string} = "s" ] ; then
-                            break
-                        else
-                            clear;
-                            apt-cache showpkg ${string}
-                            apt depends ${string}; 
-                            printf "\nVocê pode escolher instalar com (a)pt ou a(p)titude : "; read opt
-                            if [[ ${opt} = "a" ]]; then
-                                sudo apt install ${string}
-                            elif [[ ${opt} = "p" ]]; then
-                                sudo aptitude install ${string}
-                            fi
-                        fi
-                    else
-                        grep -r ${string} ${aptlistLocation} > ${searchLocation}; count=0;
-                        while IFS="\n" read package; do 
-                            count=$((${count} + 1)); 
-                            apt_depens_search[${count}]=${count}" - ${package}"
-                        done < ${searchLocation}; i=0;
-                        for package in "${apt_depens_search[@]}"; do
-                            printf "$(e_arrow "$package")\t"
-                            ((i=$i+1))
-                        done
-                    fi
-                done
-            else
-                e_header "listando APT pacotes, toltalizando (${#apt_depens[@]})"; i=0;
-                for package in "${apt_depens[@]}"; do
-                    printf "$(e_arrow "$package")\t"
-                    ((i=$i+1))
-                done
-            fi
-            read; 
-        # -----------------------------------------------------------------------------------------    
-                                                              # [ Purge e auto-remover de pacotes ]
-        # -----------------------------------------------------------------------------------------
-        elif [ ${opt} = "t" ] ; then
-            sudo apt --purge autoremove
-        elif [ ${opt} = "r" ] ; then
-            #sudo apt edit-sources
-            nano /etc/apt/sources.list
-        elif [ ${opt} = "h" ] ; then
-            read -p "Digite o nome do pacote, para holding : " pac
-            apt hold ${pac}; read;
-        elif [ ${opt} = "u" ] ; then
-            read -p "Digite o nome do pacote, para unholding : " pac
-            apt unhold ${pac}; read;
-        elif [ ${opt} = "a" ] ; then
-            sudo apt update && sudo apt upgrade; read
-        elif [ ${opt} = "e" ] ; then
-            read -p "Digite o nome do pacote, para pesquisar : " pac
-            apt-cache search ${pac}; read;
-            apt-cache pkgnames ${pac}; read;
-            apt-cache show ${pac}; read;
-            apt-cache showpkg ${pac}; read; 
-            apt depends ${pac}; read; 
-        elif [ ${opt} = "q" ] ; then # pacotes quebrados
-            sudo apt-get check                  
-            seek_confirmation "Instalar dependências ?"
-            if is_confirmed; then
-                read -p "Digite o nome do pacote, para instalar dependências : " pac
-                which ${pac}; printf "\n"; seek_confirmation "Instalar dependências ?"
-                if is_confirmed; then
-                    printf "\n"; sudo apt-get build-dep $pac
+                t=$((opt-1))
+                if [ "${clicked[${t}]}" = "[ ]" ] ; then
+                    clicked[${t}]="[$(e_success)]"
                 else
-                    e_arrow -d "Retornando ao menu principal."; 
+                    clicked[${t}]="[ ]"
                 fi
             fi
-        fi
-        Principal
+        done
+        l=${#clicked[@]}; 
+        for i in ${clicked[@]} ; do
+            if [ "${clicked[${c}]}" = "[$(e_success)]" ] ; then
+                Titulo_Inicial; printf "\n\n\n\n"
+                e_arrow "Iniciando instalação dependências. $(e_success)"
+                #echo "c=${c}, __dp=${__dp[${c}]}, click=${clicked[${c}]}"
+                which ${__dp[${c}]} &>/dev/null ||
+                    seek_confirmation "${USER}, permite a instalação do pacote  ${__dp[${c}]}, no sistema ?" 
+                    if is_confirmed; then
+                        ___Dependencia; e_success "Carregado ... dependências";   
+                        e_arrow -d "Instalando : ${__dp[${c}]}."
+                        echo ${#desenvolvimentoNome[@]}
+                        for ((j=0;j<=${#desenvolvimentoNome[@]};j++)); do
+                            if [ "${__dp[${c}]}" = "${desenvolvimentoNome[$j]}" ] ; then
+                                echo "${desenvolvimentoNome[$j]}"
+                                echo "${desenvolvimentoDescription[$j]}"
+                                echo "${desenvolvimentoversion[$j]}"
+                                echo "${desenvolvimentoHomepage[$j]}"
+                                echo "${desenvolvimentoInstall[$j]}"
+                                if [ ${__dp[${c}]} = "python3" ] ; then      
+                                    for ((a=0;a<=${#desenvolvimentoInstall_11[@]};a++)); do 
+                                        echo ${desenvolvimentoInstall_11[$a]} # 3        
+                                    done                                                 
+                                    for ((b=0;b<=${#desenvolvimentoInstall_11A[@]};b++)); do
+                                        echo ${desenvolvimentoInstall_11A[$b]} # 5          
+                                    done                                                    
+                                    for ((c=0;c<=${#desenvolvimentoInstall_11B[@]};c++)); do
+                                        echo ${desenvolvimentoInstall_11B[$c]} # 16         
+                                    done                                                    
+                                    for ((d=0;d<=${#desenvolvimentoInstall_11C[@]};d++)); do
+                                        echo ${desenvolvimentoInstall_11C[$d]} # 21         
+                                    done                                                    
+                                fi                                                          
+                            fi
+                        done
+                        echo ${#browsersNome[@]}
+                        for ((j=0;j<=${#browsersNome[@]};j++)); do
+                            if [ "${__dp[${c}]}" = "${browsersNome[$j]}" ] ; then
+                                echo "${browsersNome[$j]}"
+                                echo "${browsersDescription[$j]}"
+                                echo "${browsersversion[$j]}"
+                                echo "${browsersHomepage[$j]}"
+                                echo "${browsersInstall[$j]}"
+                            fi
+                        done
+                        echo ${#codecsNome[@]}
+                        for ((j=0;j<=${#codecsNome[@]};j++)); do
+                            if [ "${__dp[${c}]}" = "${codecsNome[$j]}" ] ; then
+                                echo "${codecsNome[$j]}"
+                                echo "${codecsDescription[$j]}"
+                                echo "${codecsversion[$j]}"
+                                echo "${codecsHomepage[$j]}"
+                                echo "${codecsInstall[$j]}"
+                            fi
+                        done
+                        echo ${#diversosNome[@]}
+                        for ((j=0;j<=${#diversosNome[@]};j++)); do
+                            if [ "${__dp[${c}]}" = "${diversosNome[$j]}" ] ; then
+                                echo "${diversosNome[$j]}"
+                                echo "${diversosDescription[$j]}"
+                                echo "${diversosversion[$j]}"
+                                echo "${diversosHomepage[$j]}"
+                                echo "${diversosInstall[$j]}"
+                            fi
+                        done
+                        echo ${#Nome[@]}
+                        for ((j=0;j<=${#Nome[@]};j++)); do
+                            if [ "${__dp[${c}]}" = "${Nome[$j]}" ] ; then
+                                echo "${Nome[$j]}"
+                                echo "${Description[$j]}"
+                                echo "${version[$j]}"
+                                echo "${Homepage[$j]}"
+                                echo "${Install[$j]}"
+                            fi
+                        done
+
+                    else
+                        e_success "O pacote ${__dp[${c}]} escolhido, esta instalado em $(which ${__dp[${c}]})."
+                    fi
+                    e_arrow "Configuração dependência ${__dp[${c}]} terminada. $(e_success)"
+                    sleep 1
+            fi
+            let $((++c))
+        done
+        read; Principal;
     }
     # -----------------------------------------------------------------------------------------
-                                                                  # Testes de funções para json
+                                                                        # Função Instalador
     # -----------------------------------------------------------------------------------------
-    function bashJson(){
-        python readjson.py "$@"
-    }
-    function jsonGet {
-        python -c 'import json,sys
-        o=json.load(sys.stdin)
-        k="'$1'"
-        if k != "":
-            for a in k.split("."):
-                if isinstance(o, dict):
-                    o=o[a] if a in o else ""
-                elif isinstance(o, list):
-                    if a == "length":
-                        o=str(len(o))
-                elif a == "join":
-                    o=",".join(o)
-                else:
-                    o=o[int(a)]
-                else:
-                    o=""
-        if isinstance(o, str) or isinstance(o, unicode):
-            print o
-        else:
-            print json.dumps(o)
-        '
-    }
-    function lp(){
-        python -c "
-            from jsonpath_rw import jsonpath, parse
-            import sys,json
-            jsonpath_expr = parse('Install.comandos[1]')
-            out = [match.value for match in jsonpath_expr.find(json.load(sys.stdin))]
-            print out;
-        "
-    }
-    function json_extract() {
-        local key=$1
-        local json=$2
-
-        local string_regex='"([^"\]|\\.)*"'
-        local number_regex='-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?'
-        local value_regex="${string_regex}|${number_regex}|true|false|null"
-        local pair_regex="\"${key}\"[[:space:]]*:[[:space:]]*(${value_regex})"
-
-        if [[ ${json} =~ ${pair_regex} ]]; then
-            echo $(sed 's/^"\|"$//g' <<< "${BASH_REMATCH[1]}")
-        else
-            return 1
+    function __Instalador(){
+        which yad || Dependencias yad; clear;
+        
+        e_arrow "O ${red}${reset}${blue}   ${reset} instala vários aplicativos,
+            conforme o usuários faz uso do software."
+        printf "\n"; apt-cache stats; printf "\n"; read -p "Digite, qq tecla para continuar ...";
+        
+        clear
+        e_arrow "As seguintes dependencias foram detectadas:"; printf "\n";
+        echo $1; printf "\n";
+        read -p "Você, pode instala(${purple}r${reset}) os pacotes que desejar no próximo \
+            passo ou permitir que o Bo(${purple}b${reset}) realize este trabalho: " opt
+        if [ $opt = "r" ] ; then
+            e_note -c "Você pode ter a lista de todos os pacotes \
+                (${purple}i${reset}${blue})nstalados ou uma \
+                (${purple}l${reset}${blue})ista de todos os"
+            e_note -c "pacotes disponiveis para instalação no aplicativo gerênciador de \
+                pacotes, ainda"
+            e_note -c "pode pesquisar por um pacote (${purple}e${reset}${blue})specífico, \
+                bastando digitar o nome do aplicativo"
+            e_note -c "abaixo, contendo dependências e informações diversas, pode ainda \
+                pesquisar por pacotes"
+            e_note -c "(${purple}q${reset}${blue})uebrados. Ou mesmo \
+                (${purple}a${reset}${blue})tualizar com update e fazer upgrade. O \
+                (${purple}h${reset}${blue})olding de pacotes" 
+            e_note -c "significa que ele não pode ser atualizado até você voltar a usá-lo \
+                novamente."
+            e_note -c "Aqui (${purple}u${reset}${blue})nhold. Se quizer editar o arquivo de \
+                o(${purple}r${reset}${blue})igem, sera mostrado uma"
+            e_note -c "lista com os editores disponiveis aconselhamos o uso do indicado pela \
+                seta. Gostaria" 
+            e_note -c "de usar o au(${purple}t${reset}${blue})oremove + purge. E \
+                re(${purple}m${reset}${blue})over e purgar, digite o nome abaixo."
+            e_note -c "E se deseja i(${purple}n${reset}${blue})stalar. Descubra todo o pacote \
+                Debian que pode"
+            e_note -c "ser usado para detecção de intru(${purple}s${reset}${blue})ão. Descubra \
+                todos os pacotes sni(${purple}f${reset}${blue})fer."
+            e_note -c "E por último, tudo em um só lu(${purple}g${reset}${blue})ar aptitude.";
+            read -p "Digite uma das letras entre parenteses, acima : " opt
+            # -----------------------------------------------------------------------------------------    
+                                                                      # [ lista de pacotes instalados ]
+            # -----------------------------------------------------------------------------------------
+            if [ ${opt} = "i" ] ; then
+                apt list --installed; 
+                seek_confirmation "Gostaria de mais detalhes."
+                if is_confirmed; then
+                    dpkg -l; 
+                fi
+                read; 
+            # -----------------------------------------------------------------------------------------    
+                                                                   # [ Programa de controle de pacote ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "g" ] ; then
+                aptitude
+            # -----------------------------------------------------------------------------------------    
+                                                  # [ lista de pacotes que compẽm o conjunto snniffer ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "f" ] ; then
+                apt-cache search sniffer; read;
+            # -----------------------------------------------------------------------------------------    
+                                      # [ lista de pacotes que compẽm o conjunto Intrusion Detectioln ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "s" ] ; then
+                apt-cache search "Intrusion Detection"; read;
+            # -----------------------------------------------------------------------------------------    
+                                                                               # [ Remover de pacotes ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "m" ] ; then
+                read -p "Digite o nome do pacote, para remover e purgar : " pac
+                sudo apt remove ${pac};
+                sudo apt purge ${pac}; read;
+            # -----------------------------------------------------------------------------------------    
+                                                                              # [ Instalar de pacotes ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "n" ] ; then
+                read -p "Digite o nome do pacote, para instalar : " pac
+                sudo apt install ${pac}; #read;
+            # -----------------------------------------------------------------------------------------    
+                                                     # [ lista de pacotes disponiveis para instalação ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "l" ] ; then
+                local count=0;
+                declare apt_depens_search;
+                if [ -f ${aptlistLocation} ] ; then  
+                    apt-cache pkgnames > ${aptlistLocation}
+                fi 
+                function carrega_apt_depens(){
+                    while IFS="\n" read package; do 
+                        count=$((${count} + 1)); 
+                        apt_depens[${count}]=${count}" - ${package}"
+                    done < ${aptlistLocation}
+                }
+                carrega_apt_depens; clear
+                e_header "listando APT pacotes, totalizando (${#apt_depens[@]})"; i=0;
+                if [[ ${#apt_depens[@]} -lt 100 ]]; then
+                    for package in "${apt_depens[@]}"; do
+                        printf "$(e_arrow "$package")\t"
+                        ((i=$i+1))
+                    done
+                else
+                    for package in "${apt_depens[@]}"; do
+                        printf "$(e_arrow "$package")\t"
+                        ((i=$i+1))
+                        if [ $i = 100 ] ; then
+                            break
+                        fi
+                    done
+                fi
+                printf "\n\n"; seek_confirmation "Estamos falando de (${#apt_depens[@]}) pacotes, gotaria de realizar um search?"
+                if is_confirmed; then
+                    while true; do
+                        unset apt_depens_search;
+                        printf "\nDigite a palavra para a busca ou (i)nstalar, (s)air : "; read string
+                        if [ ${string} = "s" ] ; then
+                            break
+                        fi
+                        if [ ${string} = "i" ] ; then
+                            printf "\nDigite o nome do pacote para instalar ou (s)air : "; read string
+                            if [ ${string} = "s" ] ; then
+                                break
+                            else
+                                clear;
+                                apt-cache showpkg ${string}
+                                apt depends ${string}; 
+                                printf "\nVocê pode escolher instalar com (a)pt ou a(p)titude : "; read opt
+                                if [[ ${opt} = "a" ]]; then
+                                    sudo apt install ${string}
+                                elif [[ ${opt} = "p" ]]; then
+                                    sudo aptitude install ${string}
+                                fi
+                            fi
+                        else
+                            grep -r ${string} ${aptlistLocation} > ${searchLocation}; count=0;
+                            while IFS="\n" read package; do 
+                                count=$((${count} + 1)); 
+                                apt_depens_search[${count}]=${count}" - ${package}"
+                            done < ${searchLocation}; i=0;
+                            for package in "${apt_depens_search[@]}"; do
+                                printf "$(e_arrow "$package")\t"
+                                ((i=$i+1))
+                            done
+                        fi
+                    done
+                else
+                    e_header "listando APT pacotes, toltalizando (${#apt_depens[@]})"; i=0;
+                    for package in "${apt_depens[@]}"; do
+                        printf "$(e_arrow "$package")\t"
+                        ((i=$i+1))
+                    done
+                fi
+                #read; 
+            # -----------------------------------------------------------------------------------------    
+                                                                  # [ Purge e auto-remover de pacotes ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "t" ] ; then
+                sudo apt --purge autoremove
+            # -----------------------------------------------------------------------------------------    
+                                                                              # [ editar sources.list ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "r" ] ; then
+                #sudo apt edit-sources
+                nano /etc/apt/sources.list
+            # -----------------------------------------------------------------------------------------    
+                                                                               # [ holding de pacotes ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "h" ] ; then
+                read -p "Digite o nome do pacote, para holding : " pac
+                apt hold ${pac}; read;
+            # -----------------------------------------------------------------------------------------    
+                                                                             # [ unholding de pacotes ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "u" ] ; then
+                read -p "Digite o nome do pacote, para unholding : " pac
+                apt unhold ${pac}; read;
+            # -----------------------------------------------------------------------------------------    
+                                                                      # [ update e upgrade de pacotes ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "a" ] ; then
+                sudo apt update && sudo apt upgrade; read
+            # -----------------------------------------------------------------------------------------    
+                                                                                # [ pesquisar pacotes ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "e" ] ; then
+                read -p "Digite o nome do pacote, para pesquisar : " pac
+                apt-cache search ${pac}; read;
+                apt-cache pkgnames ${pac}; read;
+                apt-cache show ${pac}; read;
+                apt-cache showpkg ${pac}; read; 
+                apt depends ${pac}; read; 
+            # -----------------------------------------------------------------------------------------    
+                                                                                # [ pacotes quebrados ]
+            # -----------------------------------------------------------------------------------------
+            elif [ ${opt} = "q" ] ; then # pacotes quebrados
+                sudo apt-get check                  
+                seek_confirmation "Instalar dependências ?"
+                if is_confirmed; then
+                    read -p "Digite o nome do pacote, para instalar dependências : " pac
+                    which ${pac}; printf "\n"; seek_confirmation "Instalar dependências ?"
+                    if is_confirmed; then
+                        printf "\n"; sudo apt-get build-dep $pac
+                    else
+                        e_arrow -d "Retornando ao menu principal."; 
+                    fi
+                fi
+            fi
+        elif [ $opt = "b" ] ; then
+            apt-cache showpkg ${1}
+            apt depends ${1}; read;
+            Dependencias ${1}; 
         fi
-    }
-    function parse_json()
-    {
-        echo $1 | \
-        sed -e 's/[{}]/''/g' | \
-        sed -e 's/", "/'\",\"'/g' | \
-        sed -e 's/" ,"/'\",\"'/g' | \
-        sed -e 's/" , "/'\",\"'/g' | \
-        sed -e 's/","/'\"---SEPERATOR---\"'/g' | \
-        awk -F=':' -v RS='---SEPERATOR---' "\$1~/\"$2\"/ {print}" | \
-        sed -e "s/\"$2\"://" | \
-        tr -d "\n\t" | \
-        sed -e 's/\\"/"/g' | \
-        sed -e 's/\\\\/\\/g' | \
-        sed -e 's/^[ \t]*//g' | \
-        sed -e 's/^"//'  -e 's/"$//'
-    }
-    function LerJson() {
-        python -c "import json,sys;sys.stdout.write(json.dumps(json.load(sys.stdin)$1))";
+        unset dp; Verifica_dp;
     }
     # ----------------------------------------------------------------------------------------
                                                                # REVIEW  Dependencias Function
@@ -1691,397 +1736,9 @@ function Class_Bob(){
     function squeeze_lines() {
         sed '/^[[:space:]]\+$/s/.*//g' | cat -s | trim_lines
     }
-                                                         
-}
-
-# ========================================================================================
-# Class Dependncias
-# ----------------------------------------------------------------------------------------
-# 
-# 
-# ----------------------------------------------------------------------------------------
-function Class_Dependencias(){
-    # -----------------------------------------------------------------------------------------    
-                                                                               # [ Constantes ]
-    # -----------------------------------------------------------------------------------------    
-    release_name=$(lsb_release -c | awk '{print $2}')
-    installers_path="$DOTFILES/caches/installers"
-    declare -a apt_depens=()
-    declare -a apt_keys=()
-    declare -a apt_source_files=()
-    declare -a apt_source_texts=()
-    declare -a deb_installed=()
-    declare -a deb_sources=()
-    # -----------------------------------------------------------------------------------------    
-                                                                                  # [ Funções ]
-                                                             # Auxiliar para instalações de ppa                                                                              
-    # -----------------------------------------------------------------------------------------    
-    function add_ppa() {
-      apt_source_texts+=($1)
-      IFS=':/' eval 'local parts=($1)'
-      apt_source_files+=("${parts[1]}-ubuntu-${parts[2]}-$release_name")
-    }
-    # -----------------------------------------------------------------------------------------    
-                                                                                    # [ ppa's ]
-    # -----------------------------------------------------------------------------------------    
-    # https://github.com/neovim/neovim/wiki/Installing-Neovim
-    add_ppa ppa:neovim-ppa/stable
-    # https://launchpad.net/~stebbins/+archive/ubuntu/handbrake-releases
-    add_ppa ppa:stebbins/handbrake-releases
-    # https://github.com/rvm/ubuntu_rvm
-    add_ppa ppa:rael-gc/rvm
-    # https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-16-04
-    add_ppa ppa:ansible/ansible
-    # http://tipsonubuntu.com/2016/09/13/vim-8-0-released-install-ubuntu-16-04/
-    add_ppa ppa:jonathonf/vim
-    # https://launchpad.net/~hnakamur/+archive/ubuntu/tmux
-    add_ppa ppa:hnakamur/tmux
-    # https://github.com/greymd/tmux-xpanes   BOM
-    add_ppa ppa:greymd/tmux-xpanes
-    if is_ubuntu_desktop; then
-        add_ppa ppa:fossfreedom/arc-gtk-theme-daily
-        # https://www.techrepublic.com/article/how-to-connect-a-linux-machine-to-google-cloud-print/
-        # sudo /usr/share/cloudprint-cups/setupcloudprint.py  
-        add_ppa ppa:simon-cadman/niftyrepo
-        # https://github.com/tagplus5/vscode-ppa
-        apt_keys+=(https://tagplus5./.io/vscode-ppa/ubuntu/gpg.key)
-        apt_source_files+=(vscode.list)
-        apt_source_texts+=("deb https://tagplus5.github.io/vscode-ppa/ubuntu ./")
-        # https://www.ubuntuupdates.org/ppa/google_chrome
-        apt_keys+=(https://dl-ssl.google.com/linux/linux_signing_key.pub)
-        apt_source_files+=(google-chrome)
-        apt_source_texts+=("deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main")
-        # https://www.charlesproxy.com/documentation/installation/apt-repository/
-        apt_keys+=(https://www.charlesproxy.com/packages/apt/PublicKey)
-        apt_source_files+=(charles)
-        apt_source_texts+=("deb https://www.charlesproxy.com/packages/apt/ charles-proxy3 main")
-        # https://github.com/aluxian/Messenger-for-Desktop#linux
-        apt_keys+=('--keyserver pool.sks-keyservers.net --recv 6DDA23616E3FE905FFDA152AE61DA9241537994D')
-        apt_source_files+=(aluxian)
-        apt_source_texts+=("deb https://dl.bintray.com/aluxian/deb/ beta main")
-        # https://www.spotify.com/us/download/linux/
-        apt_keys+=('--keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886')
-        apt_source_files+=(spotify)
-        apt_source_texts+=("deb http://repository.spotify.com stable non-free")
-        # https://tecadmin.net/install-oracle-virtualbox-on-ubuntu/
-        apt_keys+=(https://www.virtualbox.org/download/oracle_vbox_2016.asc)
-        apt_source_files+=(virtualbox)
-        apt_source_texts+=("deb http://download.virtualbox.org/virtualbox/debian $release_name contrib")
-        # https://www.skype.com/en/download-skype/skype-for-linux/
-        # https://community.skype.com/t5/Linux/Skype-for-Linux-Beta-signatures-couldn-t-be-verified-because-the/td-p/4645756
-        apt_keys+=(https://repo.skype.com/data/SKYPE-GPG-KEY)
-        apt_source_files+=(skype-stable)
-        apt_source_texts+=("deb https://repo.skype.com/deb stable main")
-        # http://askubuntu.com/a/190674
-        add_ppa ppa:webupd8team/java
-        # https://github.com/colinkeenan/silentcast/#ubuntu
-        # https://github.com/colinkeenan/silentcast/#ubuntu-linux-full-install
-        add_ppa ppa:sethj/silentcast
-        add_ppa ppa:webupd8team/y-ppa-manager
-        # https://be5invis.github.io/Iosevka/
-        # https://launchpad.net/~laurent-boulard/+archive/ubuntu/fonts
-        add_ppa ppa:laurent-boulard/fonts
-        # https://launchpad.net/grub-customizer
-        add_ppa ppa:danielrichter2007/grub-customizer
-    fi
-    # -----------------------------------------------------------------------------------------    
-                                                                                  # [ Array's ]
-    # -----------------------------------------------------------------------------------------    
-    apt_depens=( "aptitude" "byobu" "nmcli" "grep" "awk" "figlet" "tput" "htop" "irssi" "neofetch"
-             "awscli" "build-essential" "cmatrix" "cowsay" "curl" "docker.io" "docker-compose"
-             "git-core" "groff" "hollywood" "htop" "id3tool" "imagemagick" "jq" "mercurial"
-             "nmap" "postgresql" "python-pip" "silversearcher-ag" "sl" "telnet" "thefuck"
-             "tree" );
-    apt_depens+=( "postgresql" "postgresql-contrib" "mysql-server" "php7.2" "phppgadmin" "php7.2-pgsql")
-    apt_depens+=( "phpmyadmin" "php-mbstring" "php-gettext" "mysql-workbench")
-
-    apt_depens+=( "libapache2-mod-php7.2" "php7.2-mysql" "php-common" "php7.2-cli" 
-            "php7.2-common" "php7.2-json" "php7.2-opcache" "php7.2-readline" "libav-tools" 
-            "x11-xserver-utils" "xdotool" "wininfo" "wmctrl" "python-gobject" 
-            "python-cairo" "xdg-utils" "yad" "silentcast" "vim" "neovim" "handbrake-cli" "rvm" );
-    # https://github.com/rbenv/ruby-build/wiki
-    apt_depens+=( "autoconf" "bison" "build-essential" "libssl-dev" "libyaml-dev" "libreadline6-dev"
-            "libncurses5-dev" "libffi-dev" "libgdbm3" "libgdbm-dev" "zlib1g-dev" "ansible" "vim" 
-            "tmux-xpanes" )
-    if is_ubuntu_desktop; then
-        apt_depens+=( "vim-gnome" );
-        apt_depens+=( "handbrake-gtk" );
-        # http://www.omgubuntu.co.uk/2016/06/install-latest-arc-gtk-theme-ubuntu-16-04
-        # apt_keys+=(http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key)
-        # apt_source_files+=(arc-theme)
-        # apt_source_texts+=("deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /")
-        # apt_depens+=(arc-theme)
-        apt_depens+=( "arc-theme" );
-        apt_depens+=( "cupscloudprint" );
-        apt_depens+=( "code code-insiders" );
-        apt_depens+=( "google-chrome-stable" );
-        apt_depens+=( "charles-proxy" );
-        apt_depens+=( "messengerfordesktop" );
-        apt_depens+=( "spotify-client" );
-        apt_depens+=( "virtualbox-5.1" );
-        apt_depens+=( "skypeforlinux" );
-        apt_depens+=( "oracle-java8-installer" );
-        function preinstall_oracle-java8-installer() {
-            echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
-            echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
-        }
-        apt_depens+=( "libav-tools" "x11-xserver-utils" "xdotool" "wininfo" "wmctrl" "python-gobject" 
-                    "python-cairo" "xdg-utils" "yad" "silentcast" );
-        apt_depens+=( "adb fastboot" )
-        apt_depens+=( "chromium-browser" "fonts-mplus" "gnome-tweak-tool" "k4dirstat" "rofi"
-                    "network-manager-openconnect" "network-manager-openconnect-gnome" "openssh-server"
-                    "shutter" "unity-tweak-tool" "vlc" "xclip" "zenmap" );
-        # Manage online accounts via "gnome-control-center" in launcher
-        apt_depens+=( "gnome-control-center" "gnome-online-accounts" );
-        # https://github.com/mitchellh/vagrant/issues/7411
-        deb_installed+=(/usr/bin/vagrant)
-        deb_sources+=(https://releases.hashicorp.com/vagrant/1.9.2/vagrant_1.9.2_x86_64.deb)
-        # https://github.com/vagrant-libvirt/vagrant-libvirt/issues/575
-        # apt_depens+=(vagrant)
-        # function postinstall_vagrant() {
-        #   sudo sed -i'' "s/Specification.all = nil/Specification.reset/" /usr/lib/ruby/vendor_ruby/vagrant/bundler.rb
-        # }
-        apt_depens+=( "fonts-iosevka" );
-        apt_depens+=( "grub-customizer" );
-
-        # https://support.gitkraken.com/how-to-install
-        deb_installed+=(/usr/bin/gitkraken)
-        deb_sources+=(https://release.gitkraken.com/linux/gitkraken-amd64.deb)
-
-        # http://www.get-notes.com/linux-download-debian-ubuntu
-        apt_depens+=( "libqt5concurrent5" );
-        deb_installed+=(/usr/bin/notes)
-        deb_sources+=("https://github.com/nuttyartist/notes/releases/download/v1.0.0/notes_1.0.0_amd64-$release_name.deb")
-
-        # https://www.dropbox.com/install-linux
-        apt_depens+=("python-gtk2" "python-gpgme" );
-        deb_installed+=(/usr/bin/dropbox)
-        deb_sources+=("https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2015.10.28_amd64.deb")
-
-        # http://askubuntu.com/a/852727
-        apt_depens+=( "cabextract" );
-        deb_installed+=(/usr/share/fonts/truetype/msttcorefonts)
-        deb_sources+=(deb_source_msttcorefonts)
-        function deb_source_msttcorefonts() {
-            echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
-            echo http://ftp.debian.org/debian/pool/contrib/m/msttcorefonts/ttf-mscorefonts-installer_3.6_all.deb
-        }
-
-        # https://slack.com/downloads/instructions/linux
-        deb_installed+=(/usr/bin/slack)
-        deb_sources+=(https://downloads.slack-edge.com/linux_releases/slack-desktop-2.5.2-amd64.deb)
-
-        # https://discordapp.com/download
-        deb_installed+=(/usr/bin/discord)
-        deb_sources+=("https://discordapp.com/api/download?platform=linux&format=deb")
-
-        # http://askubuntu.com/questions/854480/how-to-install-the-steam-client/854481#854481
-        apt_depens+=(python-apt)
-        deb_installed+=(/usr/bin/steam)
-        deb_sources+=(deb_source_steam)
-        function deb_source_steam() {
-            local steam_root steam_file
-            steam_root=http://repo.steampowered.com/steam/pool/steam/s/steam/
-            steam_file="$(wget -q -O- "$steam_root?C=M;O=D" | sed -En '/steam-launcher/{s/.*href="([^"]+)".*/\1/;p;q;}')"
-            echo "$steam_root$steam_file"
-        }
-        # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=772598
-        # apt_depens+=(steam)
-        # function preinstall_steam() {
-        #   echo steam steam/question select I AGREE | sudo debconf-set-selections
-        #   echo steam steam/license note | sudo debconf-set-selections
-        # }
-    fi
-
-    function other_stuff() {
-        # Install Git Extras
-        if [[ ! "$(type -P git-extras)" ]]; then
-            e_header "Installing Git Extras"
-            (
-                cd $DOTFILES/vendor/git-extras &&
-                sudo make install
-            )
-        fi
-        # Install misc bins from zip file.
-        #install_from_zip ngrok 'https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip'
-        #install_from_zip terraform 'https://releases.hashicorp.com/terraform/0.9.2/terraform_0.9.2_linux_amd64.zip'
-    }
-
-    if (( ${#apt_depens[@]} > 0 )); then
-        e_header "Instalando APT pacotes (${#apt_depens[@]})"; i=0;
-        for package in "${apt_depens[@]}"; do
-            printf "$(e_arrow " ${i}-$apt_source_texts")\t"
-            printf "$(e_arrow " ${i}-$package")\t"
-            ((i=$i+1))
-        done
-        printf "\n\n"; e_header "Instalando PPA pacotes (${#apt_source_texts[@]})"; i=0;
-        for package in "${apt_source_texts[@]}"; do
-            printf "$(e_arrow " ${i}-$apt_source_texts")\t"
-            ((i=$i+1))
-        done
-    fi
-    read
-    ####################
-    # ACTUALLY DO THINGS
-    ####################
-
-    # Add APT keys.
-    keys_cache=$DOTFILES/caches/init/apt_keys
-    IFS=$'\n' GLOBIGNORE='*' command eval 'setdiff_cur=($(<$keys_cache))'
-    setdiff_new=("${apt_keys[@]}"); setdiff; apt_keys=("${setdiff_out[@]}")
-    unset setdiff_new setdiff_cur setdiff_out
-
-    if (( ${#apt_keys[@]} > 0 )); then
-        e_header "Adding APT keys (${#apt_keys[@]})"
-        for key in "${apt_keys[@]}"; do
-            e_arrow "$key"
-            if [[ "$key" =~ -- ]]; then
-                sudo apt-key adv $key
-            else
-                wget -qO- $key | sudo apt-key add -
-            fi && \
-            echo "$key" >> $keys_cache
-        done
-    fi
-
-    # Add APT sources.
-    function __temp() { [[ ! -e /etc/apt/sources.list.d/$1.list ]]; }
-    source_i=($(array_filter_i apt_source_files __temp))
-
-    if (( ${#source_i[@]} > 0 )); then
-        e_header "Adding APT sources (${#source_i[@]})"
-        for i in "${source_i[@]}"; do
-            source_file=${apt_source_files[i]}
-            source_text=${apt_source_texts[i]}
-            if [[ "$source_text" =~ ppa: ]]; then
-                e_arrow "$source_text"
-                sudo add-apt-repository -y $source_text
-            else
-                e_arrow "$source_file"
-                sudo sh -c "echo '$source_text' > /etc/apt/sources.list.d/$source_file.list"
-            fi
-        done
-    fi
-
-    # Update APT.
-    e_header "Updating APT"
-    sudo apt-get -qq update
-
-    # Only do a dist-upgrade on initial install, otherwise do an upgrade.
-    e_header "Upgrading APT"
-    if is_dotfiles_bin; then
-        sudo apt-get -qy upgrade
-    else
-        sudo apt-get -qy dist-upgrade
-    fi
-
-    # Install APT packages.
-    installed_apt_depens="$(dpkg --get-selections | grep -v deinstall | awk 'BEGIN{FS="[\t:]"}{print $1}' | uniq)"
-    apt_depens=($(setdiff "${apt_depens[*]}" "$installed_apt_depens"))
-
-    if (( ${#apt_depens[@]} > 0 )); then
-        e_header "Instalando APT pacotes (${#apt_depens[@]})"
-        for package in "${apt_depens[@]}"; do
-            e_arrow "$package"
-            [[ "$(type -t preinstall_$package)" == function ]] && preinstall_$package
-            sudo apt-get -qq install "$package" && \
-            [[ "$(type -t postinstall_$package)" == function ]] && postinstall_$package
-        done
-    fi
-
-    # Install debs via dpkg
-    function __temp() { [[ ! -e "$1" ]]; }
-    deb_installed_i=($(array_filter_i deb_installed __temp))
-
-    if (( ${#deb_installed_i[@]} > 0 )); then
-        mkdir -p "$installers_path"
-        e_header "Installing debs (${#deb_installed_i[@]})"
-        for i in "${deb_installed_i[@]}"; do
-            e_arrow "${deb_installed[i]}"
-            deb="${deb_sources[i]}"
-            [[ "$(type -t "$deb")" == function ]] && deb="$($deb)"
-            installer_file="$installers_path/$(echo "$deb" | sed 's#.*/##')"
-            wget -O "$installer_file" "$deb"
-            sudo dpkg -i "$installer_file"
-        done
-    fi
-
-    # install bins from zip file
-    function install_from_zip() {
-        local name=$1 url=$2 bins b zip tmp
-        shift 2; bins=("$@"); [[ "${#bins[@]}" == 0 ]] && bins=($name)
-        if [[ ! "$(which $name)" ]]; then
-            mkdir -p "$installers_path"
-            e_header "Installing $name"
-            zip="$installers_path/$(echo "$url" | sed 's#.*/##')"
-            wget -O "$zip" "$url"
-            tmp=$(mktemp -d)
-            unzip "$zip" -d "$tmp"
-            for b in "${bins[@]}"; do
-              sudo cp "$tmp/$b" "/usr/local/bin/$(basename $b)"
-            done
-            rm -rf $tmp
-        fi
-    } 
-
-    # Run anything else that may need to be run.
-    type -t other_stuff >/dev/null && other_stuff
-}
-
-# =========================================================================================
-# ## DEBUG ###
-# if [ $1 = "-d" ] ; then
-# -----------------------------------------------------------------------------------------
-function debugPath_bob_util(){               ### PATH ###
-    echo $instalacao
-    echo $scriptPath_Home
-    echo $scriptPath_Bob
-    echo $scriptPath
-    echo $utilsLocation
-    echo $confLocation
-    echo $enderecoRelativo_bin
-    echo $enderecoRelativo_lib
-    echo $enderecoRelativo_view
-    echo $enderecoRelativo_doc
-    echo $jusanteLocation; echo $varDebug_jusante
-    echo $coresLocation; echo $varDebug_cores
-    echo $montanteLocation; echo $varDebug_montante
-    echo $tituloLocation; echo $varDebug_titulo
-    echo $confLocation; echo $varDebug_conf
 }
 # -----------------------------------------------------------------------------------------
-# fi
-### END DEBUG ###
-# =========================================================================================
-#Class_Dependencias
-
-# NÃO USADO
+                                                                       #(parte util do bob)
 # -----------------------------------------------------------------------------------------
-# Criar paths adicionais para arquivos que não foram tratados indivicualmente
-# -----------------------------------------------------------------------------------------
-# SOURCE="${BASH_SOURCE[0]}"
-
-# while [ -h "${SOURCE}" ]; do # resolve ${SOURCE} until the file is no longer a symlink
-# 	DIR="$( cd -P "$( dirname "${SOURCE}" )" && pwd )"
-# 	SOURCE="$(readlink "${SOURCE}")"
-# 	[[ ${SOURCE} != /* ]] && SOURCE="${DIR}/${SOURCE}" 
-# 	# if ${SOURCE} was a relative symlink, we need to resolve it relative to the path where 
-# 	#the symlink file was located
-# done
-# SOURCEPATH="$( cd -P "$( dirname "${SOURCE}" )" && pwd )"
-
-# if [ ! -d "${SOURCEPATH}" ] ; then
-#   	die "Failed to find library files expected in: ${SOURCEPATH}"
-# fi
-
-# for utility_file in "${SOURCEPATH}"/*.sh
-# do
-#   	if [ -e "${utility_file}" ]; then
-#     	# Don't source self
-#     	if [[ "${utility_file}" == *"utils.sh"* ]]; then
-#       		continue
-#     	fi
-#     	source "$utility_file"
-#   	fi
-# done
-# -----------------------------------------------------------------------------------------
+# bob_util script shell em: 17/07/2019 por: Elizeu de Santana copyright(c) MIT 2019
+# ----------------------------------------THE END------------------------------------------    

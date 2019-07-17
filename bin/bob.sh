@@ -23,22 +23,26 @@ scriptFileVersion="1.0.0";                                                # Vers
 # by: Elizeu de Santana -------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------------------
-# Prover uma variavel com a pespectiva de localizações do script
-instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
-scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
-scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
-scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
-# -----------------------------------------------------------------------------------------
-if [ $scriptPath != $scriptPath_Bob ] ; then
-    utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
+#Prover uma variavel com a pespectiva de localizações do script
+if [ $0 = "bob_i.sh" ] ; then
+    echo
 else
-    utilsLocation="${scriptPath}/lib/bob_util.sh"; 
-fi
-# -----------------------------------------------------------------------------------------
-if [ -f "${utilsLocation}" ]; then
-    source "${utilsLocation}"; Class_Bob;
-else
-    e_error "Erro carregando ${utilsLocation}"; Sair;
+    instalacao="/projetos/bob";                                          # Diretorio de Instalação apartir de HOME
+    scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
+    scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
+    scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
+    # -----------------------------------------------------------------------------------------
+    if [ $scriptPath != $scriptPath_Bob ] ; then
+        utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
+    else
+        utilsLocation="${scriptPath}/lib/bob_util.sh"; 
+    fi
+    # -----------------------------------------------------------------------------------------
+    if [ -f "${utilsLocation}" ]; then
+        source "${utilsLocation}"; Class_Bob;
+    else
+        e_error "Erro carregando ${utilsLocation}"; Sair;
+    fi
 fi
 # -----------------------------------------------------------------------------------------
                                                                        # (Função Principal)
@@ -86,14 +90,14 @@ function Principal(){
                                     por item, no caso de vc precisar monitorar\n
                                     algum item em especifico digite o número\n
                                     correspondente ao item manutenção e depois\n
-                                    digite a letra (e) para executar o comando. " "${ator}"; Desenha ;;
+                                    digite a letra (e) para executar o comando." "${ator}"; Desenha ;;
             "_services")    Escreve " Nesta escolha, você pode monitorar  e \n
-                                    examinar log's ativar e desativar services. " "${ator}"; Desenha ;;
+                                    examinar log's ativar e desativar services." "${ator}"; Desenha ;;
                "_radio")    Escreve " Nesta escolha, você ouvira só sucessos \n
                                     indico romanticas e LOVE SONGS. " "${ator}"; Desenha ;;
          "_bob_texto_1")    Escreve " (Principal -> Arquivo) " "${ator}"; Desenha ;;
-        "__bob_texto_2")    Escreve " Principal -> Arquivo (2) -> bob_texto_1 (1) " "${ator}"; Desenha ;;
-        "__bob_texto_3")    Escreve " Principal -> Arquivo (2) -> bob_texto_1 (2) " "${ator}"; Desenha ;;
+        "__bob_texto_2")    Escreve " Principal -> Arquivo (2) -> bob_texto_1 (1)" "${ator}"; Desenha ;;
+        "__bob_texto_3")    Escreve " Principal -> Arquivo (2) -> bob_texto_1 (2)" "${ator}"; Desenha ;;
                  "_cht")    Escreve " Melhores repositórios de folhas de dicas \n
                                     orientadas pela comunidade do mundo.\n 
                                     exemplo quer aprender sobre python ou sql\n
@@ -101,9 +105,13 @@ function Principal(){
                                     digitar  'python file' e pronto, não gostou\n
                                     da resposta, digite /2 .. 3 .. 4, etc ao\n
                                     fim da pergunta. exemplo: query desc/2" "${ator}"; Desenha ;;                                    
-            # "")         Escreve " " "${ator}"; Desenha ;;
-            "lembretes")    Escreve "  " "${ator}"; Desenha ;;
-             "contatos")    Escreve " " "${ator}"; Desenha ;;
+              "_gource")    Escreve " Esta animação mostra a evolução\n
+                                    do aplicativo Bob, no repositorio\n
+                                    github." "${ator}"; Desenha ;;
+            "lembretes")    Escreve " Agenda de lembretes base de dados\n
+                                    mysql" "${ator}"; Desenha ;;
+             "contatos")    Escreve " Agenda de copntatos base de dados\n
+                                    mysql." "${ator}"; Desenha ;;
            "manutencao")    Escreve " Manutenção é uma opção com monitoração\n
                                     on-time de todos os recursos de sua máquina\n
                                     pode também gerar relatótios de seu hardware\n

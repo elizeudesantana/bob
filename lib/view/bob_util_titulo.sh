@@ -19,40 +19,11 @@ scriptFileVersion="1.0.0" 													# Versão do script
 #
 # by: Elizeu de Santana -------------------------------------------------------------------
 
-# -----------------------------------------------------------------------------------------
-# Prover uma variavel com a pespectiva de localizações do script
-# instalacao="/Projetos/bob";                                          # Diretorio de Instalação apartir de HOME
-# scriptPath_Home="${HOME}";                                           # Diretorio HOME (~)
-# scriptPath_Bob="${scriptPath_Home}${instalacao}";                    # Diretrio de Instalação do Bob
-# scriptPath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";      # Diretorio de instalação do script 
-# # -----------------------------------------------------------------------------------------
-# if [ $scriptPath != $scriptPath_Bob ] ; then
-#     utilsLocation="${scriptPath_Bob}/lib/bob_util.sh";               # Diretorio de localização bob_util.sh
-# else
-#     utilsLocation="${scriptPath}/lib/bob_util.sh"; 
-# fi
-# -----------------------------------------------------------------------------------------
-# if [ -f "${confLocation}" ]; then       ### carregando o arquivo .conf ###
-#     source "${confLocation}";
-#     varDebug_conf="Realizado Source no arquivo: ${confLocation}" 
-# else
-#     echo "Por favor procure bob_util.sh e adicione referência a este script. Saindo.";
-#     exit 1;
-# fi
-# # -----------------------------------------------------------------------------------------
-# if [ -f "${coresLocation}" ]; then      ### carregando o arquivo de cores ###
-#     source "${coresLocation}";
-#     varDebug_cores="Realizado Source no arquivo: ${coresLocation}" 
-# else
-#     echo "Por favor procure bob_util.sh e adicione referência a este script. Saindo.";
-#     exit 1;
-# fi
 
-### Titulo inicial ###
 # -----------------------------------------------------------------------------------------
-# Monta o titulo cabeçalho para todas as paginas
-# by: Elizeu de Santana / 24-06-2019 
-# ----------------------------------------------------------------------------------------
+										   # Monta o titulo cabeçalho para todas as paginas
+													   # by: Elizeu de Santana / 24-06-2019 
+# -----------------------------------------------------------------------------------------
 function Titulo_Inicial(){
     clear
     local signal=$(nmcli -t device wifi | grep '^*' | awk -F':' '{print $6}')  
