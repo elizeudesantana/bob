@@ -430,142 +430,289 @@ function Class_Bob(){
                                                                        # REVIEW  (function dp )
     # -----------------------------------------------------------------------------------------
     function p(){                             #-\_(``)_/-#
-        unset __dp; declare __dp=(); #
-        __dp=( "libdvdnav4" "libdvdread4" "gstreamer1_0_plugins_bad" "bluefish" "anjuta" "tor" "byobu"
-            "gstreamer1_0_plugins_ugly" "ubuntu_restricted_extras" "bluefish_plugins" "eclipse" "grep"
-            "figlet" "codeblocks_contrib" "codeblocks" "mingw_w64" "build_essential" "gcc"  "aptitude"
-            "g_plus_plus" "gpp" "openjdk_8_jdk" "python3" "python_pip" "anjuta_extra" "tilix"  "nmcli"
-            "google" "links" "chromium" "epiphany_browser" "torbrowser_launcher"  "terminology"  "awk"
-            "playonlinux" "wine" "geany" "atom"  "vscodium" "Neovim" "vscode"  "sublime_text"  "boxes"
-            "Anaconda3"  "android_studio"  "Glade"  "Chatty_StreamlinkTwitchGUI" "StreamlinkTwitchGUI" 
-            "vlc"  "libgdbm-dev"  "gource"  "npm"  "ffmpeg"  "sublime-merge"  "tmux-xpanes"  "ansible" 
-            "zlib1g-dev" "libgdbm3" "libffi-dev"  "postgresql"  "python-pip" "xampp" "libncurses5-dev" 
-            "libreadline6-dev"  "libyaml-dev"  "libssl-dev" "build-essential" "bison" "autoconf" "rvm" 
-            "handbrake-cli"  "vim"  "silentcast"  "yad"  "xdg-utils"  "python-cairo"  "python-gobject" 
-            "wmctrl" "wininfo" "xdotool"  "x11-xserver-utils"  "libav-tools"  "php7.2-opcache" "irssi"
-            "php7.2-readline" "php7.2-json" "php7.2-common" "php7.2-cli"  "php-common"  "php7.2-mysql" 
-            "libapache2-mod-php7.2" "php-gettext" "php7.2-pgsql" "phppgadmin" "php7.2"  "mysql-server" 
-            "postgresql-contrib" "mysql-workbench" "tree" "telnet" "sl" "thefuck"  "silversearcher-ag" 
-            "nmap" "mercurial" "jq" "imagemagick" "id3tool" "hollywood" "groff" "git-core" "docker.io"
-            "docker-compose" "curl" "cowsay" "cmatrix" "build-essential"  "awscli"  "neofetch"  "htop" 
-            "tput" "kdevelop" );
-        l=${#__dp[@]};
-        for ((i=0;i<=l;i++)); do
-             clicked[$i]="[ ]"
-        done; c=0
-        while true ; do
-            Titulo_Inicial; printf "\n\n\n\n"; e_arrow "Click as dependências para instalação : "
-            for ((i=0;i<l;i++)) ; do
-                e_arrow -d "$((${i}+1)))\t${clicked[${i}]}${__dp[${i}]}\t"            
-            done
-            e_arrow -l "(${red}s${reset})air | Número [ 1 .. $i ] :${blue}${bold} "; read opt
-            if [ "${opt}" = "s" ] ; then
-                break
-            else
-                t=$((opt-1))
-                if [ "${clicked[${t}]}" = "[ ]" ] ; then
-                    clicked[${t}]="[$(e_success)]"
-                else
-                    clicked[${t}]="[ ]"
+        function menu_(){
+        Titulo_Inicial; printf "\n\n\n"; menu="1"; 
+        __multiselect result "libdvdnav4;libdvdread4;gstreamer1_0_plugins_bad;bluefish;anjuta;tor;byobu;\
+gstreamer1_0_plugins_ugly;ubuntu_restricted_extras;bluefish_plugins;grep;eclipse;figlet;\
+codeblocks_contrib;codeblocks;mingw_w64;build_essential;gcc;aptitude;g_plus_plus;proximo" "false;false;\
+false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;true"
+        }
+        function menu__(){
+        Titulo_Inicial; printf "\n\n\n"; menu="2"; 
+        __multiselect result "gpp;openjdk_8_jdk;python3;python_pip;anjuta_extra;tilix;nmcli;google;links;\
+chromium;epiphany_browser;torbrowser_launcher;terminology;awk;playonlinux;wine;geany;atom;vscodium;Neovim;\
+proximo" "false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;\
+false;false;false;false;true"
+        }
+        function menu___(){
+        Titulo_Inicial; printf "\n\n\n"; menu="3"; 
+        __multiselect result "vscode;sublime_text;boxes;Anaconda3;android_studio;Glade;Chatty_StreamlinkTwitchGUI;\
+StreamlinkTwitchGUI;vlc;libgdbm_dev;gource;npm;ffmpeg;sublime_merge;tmux_xpanes;ansible;zlib1g_dev;libgdbm3;\
+libffi_dev;postgresql;proximo" "false;false;false;false;false;false;false;false;false;false;false;false;false;\
+false;false;false;false;false;false;false;true"
+        }
+        function menu____(){
+        Titulo_Inicial; printf "\n\n\n"; menu="4"; 
+        __multiselect result "python-pip;xampp;libncurses5-dev;libreadline6-dev;libyaml-dev;libssl-dev;\
+build-essential;bison;autoconf;rvm;handbrake-cli;vim;silentcast;yad;xdg-utils;python-cairo;python-gobject;\
+wmctrl;wininfo;xdotool;proximo" "false;false;false;false;false;false;false;false;false;false;false;false;\
+false;false;false;false;false;false;false;false;true"
+        }
+        function menu_____(){
+        Titulo_Inicial; printf "\n\n\n"; menu="5"; 
+        __multiselect result "x11-xserver-utils;libav-tools;php7.2-opcache;irssi;php7.2-readline;php7.2-json;\
+php7.2-common;php7.2-cli;php-common;php7.2-mysql;libapache2-mod-php7.2;php-gettext;php7.2-pgsql;phppgadmin;\
+php7.2;mysql-server;postgresql-contrib;mysql-workbench;tree;telnet;proximo" "false;false;false;false;false;\
+false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;true"
+        }
+        function menu______(){
+        Titulo_Inicial; printf "\n\n\n"; menu="6"; 
+        __multiselect result "sl;thefuck;silversearcher-ag;nmap;mercurial;jq;imagemagick;id3tool;\
+hollywood;groff;git-core;docker.io;docker-compose;curl;cowsay;cmatrix;build-essential;awscli;neofetch;htop;\
+proximo" "false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;false;\
+false;false;false;true"
+        }
+        function menu_______(){
+        Titulo_Inicial; printf "\n\n\n"; menu="7"; 
+         __multiselect result "tput;kdevelop;anterior" "false;false;true"
+        }; menu_; echo "aqui"; echo ${result[20]}
+        for ((i=0;i<${#result[@]};i++)); do
+            if [ "${result[20]}" = "true" ] ; then
+                if [ "${menu}" = "1" ] ; then
+                    echo $menu; menu__; 
+                elif [ "${menu}" = "2" ] ; then
+                    echo $menu; menu___; 
+                elif [ "${menu}" = "3" ] ; then
+                    echo $menu; menu____; 
+                elif [ "${menu}" = "4" ] ; then
+                    echo $menu; menu_____; 
+                elif [ "${menu}" = "5" ] ; then
+                    echo $menu; menu______; 
+                elif [ "${menu}" = "6" ] ; then
+                    echo $menu; menu_______; 
                 fi
+            else
+                case ${result[${i}]} in
+                    "true") echo "selecionado variavel:${result[${i}]} como true";;
+                    "false") echo "selecionado variavel:${result[${i}]} como false";;
+                    " ") echo "selecionado variavel:${result[${i}]} como espaço";;
+                    *) echo "selecionado variavel: ${result[${i}]} como *";;
+                esac
             fi
         done
-        l=${#clicked[@]}; 
-        for i in ${clicked[@]} ; do
-            if [ "${clicked[${c}]}" = "[$(e_success)]" ] ; then
-                Titulo_Inicial; printf "\n\n\n\n"
-                e_arrow "Iniciando instalação dependências. $(e_success)"
-                #echo "c=${c}, __dp=${__dp[${c}]}, click=${clicked[${c}]}"
-                which ${__dp[${c}]} &>/dev/null ||
-                    seek_confirmation "${USER}, permite a instalação do pacote  ${__dp[${c}]}, no sistema ?" 
-                    if is_confirmed; then
-                        ___Dependencia; e_success "Carregado ... dependências";   
-                        e_arrow -d "Atualizando cache ... & Instalando : ${__dp[${c}]}."
-                        sudo apt update && sudo apt upgrade && sudo apt autoremove
-                        #echo ${#desenvolvimentoNome[@]}
-                        for ((j=0;j<=${#desenvolvimentoNome[@]};j++)); do
-                            if [ "${__dp[${c}]}" = "${desenvolvimentoNome[$j]}" ] ; then
-                                echo "${desenvolvimentoNome[$j]}"
-                                echo "${desenvolvimentoDescription[$j]}"
-                                echo "${desenvolvimentoversion[$j]}"
-                                echo "${desenvolvimentoHomepage[$j]}"
-                                echo "${desenvolvimentoInstall[$j]}"
-                                if [ ${__dp[${c}]} = "python3" ] ; then      # colcocar escolhas
-                                    for ((a=0;a<=${#desenvolvimentoInstall_11[@]};a++)); do 
-                                        echo ${desenvolvimentoInstall_11[$a]} # 3        
-                                        ${desenvolvimentoInstall_11[$a]}
-                                    done                                                 
-                                    for ((b=0;b<=${#desenvolvimentoInstall_11A[@]};b++)); do
-                                        echo ${desenvolvimentoInstall_11A[$b]} # 5          
-                                        ${desenvolvimentoInstall_11A[$b]}
-                                    done                                                    
-                                    for ((c=0;c<=${#desenvolvimentoInstall_11B[@]};c++)); do
-                                        echo ${desenvolvimentoInstall_11B[$c]} # 16         
-                                        ${desenvolvimentoInstall_11B[$c]}
-                                    done                                                    
-                                    for ((d=0;d<=${#desenvolvimentoInstall_11C[@]};d++)); do
-                                        echo ${desenvolvimentoInstall_11C[$d]} # 21         
-                                        ${desenvolvimentoInstall_11C[$d]}
-                                    done                            
-                                else
-                                    ${desenvolvimentoInstall[$j]}                        
-                                fi                                                          
-                            fi
-                        done
-                        #echo ${#browsersNome[@]}
-                        for ((j=0;j<=${#browsersNome[@]};j++)); do
-                            if [ "${__dp[${c}]}" = "${browsersNome[$j]}" ] ; then
-                                echo "${browsersNome[$j]}"
-                                echo "${browsersDescription[$j]}"
-                                echo "${browsersversion[$j]}"
-                                echo "${browsersHomepage[$j]}"
-                                echo "${browsersInstall[$j]}"
-                                ${browsersInstall[$j]}
-                            fi
-                        done
-                        #echo ${#codecsNome[@]}
-                        for ((j=0;j<=${#codecsNome[@]};j++)); do
-                            if [ "${__dp[${c}]}" = "${codecsNome[$j]}" ] ; then
-                                echo "${codecsNome[$j]}"
-                                echo "${codecsDescription[$j]}"
-                                echo "${codecsversion[$j]}"
-                                echo "${codecsHomepage[$j]}"
-                                echo "${codecsInstall[$j]}"
-                                ${codecsInstall[$j]}
-                            fi
-                        done
-                        ##echo ${#diversosNome[@]}
-                        for ((j=0;j<=${#diversosNome[@]};j++)); do
-                            if [ "${__dp[${c}]}" = "${diversosNome[$j]}" ] ; then
-                                echo "${diversosNome[$j]}"
-                                echo "${diversosDescription[$j]}"
-                                echo "${diversosversion[$j]}"
-                                echo "${diversosHomepage[$j]}"
-                                echo "${diversosInstall[$j]}"
-                                ${diversosInstall[$j]}
-                            fi
-                        done
-                        #echo ${#Nome[@]}
-                        for ((j=0;j<=${#Nome[@]};j++)); do
-                            if [ "${__dp[${c}]}" = "${Nome[$j]}" ] ; then
-                                echo "${Nome[$j]}"
-                                echo "${Description[$j]}"
-                                echo "${version[$j]}"
-                                echo "${Homepage[$j]}"
-                                echo "${Install[$j]}"
-                                ${Install[$j]}
-                            fi
-                        done
+        # l=${#__dp[@]};
+        # for ((i=0;i<=l;i++)); do
+        #      clicked[$i]="[ ]"
+        # done; c=0
+        # while true ; do
+        #     Titulo_Inicial; printf "\n\n\n\n"; e_arrow "Click as dependências para instalação : "
+        #     for ((i=0;i<l;i++)) ; do
+        #         e_arrow -d "$((${i}+1)))\t${clicked[${i}]}${__dp[${i}]}\t"            
+        #     done
+        #     e_arrow -l "(${red}s${reset})air | Número [ 1 .. $i ] :${blue}${bold} "; read opt
+        #     if [ "${opt}" = "s" ] ; then
+        #         break
+        #     else
+        #         t=$((opt-1))
+        #         if [ "${clicked[${t}]}" = "[ ]" ] ; then
+        #             clicked[${t}]="[$(e_success)]"
+        #         else
+        #             clicked[${t}]="[ ]"
+        #         fi
+        #     fi
+        # done
+        # l=${#clicked[@]}; 
+        # for i in ${clicked[@]} ; do
+        #     if [ "${clicked[${c}]}" = "[$(e_success)]" ] ; then
+        #         Titulo_Inicial; printf "\n\n\n\n"
+        #         e_arrow "Iniciando instalação dependências. $(e_success)"
+        #         #echo "c=${c}, __dp=${__dp[${c}]}, click=${clicked[${c}]}"
+        #         which ${__dp[${c}]} &>/dev/null ||
+        #             seek_confirmation "${USER}, permite a instalação do pacote  ${__dp[${c}]}, no sistema ?" 
+        #             if is_confirmed; then
+        #                 ___Dependencia; e_success "Carregado ... dependências";   
+        #                 e_arrow -d "Atualizando cache ... & Instalando : ${__dp[${c}]}."
+        #                 sudo apt update && sudo apt upgrade && sudo apt autoremove
+        #                 #echo ${#desenvolvimentoNome[@]}
+        #                 for ((j=0;j<=${#desenvolvimentoNome[@]};j++)); do
+        #                     if [ "${__dp[${c}]}" = "${desenvolvimentoNome[$j]}" ] ; then
+        #                         echo "${desenvolvimentoNome[$j]}"
+        #                         echo "${desenvolvimentoDescription[$j]}"
+        #                         echo "${desenvolvimentoversion[$j]}"
+        #                         echo "${desenvolvimentoHomepage[$j]}"
+        #                         echo "${desenvolvimentoInstall[$j]}"
+        #                         if [ ${__dp[${c}]} = "python3" ] ; then      # colcocar escolhas
+        #                             for ((a=0;a<=${#desenvolvimentoInstall_11[@]};a++)); do 
+        #                                 echo ${desenvolvimentoInstall_11[$a]} # 3        
+        #                                 ${desenvolvimentoInstall_11[$a]}
+        #                             done                                                 
+        #                             for ((b=0;b<=${#desenvolvimentoInstall_11A[@]};b++)); do
+        #                                 echo ${desenvolvimentoInstall_11A[$b]} # 5          
+        #                                 ${desenvolvimentoInstall_11A[$b]}
+        #                             done                                                    
+        #                             for ((c=0;c<=${#desenvolvimentoInstall_11B[@]};c++)); do
+        #                                 echo ${desenvolvimentoInstall_11B[$c]} # 16         
+        #                                 ${desenvolvimentoInstall_11B[$c]}
+        #                             done                                                    
+        #                             for ((d=0;d<=${#desenvolvimentoInstall_11C[@]};d++)); do
+        #                                 echo ${desenvolvimentoInstall_11C[$d]} # 21         
+        #                                 ${desenvolvimentoInstall_11C[$d]}
+        #                             done                            
+        #                         else
+        #                             ${desenvolvimentoInstall[$j]}                        
+        #                         fi                                                          
+        #                     fi
+        #                 done
+        #                 #echo ${#browsersNome[@]}
+        #                 for ((j=0;j<=${#browsersNome[@]};j++)); do
+        #                     if [ "${__dp[${c}]}" = "${browsersNome[$j]}" ] ; then
+        #                         echo "${browsersNome[$j]}"
+        #                         echo "${browsersDescription[$j]}"
+        #                         echo "${browsersversion[$j]}"
+        #                         echo "${browsersHomepage[$j]}"
+        #                         echo "${browsersInstall[$j]}"
+        #                         ${browsersInstall[$j]}
+        #                     fi
+        #                 done
+        #                 #echo ${#codecsNome[@]}
+        #                 for ((j=0;j<=${#codecsNome[@]};j++)); do
+        #                     if [ "${__dp[${c}]}" = "${codecsNome[$j]}" ] ; then
+        #                         echo "${codecsNome[$j]}"
+        #                         echo "${codecsDescription[$j]}"
+        #                         echo "${codecsversion[$j]}"
+        #                         echo "${codecsHomepage[$j]}"
+        #                         echo "${codecsInstall[$j]}"
+        #                         ${codecsInstall[$j]}
+        #                     fi
+        #                 done
+        #                 ##echo ${#diversosNome[@]}
+        #                 for ((j=0;j<=${#diversosNome[@]};j++)); do
+        #                     if [ "${__dp[${c}]}" = "${diversosNome[$j]}" ] ; then
+        #                         echo "${diversosNome[$j]}"
+        #                         echo "${diversosDescription[$j]}"
+        #                         echo "${diversosversion[$j]}"
+        #                         echo "${diversosHomepage[$j]}"
+        #                         echo "${diversosInstall[$j]}"
+        #                         ${diversosInstall[$j]}
+        #                     fi
+        #                 done
+        #                 #echo ${#Nome[@]}
+        #                 for ((j=0;j<=${#Nome[@]};j++)); do
+        #                     if [ "${__dp[${c}]}" = "${Nome[$j]}" ] ; then
+        #                         echo "${Nome[$j]}"
+        #                         echo "${Description[$j]}"
+        #                         echo "${version[$j]}"
+        #                         echo "${Homepage[$j]}"
+        #                         echo "${Install[$j]}"
+        #                         ${Install[$j]}
+        #                     fi
+        #                 done
 
-                    else
-                        e_success "O pacote ${__dp[${c}]} escolhido, esta instalado em $(which ${__dp[${c}]})."
-                    fi
-                    e_arrow "Configuração dependência ${__dp[${c}]} terminada. $(e_success)"
-                    sleep 1
-            fi
-            let $((++c))
-        done
+        #             else
+        #                 e_success "O pacote ${__dp[${c}]} escolhido, esta instalado em $(which ${__dp[${c}]})."
+        #             fi
+        #             e_arrow "Configuração dependência ${__dp[${c}]} terminada. $(e_success)"
+        #             sleep 1
+        #     fi
+        #     let $((++c))
+        # done
         read; Principal;
+    }
+    # -----------------------------------------------------------------------------------------
+                                                      # Auxiliar Instalador__ Menu multiseleção
+    # -----------------------------------------------------------------------------------------
+    function __multiselect {
+        ESC=$( printf "\033")
+        cursor_blink_on()   { printf "$ESC[?25h"; }
+        cursor_blink_off()  { printf "$ESC[?25l"; }
+        cursor_to()         { printf "$ESC[$1;${2:-1}H"; }
+        print_inactive()    { printf "$2   $1 "; }
+        print_active()      { printf "$2  $ESC[7m $1 $ESC[27m"; }
+        get_cursor_row()    { IFS=';' read -sdR -p $'\E[6n' ROW COL; echo ${ROW#*[}; }
+        key_input()         {
+            local key
+            IFS= read -rsn1 key 2>/dev/null >&2
+            if [[ $key = ""      ]]; then echo enter; fi;
+            if [[ $key = $'\x20' ]]; then echo space; fi;
+            if [[ $key = $'\x1b' ]]; then
+                read -rsn2 key
+                if [[ $key = [A ]]; then echo up;    fi;
+                if [[ $key = [B ]]; then echo down;  fi;
+            fi 
+        }
+        toggle_option()    { #space
+            local arr_name=$1
+            eval "local arr=(\"\${${arr_name}[@]}\")"
+            local option=$2
+            if [[ ${arr[option]} == true ]]; then
+                arr[option]=
+            else
+                arr[option]=true
+            fi
+            eval $arr_name='("${arr[@]}")'
+        }
+
+        local retval=$1
+        local options
+        local defaults
+
+        IFS=';' read -r -a options <<< "$2"
+        if [[ -z $3 ]]; then
+            defaults=()
+        else
+            IFS=';' read -r -a defaults <<< "$3"
+        fi
+        local selected=()
+
+        for ((i=0; i<${#options[@]}; i++)); do
+            selected+=("${defaults[i]}")
+            printf "\n"
+        done
+
+        # determine current screen position for overwriting the options
+        local lastrow=`get_cursor_row`
+        local startrow=$(($lastrow - ${#options[@]}))
+
+        # ensure cursor and input echoing back on upon a ctrl+c during read -s
+        trap "cursor_blink_on; stty echo; printf '\n'; exit" 2
+        cursor_blink_off
+
+        local active=0
+        while true; do
+            # print options by overwriting the last lines
+            local idx=0
+            for option in "${options[@]}"; do
+                local prefix="[ ]"
+                if [[ ${selected[idx]} == true ]]; then
+                  prefix="[${blue}x${reset}]"
+                fi
+
+                cursor_to $(($startrow + $idx))
+                if [ $idx -eq $active ]; then
+                    print_active "$option" "$prefix"
+                else
+                    print_inactive "$option" "$prefix"
+                fi
+                ((idx++))
+            done
+
+            # user key control
+            case `key_input` in
+                space)  toggle_option selected $active;;
+                enter)  break;;
+                up)     ((active--));
+                        if [ $active -lt 0 ]; then active=$((${#options[@]} - 1)); fi;;
+                down)   ((active++));
+                        if [ $active -ge ${#options[@]} ]; then active=0; fi;;
+            esac
+        done
+
+        # cursor position back to normal
+        cursor_to $lastrow
+        printf "\n"
+        cursor_blink_on
+
+        eval $retval='("${selected[@]}")'
     }
     # -----------------------------------------------------------------------------------------
                                                                         # Função Instalador
