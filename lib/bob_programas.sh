@@ -73,86 +73,86 @@ function ___Dependencia(){
 	# 	"docker.io" "curl" "cowsay" "cmatrix" "build-essential" "awscli" "neofetch" "irssi" "htop"
 	# 	"tput" "figlet" "awk" "grep" "nmcli" "byobu" "aptitude" "xampp" )
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[0]="kdevelop";
-	desenvolvimentoDescription[0]="integrated development environment for C/C++ and other languages";
-	desenvolvimentoversion[0]="4:5.2.1-1ubuntu4";
-	desenvolvimentoHomepage[0]="https://www.kdevelop.org/";
-	desenvolvimentoInstall[0]="sudo apt install kdevelop -${Yn}";
+	Nome[0]="kdevelop";
+	Description[0]="integrated development environment for C/C++ and other languages";
+	version[0]="4:5.2.1-1ubuntu4";
+	Homepage[0]="https://www.kdevelop.org/";
+	Install[0]="sudo apt install kdevelop -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[1]="codeblocks_contrib";
-	desenvolvimentoDescription[1]="contrib plugins for Code::Blocks IDE";
-	desenvolvimentoversion[1]="16.01+dfsg-2.1";
-	desenvolvimentoHomepage[1]="http://codeblocks.org";
-	desenvolvimentoInstall[1]="sudo apt install codeblocks-contrib -${Yn}";
+	Nome[1]="codeblocks_contrib";
+	Description[1]="contrib plugins for Code::Blocks IDE";
+	version[1]="16.01+dfsg-2.1";
+	Homepage[1]="http://codeblocks.org";
+	Install[1]="sudo apt install codeblocks-contrib -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[2]="codeblocks";
-	desenvolvimentoDescription[2]="Code::Blocks integrated development environment (IDE)";
-	desenvolvimentoversion[2]="16.01+dfsg-2.1";
-	desenvolvimentoHomepage[2]="http://codeblocks.org";
-	desenvolvimentoInstall[2]="sudo apt install codeblocks -${Yn}";
+	Nome[2]="codeblocks";
+	Description[2]="Code::Blocks integrated development environment (IDE)";
+	version[2]="16.01+dfsg-2.1";
+	Homepage[2]="http://codeblocks.org";
+	Install[2]="sudo apt install codeblocks -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[3]="mingw_w64";
-	desenvolvimentoDescription[3]="Development environment targeting 32- and 64-bit Windows";
-	desenvolvimentoversion[3]="5.0.3-1";
-	desenvolvimentoHomepage[3]="http://mingw-w64.sf.net";
-	desenvolvimentoInstall[3]="sudo apt install mingw-w64 -${Yn}";
+	Nome[3]="mingw_w64";
+	Description[3]="Development environment targeting 32- and 64-bit Windows";
+	version[3]="5.0.3-1";
+	Homepage[3]="http://mingw-w64.sf.net";
+	Install[3]="sudo apt install mingw-w64 -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[4]="build_essential";
-	desenvolvimentoDescription[4]="Informational list of build-essential packages";
-	desenvolvimentoversion[4]="12.4ubuntu1";
-	desenvolvimentoHomepage[4]="https://www.ubuntuupdates.org/build-essential";
-	desenvolvimentoInstall[4]="sudo apt install build-essential -${Yn}";
+	Nome[4]="build_essential";
+	Description[4]="Informational list of build-essential packages";
+	version[4]="12.4ubuntu1";
+	Homepage[4]="https://www.ubuntuupdates.org/build-essential";
+	Install[4]="sudo apt install build-essential -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[5]="gcc";
-	desenvolvimentoDescription[5]="GNU C compiler";
-	desenvolvimentoversion[5]="4:7.4.0-1ubuntu2.3";
-	desenvolvimentoHomepage[5]="https://www.ubuntuupdates.org/package/core/bionic/main/security/gcc-defaults";
-	desenvolvimentoInstall[5]="sudo apt install gcc -${Yn}";
+	Nome[5]="gcc";
+	Description[5]="GNU C compiler";
+	version[5]="4:7.4.0-1ubuntu2.3";
+	Homepage[5]="https://www.ubuntuupdates.org/package/core/bionic/main/security/gcc-defaults";
+	Install[5]="sudo apt install gcc -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[6]="g_plus_plus";
-	desenvolvimentoDescription[6]="GNU C++ compiler";
-	desenvolvimentoversion[6]="4:7.4.0-1ubuntu2.3";
-	desenvolvimentoHomepage[6]="https://www.ubuntuupdates.org/package/core/bionic/main/security/gcc-defaults";
-	desenvolvimentoInstall[6]="sudo apt install g++ -${Yn}";
+	Nome[6]="g_plus_plus";
+	Description[6]="GNU C++ compiler";
+	version[6]="4:7.4.0-1ubuntu2.3";
+	Homepage[6]="https://www.ubuntuupdates.org/package/core/bionic/main/security/gcc-defaults";
+	Install[6]="sudo apt install g++ -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[7]="gpp";
-	desenvolvimentoDescription[7]="A general-purpose preprocessor with customizable syntax";
-	desenvolvimentoversion[7]="2.24-3build1";
-	desenvolvimentoHomepage[7]="http://www.nothingisreal.com/gpp/";
-	desenvolvimentoInstall[7]="sudo apt install gpp -${Yn}";
+	Nome[7]="gpp";
+	Description[7]="A general-purpose preprocessor with customizable syntax";
+	version[7]="2.24-3build1";
+	Homepage[7]="http://www.nothingisreal.com/gpp/";
+	Install[7]="sudo apt install gpp -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[8]="bluefish_plugins";
-	desenvolvimentoDescription[8]="advanced Gtk+ text editor (plugins)";
-	desenvolvimentoversion[8]="2.2.10-1";
-	desenvolvimentoHomepage[8]="http://bluefish.openoffice.nl";
-	desenvolvimentoInstall[8]="sudo apt install bluefish-plugins -${Yn}";
+	Nome[8]="bluefish_plugins";
+	Description[8]="advanced Gtk+ text editor (plugins)";
+	version[8]="2.2.10-1";
+	Homepage[8]="http://bluefish.openoffice.nl";
+	Install[8]="sudo apt install bluefish-plugins -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[9]="bluefish";
-	desenvolvimentoDescription[9]="advanced Gtk+ text editor for web and software development";
-	desenvolvimentoversion[9]="2.2.10-1";
-	desenvolvimentoHomepage[9]="http://bluefish.openoffice.nl";
-	desenvolvimentoInstall[9]="sudo apt install bluefish -${Yn}";
+	Nome[9]="bluefish";
+	Description[9]="advanced Gtk+ text editor for web and software development";
+	version[9]="2.2.10-1";
+	Homepage[9]="http://bluefish.openoffice.nl";
+	Install[9]="sudo apt install bluefish -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[10]="openjdk[8]_jdk";
-	desenvolvimentoDescription[10]="OpenJDK Development Kit (JDK)";
-	desenvolvimentoversion[10]="8u212-b03-0ubuntu1.18.04.1";
-	desenvolvimentoHomepage[10]="http://openjdk.java.net/";
-	desenvolvimentoInstall[10]="sudo apt install openjdk-8-jdk -${Yn}";
+	Nome[10]="openjdk[8]_jdk";
+	Description[10]="OpenJDK Development Kit (JDK)";
+	version[10]="8u212-b03-0ubuntu1.18.04.1";
+	Homepage[10]="http://openjdk.java.net/";
+	Install[10]="sudo apt install openjdk-8-jdk -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[11]="python3";
-	desenvolvimentoDescription[11]="Python package installer";
-	desenvolvimentoversion[11]="9.0.1-2";
-	desenvolvimentoHomepage[11]="https://pip.pypa.io/en/stable/";
-	desenvolvimentoInstall_11=( 														        # python 3 & pip
+	Nome[11]="python3";
+	Description[11]="Python package installer";
+	version[11]="9.0.1-2";
+	Homepage[11]="https://pip.pypa.io/en/stable/";
+	Install_11=( 														        # python 3 & pip
 		"sudo apt install python3 -${Yn}"
 		"sudo apt install python3-pip -${Yn}" );
-	desenvolvimentoInstall_11A=(  														   # python3, pip & venv
+	Install_11A=(  														   # python3, pip & venv
 		"python3 -V"
 		"apt list --installed | grep python"
 		"sudo apt-get upgrade python3"
 		"sudo apt install python3-pip -${Yn}"
 		"sudo apt install python3-venv -${Yn}" );
-	desenvolvimentoInstall_11B=(  														  # python 3.7.4 tarball
+	Install_11B=(  														  # python 3.7.4 tarball
 		"wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz" 			   # tarball a  ser copilado
 		"Ned Deily (key ids: AA65421D, 6F5E1540, and Apple Developer ID DJ3H93M7VJ)" 	         # chave publica
 		"sudo apt-get install dirmngr" 													# evitar ataques hackers
@@ -176,7 +176,7 @@ function ___Dependencia(){
 		"sudo ./configure"
 		"sudo make altinstall" 								# instalar sem retirar a versão anterior do systema
 		"sudo python3.7 -m pip install requests" );											    # pip e modulos
-	desenvolvimentoInstall_11C=( 
+	Install_11C=( 
 		"sudo pip3 install nltk" 														     # Instalar pacotes
 		"sudo pip3 install pint"
 		"sudo pip3 install pymongo"
@@ -199,106 +199,106 @@ function ___Dependencia(){
 		"sudo pip3 install chatterbot_corpus"
 		"sudo pip3 install tweepy" );
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[12]="python_pip";
-	desenvolvimentoDescription[12]="Python package installer";
-	desenvolvimentoversion[12]="9.0.1-2.3~ubuntu1.18.04.1";
-	desenvolvimentoHomepage[12]="https://pip.pypa.io/en/stable/";
-	desenvolvimentoInstall[12]="sudo apt install python-pip -${Yn}";
+	Nome[12]="python_pip";
+	Description[12]="Python package installer";
+	version[12]="9.0.1-2.3~ubuntu1.18.04.1";
+	Homepage[12]="https://pip.pypa.io/en/stable/";
+	Install[12]="sudo apt install python-pip -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[13]="anjuta_extra";
-	desenvolvimentoDescription[13]="plugins and extras for anjuta";
-	desenvolvimentoversion[13]="3.26.0-3";
-	desenvolvimentoHomepage[13]="http://www.anjuta.org/";
-	desenvolvimentoInstall[13]="sudo apt install anjuta-extra -${Yn}";
+	Nome[13]="anjuta_extra";
+	Description[13]="plugins and extras for anjuta";
+	version[13]="3.26.0-3";
+	Homepage[13]="http://www.anjuta.org/";
+	Install[13]="sudo apt install anjuta-extra -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	desenvolvimentoNome[14]="anjuta";
-	desenvolvimentoDescription[14]="GNOME development IDE, for C/C++";
-	desenvolvimentoversion[14]="2:3.28.0-1";
-	desenvolvimentoHomepage[14]="http://www.anjuta.org/";
-	desenvolvimentoInstall[14]="sudo apt install anjuta -${Yn}";
+	Nome[14]="anjuta";
+	Description[14]="GNOME development IDE, for C/C++";
+	version[14]="2:3.28.0-1";
+	Homepage[14]="http://www.anjuta.org/";
+	Install[14]="sudo apt install anjuta -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	browsersNome[0]="google";
-	browsersDescription[0]="google chrome stable";
-	browsersversion[0]="Versão 75.0.3770.90 (Versão oficial) 64 bits";
-	browsersHomepage[0]="http://www.google.com/";
-	browsersInstall[0]="curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+	Nome[15]="google";
+	Description[15]="google chrome stable";
+	version[15]="Versão 75.0.3770.90 (Versão oficial) 64 bits";
+	Homepage[15]="http://www.google.com/";
+	Install[15]="curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
 		sudo dpkg -i google-chrome-stable_current_amd64.deb && \
 		rm google-chrome-stable_current_amd64.deb";
 	# -----------------------------------------------------------------------------------------
-	browsersNome[1]="links";
-	browsersDescription[1]="Web browser running in both graphics and text mode";
-	browsersversion[1]="3.28.5-0ubuntu1";
-	browsersHomepage[1]="http://links.twibright.com/";
-	browsersInstall[1]="sudo apt install links2 -${Yn}";
+	Nome[16]="links";
+	Description[16]="Web browser running in both graphics and text mode";
+	version[16]="3.28.5-0ubuntu1";
+	Homepage[16]="http://links.twibright.com/";
+	Install[16]="sudo apt install links2 -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	browsersNome[2]="chromium";
-	browsersDescription[2]="Chromium web browser, open-source version of Chrome";
-	browsersversion[2]="75.0.3770.100";
-	browsersHomepage[2]="canonical";
-	browsersInstall[2]="sudo snap install chromium";
+	Nome[17]="chromium";
+	Description[17]="Chromium web browser, open-source version of Chrome";
+	version[17]="75.0.3770.100";
+	Homepage[17]="canonical";
+	Install[17]="sudo snap install chromium";
 	# -----------------------------------------------------------------------------------------
-	browsersNome[3]="epiphany_browser";
-	browsersDescription[3]="Intuitive GNOME web browser";
-	browsersversion[3]="3.28.5-0ubuntu1";
-	browsersHomepage[3]="https://wiki.gnome.org/Apps/Web";
-	browsersInstall[3]="sudo apt install epiphany-browser -${Yn}";
+	Nome[18]="epiphany_browser";
+	Description[18]="Intuitive GNOME web browser";
+	version[18]="3.28.5-0ubuntu1";
+	Homepage[18]="https://wiki.gnome.org/Apps/Web";
+	Install[18]="sudo apt install epiphany-browser -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	browsersNome[4]="tor";
-	browsersDescription[4]="anonymizing overlay network for TCP Tor";
-	browsersversion[4]="0.3.5.8-1~bionic+1";
-	browsersHomepage[4]="https://www.torproject.org/";
-	browsersInstall[4]="sudo apt install tor -${Yn}";
+	Nome[19]="tor";
+	Description[19]="anonymizing overlay network for TCP Tor";
+	version[19]="0.3.5.8-1~bionic+1";
+	Homepage[19]="https://www.torproject.org/";
+	Install[19]="sudo apt install tor -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	browsersNome[5]="torbrowser_launcher";
-	browsersDescription[5]="helps download and run the Tor Browser Bundle";
-	browsersversion[5]="0.2.9-2";
-	browsersHomepage[5]="https://micahflee.com/torbrowser-launcher/";
-	browsersInstall[5]="sudo apt install torbrowser-launcher -${Yn}";
+	Nome[20]="torbrowser_launcher";
+	Description[20]="helps download and run the Tor Browser Bundle";
+	version[20]="0.2.9-2";
+	Homepage[20]="https://micahflee.com/torbrowser-launcher/";
+	Install[20]="sudo apt install torbrowser-launcher -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	codecsNome[0]="libdvdnav4";
-	codecsDescription[0]="DVD navigation library";
-	codecsversion[0]="6.0.0-1";
-	codecsHomepage[0]="https://dvdnav.mplayerhq.hu/";
-	codecsInstall[0]="sudo apt install libdvdnav4 -${Yn}";
+	Nome[21]="libdvdnav4";
+	Description[21]="DVD navigation library";
+	version[21]="6.0.0-1";
+	Homepage[21]="https://dvdnav.mplayerhq.hu/";
+	Install[21]="sudo apt install libdvdnav4 -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	codecsNome[1]="libdvdread4";
-	codecsDescription[1]="library for reading DVDs";
-	codecsversion[1]="6.0.0-1";
-	codecsHomepage[1]="https://dvdnav.mplayerhq.hu/";
-	codecsInstall[1]="sudo apt install libdvdread4 -${Yn}";
+	Nome[22]="libdvdread4";
+	Description[22]="library for reading DVDs";
+	version[22]="6.0.0-1";
+	Homepage[22]="https://dvdnav.mplayerhq.hu/";
+	Install[22]="sudo apt install libdvdread4 -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	codecsNome[2]="gstreamer1[0]_plugins_bad";
-	codecsDescription[2]="GStreamer plugins from the bad set";
-	codecsversion[2]="1.14.4-1ubuntu1~ubuntu18.04.1";
-	codecssHomepage[2]="https://gstreamer.freedesktop.org";
-	codecsInstall[2]="sudo apt install gstreamer1.0-plugins-bad -${Yn}";
+	Nome[23]="gstreamer1[0]_plugins_bad";
+	Description[23]="GStreamer plugins from the bad set";
+	version[23]="1.14.4-1ubuntu1~ubuntu18.04.1";
+	Homepage[23]="https://gstreamer.freedesktop.org";
+	Install[23]="sudo apt install gstreamer1.0-plugins-bad -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	codecsNome[3]="gstreamer1[0]_plugins_ugly";
-	codecsDescription[3]="GStreamer plugins from the ugly set";
-	codecsversion[3]="1.14.4-1~ubuntu18.04.1";
-	codecsHomepage[3]="https://gstreamer.freedesktop.org";
-	codecsInstall[3]="sudo apt install gstreamer1.0-plugins-ugly -${Yn}";
+	Nome[24]="gstreamer1[0]_plugins_ugly";
+	Description[24]="GStreamer plugins from the ugly set";
+	version[24]="1.14.4-1~ubuntu18.04.1";
+	Homepage[24]="https://gstreamer.freedesktop.org";
+	Install[24]="sudo apt install gstreamer1.0-plugins-ugly -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	codecsNome[4]="ubuntu_restricted_extras";
-	codecsDescription[4]="Commonly used media codecs and fonts for Ubuntu";
-	codecsversion[4]="66";
-	codecsHomepage[4]="https://www.ubuntuupdates.org/ubuntu-restricted-extras";
-	codecsInstall[4]="sudo apt install ubuntu-restricted-extras -${Yn}";
+	Nome[25]="ubuntu_restricted_extras";
+	Description[25]="Commonly used media codecs and fonts for Ubuntu";
+	version[25]="66";
+	Homepage[25]="https://www.ubuntuupdates.org/ubuntu-restricted-extras";
+	Install[25]="sudo apt install ubuntu-restricted-extras -${Yn}";
 	# -----------------------------------------------------------------------------------------
-	diversosNome[0]="vlc";
-	diversosDescription[0]="multimedia player and streamer";
-	diversosversion[0]="3.0.3-1-1ubuntu1 and others";
-	diversosHomepage[0]="https://www.videolan.org/vlc/index.pt-BR.html";
-	diversosInstall[0]="sudo apt install vlc -${Yn}";
+	Nome[26]="vlc";
+	Description[26]="multimedia player and streamer";
+	version[26]="3.0.3-1-1ubuntu1 and others";
+	Homepage[26]="https://www.videolan.org/vlc/index.pt-BR.html";
+	Install[26]="sudo apt install vlc -${Yn}";
 	# skins
 	# https://www.videolan.org/vlc/download-skins2-go.php?url=vlc-skins.zip
 	# ~/.local/share/vlc/skins2
 	# -----------------------------------------------------------------------------------------
-	diversosNome[1]="StreamlinkTwitchGUI";
-	diversosDescription[1]="Chat application to Chatty";
-	diversosversion[1]="v1.5.0-linux64";
-	diversosHomepage[1]="https://streamlink.github.io/streamlink-twitch-gui/";
-	diversosInstall[1]="sudo apt install streamlink -${Yn} && \
+	Nome[27]="StreamlinkTwitchGUI";
+	Description[27]="Chat application to Chatty";
+	version[27]="v1.5.0-linux64";
+	Homepage[27]="https://streamlink.github.io/streamlink-twitch-gui/";
+	Install[27]="sudo apt install streamlink -${Yn} && \
 		URL=https://github.com/streamlink/streamlink-twitch-gui && \
 		URL=/releases/download/v1.5.0/streamlink-twitch-gui-v1.5.0-linux64.tar.gz && \
 		wget -q -O /tmp/streamlink-twitch-gui.tar.gz && \
@@ -335,11 +335,11 @@ function ___Dependencia(){
 	# sudo unzip Chatty[0].9.1.zip -d /opt/chatty
 	# streamlink-twitch-gui
 	# -----------------------------------------------------------------------------------------
-	diversosNome[2]="Chatty_StreamlinkTwitchGUI";
-	diversosDescription[2]="Twitch Chat Client/multimedia player and streamer";
-	diversosversion[2]="0.9.1/1.5.0";
-	diversosHomepage[2]="https://streamlink.github.io/streamlink-twitch-gui/";
-	diversosInstall[2]="sudo apt install default-jre -${Yn} && \
+	Nome[28]="Chatty_StreamlinkTwitchGUI";
+	Description[28]="Twitch Chat Client/multimedia player and streamer";
+	version[28]="0.9.1/1.5.0";
+	Homepage[28]="https://streamlink.github.io/streamlink-twitch-gui/";
+	Install[28]="sudo apt install default-jre -${Yn} && \
 		URL=https://github.com/chatty/chatty/releases/download/v0.9.1  && \
 		URL=/Chatty[0].9.1.zip && \
 		wget -q -O /tmp/Chatty.zip && \
@@ -353,32 +353,32 @@ function ___Dependencia(){
 		sudo /opt/streamlink-twitch-gui/add-menuitem.sh && \
 		sudo ln -s /opt/streamlink-twitch-gui/start.sh /usr/bin/streamlink-twitch-gui";
 	# -----------------------------------------------------------------------------------------
-	diversosNome[3]="Glade";
-	diversosDescription[3]="Glade is a RAD tool to enable quick & easy development of user interfaces for the GTK+ toolkit and the GNOME desktop environment.";
-	diversosversion[3]="3.20.0.1";
-	diversosHomepage[3]="https://gitlab.gnome.org/GNOME/glade";
-	diversosInstall[3]="sudo snap install glade";
+	Nome[29]="Glade";
+	Description[29]="Glade is a RAD tool to enable quick & easy development of user interfaces for the GTK+ toolkit and the GNOME desktop environment.";
+	version[29]="3.20.0.1";
+	Homepage[29]="https://gitlab.gnome.org/GNOME/glade";
+	Install[29]="sudo snap install glade";
 	# -----------------------------------------------------------------------------------------
-	diversosNome[4]="android_studio";
-	diversosDescription[4]="Android Studio";
-	diversosversion[4]="3.20.0.1";
-	diversosHomepage[4]="https://developer.android.com/studio/install?hl=pt-br";
-	diversosInstall[4]="sudo snap install android-studio --classic";
+	Nome[30]="android_studio";
+	Description[30]="Android Studio";
+	version[30]="3.20.0.1";
+	Homepage[30]="https://developer.android.com/studio/install?hl=pt-br";
+	Install[30]="sudo snap install android-studio --classic";
 	# -----------------------------------------------------------------------------------------
-	diversosNome[5]="Anaconda3";
-	diversosDescription[5]="Anaconda Enterprise";
-	diversosversion[5]="Anaconda 2019.03 for Linux Installer";
-	diversosHomepage[5]="https://www.anaconda.com/distribution/";
-	diversosInstall[5]="curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86[64].sh && \
+	Nome[31]="Anaconda3";
+	Description[31]="Anaconda Enterprise";
+	version[31]="Anaconda 2019.03 for Linux Installer";
+	Homepage[31]="https://www.anaconda.com/distribution/";
+	Install[31]="curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86[64].sh && \
 		mv Anaconda3-2019.03-Linux-x86[64].sh /tmp && \
 		cd /tmp && \
 		bash Anaconda3-2019.03-Linux-x86[64].sh";
 	# -----------------------------------------------------------------------------------------
-	diversosNome[6]="eclipse";
-	diversosDescription[6]="Eclipse";
-	diversosversion[6]="1.0.0";
-	diversosHomepage[6]="https://www.eclipse.org";
-	diversosInstall[6]="wget http://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/2019-03/R/eclipse-java-2019-03-R-linux-gtk-x86[64].tar.gz && \
+	Nome[32]="eclipse";
+	Description[32]="Eclipse";
+	version[32]="1.0.0";
+	Homepage[32]="https://www.eclipse.org";
+	Install[32]="wget http://ftp.jaist.ac.jp/pub/eclipse/technology/epp/downloads/release/2019-03/R/eclipse-java-2019-03-R-linux-gtk-x86[64].tar.gz && \
 		sudo tar -zxvf eclipse-java-2019-*-R-linux-gtk-x86[64].tar.gz -C /usr/ && \
 		sudo ln -s /usr/eclipse/eclipse /usr/bin/eclipse";
 
@@ -397,11 +397,11 @@ function ___Dependencia(){
 	#Configure the workspace
 	#/home/elizeu/eclipse-workspace
 	# -----------------------------------------------------------------------------------------
-	diversosNome[7]="sublime_text";
-	diversosDescription[7]="A sophisticated text editor for code, markup and prose";
-	diversosdiversosversion[7]="Sublime Text 3 (Build 3207)";
-	diversosHomepage[7]="https://www.sublimetext.com/";
-	diversosInstall[7]="wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - && \
+	Nome[33]="sublime_text";
+	Description[33]="A sophisticated text editor for code, markup and prose";
+	diversosversion[33]="Sublime Text 3 (Build 3207)";
+	Homepage[33]="https://www.sublimetext.com/";
+	Install[33]="wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - && \
 		sudo apt install apt-transport-https && \
 		echo 'deb https://download.sublimetext.com/apt/stable/' | sudo tee /etc/apt/sources.list.d/sublime-text.list && \
 		sudo apt-get update && \
@@ -415,47 +415,47 @@ function ___Dependencia(){
 	# anaconda
 	# wakatime key(8abf9130-a506-4388-be35-cd525002d176)
 	# -----------------------------------------------------------------------------------------
-	diversosNome[8]="vscode";
-	diversosDescription[8]="Visual Studio Code";
-	diversosversion[8]="Version 1.36";
-	diversosHomepage[8]="https://code.visualstudio.com/";
-	diversosInstall[8]="sudo apt install software-properties-common apt-transport-https && \
+	Nome[34]="vscode";
+	Description[34]="Visual Studio Code";
+	version[34]="Version 1.36";
+	Homepage[34]="https://code.visualstudio.com/";
+	Install[34]="sudo apt install software-properties-common apt-transport-https && \
 		wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add - && \
 		sudo add-apt-repository 'deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main' && \
 		sudo apt update && \
 		sudo apt install code";
 	# -----------------------------------------------------------------------------------------
-	diversosNome[9]="vscodium";
-	diversosDescription[9]="Community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode";
-	diversosversion[9]="build from source";
-	diversosHomepage[9]="https://vscodium.com/";
-	diversosInstall[9]="wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add - && \
+	Nome[35]="vscodium";
+	Description[35]="Community-driven, freely-licensed binary distribution of Microsoft’s editor VSCode";
+	version[35]="build from source";
+	Homepage[35]="https://vscodium.com/";
+	Install[35]="wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add - && \
 		echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee --append /etc/apt/sources.list && \
 		sudo apt update && \
 		sudo apt install codium";
 	# -----------------------------------------------------------------------------------------				
-	diversosNome[10]="Atom";
-	diversosDescription[10]="A hackable text editor for the 21st Century";
-	diversosversion[10]="v1.39.0-beta3 (2019-07-02)";
-	diversosHomepage[10]="https://atom.io/";
-	diversosInstall[10]="sudo add-apt-repository ppa:webupd8team/atom && \
+	Nome[36]="Atom";
+	Description[36]="A hackable text editor for the 21st Century";
+	version[36]="v1.39.0-beta3 (2019-07-02)";
+	Homepage[36]="https://atom.io/";
+	Install[36]="sudo add-apt-repository ppa:webupd8team/atom && \
 		sudo apt-get update && \
 		sudo apt-get install atom && \
 		sudo snap install atom";
 	# -----------------------------------------------------------------------------------------				
-	diversosNome[11]="Geany";
-	diversosDescription[11]="Geany - The Flyweight IDE";
-	diversosversion[11]="1.35";
-	diversosHomepage[11]="https://www.geany.org/";
-	diversosInstall_11="sudo apt install geany -${Yn} && \
+	Nome[37]="Geany";
+	Description[37]="Geany - The Flyweight IDE";
+	version[37]="1.35";
+	Homepage[37]="https://www.geany.org/";
+	Install[37]="sudo apt install geany -${Yn} && \
 		sudo apt-get install geany -${Yn} && \
 		sudo aptitude install geany -${Yn}";
 	# -----------------------------------------------------------------------------------------				
-	diversosNome[12]="Wine";
-	diversosDescription[12]="wine emulador windows";
-	diversosversion[12]="3.0.3";
-	diversosHomepage[12]="https://www.winehq.org/";
-	diversosInstall[12]="wget -nc https://dl.winehq.org/wine-builds/winehq.key && \
+	Nome[38]="Wine";
+	Description[38]="wine emulador windows";
+	version[38]="3.0.3";
+	Homepage[38]="https://www.winehq.org/";
+	Install[38]="wget -nc https://dl.winehq.org/wine-builds/winehq.key && \
 		sudo apt-key add winehq.key && \
 		sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' && \
 		sudo apt update && \
@@ -463,36 +463,36 @@ function ___Dependencia(){
 		winecfg && \
 		winetricks";
 	# -----------------------------------------------------------------------------------------				
-	diversosNome[13]="playonlinux";
-	diversosDescription[13]="Playonlinux para wine";
-	diversosversion[13]="";
-	diversosHomepage[13]="";
-	diversosInstall[13]="wget -q 'http://deb.playonlinux.com/public.gpg' -O- | sudo apt-key add - && \
+	Nome[39]="playonlinux";
+	Description[39]="Playonlinux para wine";
+	version[39]="";
+	Homepage[39]="";
+	Install[39]="wget -q 'http://deb.playonlinux.com/public.gpg' -O- | sudo apt-key add - && \
 		sudo wget http://deb.playonlinux.com/playonlinux_bionic.list -O /etc/apt/sources.list.d/playonlinux.list && \
 		sudo apt-get update && \
 		sudo apt-get install playonlinux -${Yn}";
 	# -----------------------------------------------------------------------------------------				
-	diversosNome[14]="tilix";
-	diversosDescription[14]="Tilix";
-	diversosversion[14]="";
-	diversosHomepage[14]="";
-	diversosInstall[14]="sudo apt install tilix -${Yn} && \
+	Nome[40]="tilix";
+	Description[40]="Tilix";
+	version[40]="";
+	Homepage[40]="";
+	Install[40]="sudo apt install tilix -${Yn} && \
 		sudo aptitude install tilix -${Yn} && \
 		sudo apt-get install tilix -${Yn}";
 	# -----------------------------------------------------------------------------------------				
-	diversosNome[15]="Terminology";
-	diversosDescription[15]="Terminology";
-	diversosversion[15]="";
-	diversosHomepage[15]="";
-	diversosInstall[15]="sudo apt install terminology -${Yn} && \
+	Nome[41]="Terminology";
+	Description[41]="Terminology";
+	version[41]="";
+	Homepage[41]="";
+	Install[41]="sudo apt install terminology -${Yn} && \
 		sudo aptitude install terminology -${Yn} && \
 		sudo apt-get install terminology -${Yn}";
 	# -----------------------------------------------------------------------------------------				
-	diversosNome[16]="Neovim";
-	diversosDescription[16]="hyperextensible Vim-based text editor";
-	diversosversion[16]="v0.3.8";
-	diversosHomepage[16]="https://github.com/neovim/neovim/wiki/Installing-Neovim";
-	diversosInstall[16]="mkdir -p ~/.config/nvim && \
+	Nome[42]="Neovim";
+	Description[42]="hyperextensible Vim-based text editor";
+	version[42]="v0.3.8";
+	Homepage[42]="https://github.com/neovim/neovim/wiki/Installing-Neovim";
+	Install[42]="mkdir -p ~/.config/nvim && \
 		sudo apt install neovim python3 python3-pip git exuberant-ctags && \
 		python3 -m pip install virtualenv && \
 		python3 -m virtualenv -p python3 ~/.config/nvim/env && \
@@ -511,500 +511,517 @@ function ___Dependencia(){
 	# #cd neovim-init.vim-master
 	# #bash ./install.sh
 	# -----------------------------------------------------------------------------------------
-	Nome[0]="xampp";
-	Description[0]="XAMPP é um servidor independente de plataforma, software livre, que consiste principalmente na base de dados MySQL, o qual foi substituído pelo MariaDB, o servidor web Apache e os interpretadores para linguagens de script: PHP e Perl.";
-	version[0]="7.3.7";
-	Homepage[0]="https://www.apachefriends.org/pt_br/index.html";
-	Install[0]="wget 'https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/7.3.6/xampp-linux-x64-7.3.6-3-installer.run/download'	-O xampp-installer.run && \
+	Nome[43]="xampp";
+	Description[43]="XAMPP é um servidor independente de plataforma, software livre, que consiste principalmente na base de dados MySQL, o qual foi substituído pelo MariaDB, o servidor web Apache e os interpretadores para linguagens de script: PHP e Perl.";
+	version[43]="7.3.7";
+	Homepage[43]="https://www.apachefriends.org/pt_br/index.html";
+	Install[43]="wget 'https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/7.3.6/xampp-linux-x64-7.3.6-3-installer.run/download'	-O xampp-installer.run && \
 		chmod +x xampp-installer.run && \
 		sudo ./xampp-installer.run && \
 		echo -e '[Desktop Entry]\n Version=1.0\n Name=xampp\n Exec=gksudo /opt/lampp/manager-linux-x64.run\n Icon=/opt/lampp/icons/world1.png\n Type=Application\n Categories=Application' | sudo tee /usr/share/applications/xampp.desktop && \
 		sudo apt-get install gksu";
 	# -----------------------------------------------------------------------------------------				
-	Nome[1]="aptitude";
-	Description[1]="";
-	version[1]="";
-	Homepage[1]="";
-	Install[1]="sudo apt install aptitude -${Yn}";
+	Nome[44]="aptitude";
+	Description[44]="";
+	version[44]="";
+	Homepage[44]="";
+	Install[44]="sudo apt install aptitude -${Yn}";
 	# -----------------------------------------------------------------------------------------				
-	Nome[2]="byobu";
-	Description[2]="";
-	version[2]="";
-	Homepage[2]="";
-	Install[2]="sudo apt install byobu -${Yn}";
+	Nome[45]="byobu";
+	Description[45]="";
+	version[45]="";
+	Homepage[45]="";
+	Install[45]="sudo apt install byobu -${Yn}";
 	# -----------------------------------------------------------------------------------------				
-	Nome[3]="nmcli";
-	Description[3]="";
-	version[3]="";
-	Homepage[3]="";
-	Install[3]="sudo apt install nmcli -${Yn}";
+	Nome[46]="nmcli";
+	Description[46]="";
+	version[46]="";
+	Homepage[46]="";
+	Install[46]="sudo apt install nmcli -${Yn}";
 	# -----------------------------------------------------------------------------------------				
-	Nome[4]="grep";
-	Description[4]="";
-	version[4]="";
-	Homepage[4]="";
-	Install[4]="sudo apt install grep -${Yn}";
+	Nome[47]="grep";
+	Description[47]="";
+	version[47]="";
+	Homepage[47]="";
+	Install[47]="sudo apt install grep -${Yn}";
 	# -----------------------------------------------------------------------------------------				
-	Nome[5]="awk",
-	Description[5]="";
-	version[5]="";
-	Homepage[5]="";
-	Install[5]="sudo apt install awk -${Yn}";
+	Nome[48]="awk",
+	Description[48]="";
+	version[48]="";
+	Homepage[48]="";
+	Install[48]="sudo apt install awk -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[6]="figlet";
-	Description[6]="";
-	version[6]="";
-	Homepage[6]="";
-	Install[6]="sudo apt install figlet -${Yn}";
+	Nome[49]="figlet";
+	Description[49]="";
+	version[49]="";
+	Homepage[49]="";
+	Install[49]="sudo apt install figlet -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[7]="tput";
-	Description[7]="";
-	version[7]="";
-	Homepage[7]="";
-	Install[7]="sudo apt install tput -${Yn}";
+	Nome[50]="tput";
+	Description[50]="";
+	version[50]="";
+	Homepage[50]="";
+	Install[50]="sudo apt install tput -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[8]="htop";
-	Description[8]="";
-	version[8]="";
-	Homepage[8]="";
-	Install[8]="sudo apt install htop -${Yn}";
+	Nome[51]="htop";
+	Description[51]="";
+	version[51]="";
+	Homepage[51]="";
+	Install[51]="sudo apt install htop -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[9]="irssi";
-	Description[9]="";
-	version[9]="";
-	Homepage[9]="";
-	Install[9]="sudo apt install irssi -${Yn}";
+	Nome[52]="irssi";
+	Description[52]="";
+	version[52]="";
+	Homepage[52]="";
+	Install[52]="sudo apt install irssi -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[10]="neofetch";
-	Description[10]="";
-	version[10]="";
-	Homepage[10]="";
-	Install[10]="sudo apt install neofetch -${Yn}";
+	Nome[53]="neofetch";
+	Description[53]="";
+	version[53]="";
+	Homepage[53]="";
+	Install[53]="sudo apt install neofetch -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[11]="awscli",
-	Description[11]="";
-	version[11]="";
-	Homepage[11]="";
-	Install[11]="sudo apt install awscli -${Yn}";
+	Nome[54]="awscli",
+	Description[54]="";
+	version[54]="";
+	Homepage[54]="";
+	Install[54]="sudo apt install awscli -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[12]="build-essential";
-	Description[12]="";
-	version[12]="";
-	Homepage[12]="";
-	Install[12]="sudo apt install build-essential -${Yn}";
+	Nome[55]="build-essential";
+	Description[55]="";
+	version[55]="";
+	Homepage[55]="";
+	Install[55]="sudo apt install build-essential -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[13]="cmatrix";
-	Description[13]="";
-	version[13]="";
-	Homepage[13]="";
-	Install[13]="sudo apt install cmatrix -${Yn}";
+	Nome[56]="cmatrix";
+	Description[56]="";
+	version[56]="";
+	Homepage[56]="";
+	Install[56]="sudo apt install cmatrix -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[14]="cowsay";
-	Description[14]="";
-	version[14]="";
-	Homepage[14]="";
-	Install[14]="sudo apt install cowsay -${Yn}";
+	Nome[57]="cowsay";
+	Description[57]="";
+	version[57]="";
+	Homepage[57]="";
+	Install[57]="sudo apt install cowsay -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[15]="curl";
-	Description[15]="";
-	version[15]="";
-	Homepage[15]="";
-	Install[15]="sudo apt install curl -${Yn}";
+	Nome[58]="curl";
+	Description[58]="";
+	version[58]="";
+	Homepage[58]="";
+	Install[58]="sudo apt install curl -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[16]="docker.io";
-	Description[16]="";
-	version[16]="";
-	Homepage[16]="";
-	Install[16]="sudo apt install docker.io -${Yn}";
+	Nome[59]="docker.io";
+	Description[59]="";
+	version[59]="";
+	Homepage[59]="";
+	Install[59]="sudo apt install docker.io -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[17]="docker-compose";
-	Description[17]="";
-	version[17]="";
-	Homepage[17]="";
-	Install[17]="sudo apt install docker-compose -${Yn}";
+	Nome[60]="docker-compose";
+	Description[60]="";
+	version[60]="";
+	Homepage[60]="";
+	Install[60]="sudo apt install docker-compose -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[18]="git-core";
-	Description[18]="";
-	version[18]="";
-	Homepage[18]="";
-	Install[18]="sudo apt install git-core -${Yn}";
+	Nome[61]="git-core";
+	Description[61]="";
+	version[61]="";
+	Homepage[61]="";
+	Install[61]="sudo apt install git-core -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[19]="groff";
-	Description[19]="";
-	version[19]="";
-	Homepage[19]="";
-	Install[19]="sudo apt install -groff ${Yn}";
+	Nome[62]="groff";
+	Description[62]="";
+	version[62]="";
+	Homepage[62]="";
+	Install[62]="sudo apt install -groff ${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[20]="hollywood";
-	Description[20]="";
-	version[20]="";
-	Homepage[20]="";
-	Install[20]="sudo apt install hollywood -${Yn}";
+	Nome[63]="hollywood";
+	Description[63]="";
+	version[63]="";
+	Homepage[63]="";
+	Install[63]="sudo apt install hollywood -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[21]="nasm";
-	Description[21]="The Netwide Assembler, NASM, is an 80x86 and x86-64 assembler designed for portability and modularity.";
-	version[21]="2.14.02";
-	Homepage[21]="https://www.nasm.us/";
-	Install[21]="sudo apt install nasm  -${Yn}";
+	Nome[64]="nasm";
+	Description[64]="The Netwide Assembler, NASM, is an 80x86 and x86-64 assembler designed for portability and modularity.";
+	version[64]="2.14.02";
+	Homepage[64]="https://www.nasm.us/";
+	Install[64]="sudo apt install nasm  -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[22]="id3tool";
-	Description[22]="";
-	version[22]="";
-	Homepage[22]="";
-	Install[22]="sudo apt install id3tool -${Yn}";
+	Nome[65]="id3tool";
+	Description[65]="";
+	version[65]="";
+	Homepage[65]="";
+	Install[65]="sudo apt install id3tool -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[23]="imagemagick";
-	Description[23]="";
-	version[23]="";
-	Homepage[23]="";
-	Install[23]="sudo apt install imagemagick -${Yn}";
+	Nome[66]="imagemagick";
+	Description[66]="";
+	version[66]="";
+	Homepage[66]="";
+	Install[66]="sudo apt install imagemagick -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[24]="jq";
-	Description[24]="";
-	version[24]="";
-	Homepage[24]="";
-	Install[24]="sudo apt install jq -${Yn}";
+	Nome[67]="jq";
+	Description[67]="";
+	version[67]="";
+	Homepage[67]="";
+	Install[67]="sudo apt install jq -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[25]="mercurial";
-	Description[25]="";
-	version[25]="";
-	Homepage[25]="";
-	Install[25]="sudo apt install jq -${Yn}";
+	Nome[68]="mercurial";
+	Description[68]="";
+	version[68]="";
+	Homepage[68]="";
+	Install[68]="sudo apt install jq -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[26]="python-pip";
-	Description[26]="";
-	version[26]="";
-	Homepage[26]="";
-	Install[26]="sudo apt install python-pip -${Yn}";
+	Nome[69]="python-pip";
+	Description[69]="";
+	version[69]="";
+	Homepage[69]="";
+	Install[69]="sudo apt install python-pip -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[27]="nmap";
-	Description[27]="";
-	version[27]="";
-	Homepage[27]="";
-	Install[27]="sudo apt install nmap -${Yn}";
+	Nome[70]="nmap";
+	Description[70]="";
+	version[70]="";
+	Homepage[70]="";
+	Install[70]="sudo apt install nmap -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[28]="silversearcher-ag";
-	Description[28]="";
-	version[28]="";
-	Homepage[28]="";
-	Install[28]="sudo apt install silversearcher-ag -${Yn}";
+	Nome[71]="silversearcher-ag";
+	Description[71]="";
+	version[71]="";
+	Homepage[71]="";
+	Install[71]="sudo apt install silversearcher-ag -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[29]="thefuck";
-	Description[29]="";
-	version[29]="";
-	Homepage[29]="";
-	Install[29]="sudo apt install thefuck -${Yn}";
+	Nome[72]="thefuck";
+	Description[72]="";
+	version[72]="";
+	Homepage[72]="";
+	Install[72]="sudo apt install thefuck -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[30]="sl";
-	Description[30]="";
-	version[30]="";
-	Homepage[30]="";
-	Install[30]="sudo apt install sl -${Yn}";
+	Nome[73]="sl";
+	Description[73]="";
+	version[73]="";
+	Homepage[73]="";
+	Install[73]="sudo apt install sl -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[31]="telnet";
-	Description[31]="";
-	version[31]="";
-	Homepage[31]="";
-	Install[31]="sudo apt install telnet -${Yn}";
+	Nome[74]="telnet";
+	Description[74]="";
+	version[74]="";
+	Homepage[74]="";
+	Install[74]="sudo apt install telnet -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[32]="tree";
-	Description[32]="";
-	version[32]="";
-	Homepage[32]="";
-	Install[32]="sudo apt install tree -${Yn}";
+	Nome[75]="tree";
+	Description[75]="";
+	version[75]="";
+	Homepage[75]="";
+	Install[75]="sudo apt install tree -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	# Nome[[33]="mysql-workbench",
-	# Description[[33]="";
-	# version[[33]="";
-	# Homepage[[33]="";
-	# Install[[33]="wget -q http://cdn.mysql.com/Downloads/MySQLGUITools/mysql-workbench-community[8].0.12-1ubuntu18.04_amd64.deb -O mysql-workbench-community.deb && \
-#  			sudo dpkg -i mysql-workbench-community.deb && \
-#  			sudo apt -f install";
+	Nome[76]="mysql-workbench",
+	Description[76]="";
+	version[76]="";
+	Homepage[76]="";
+	Install[76]="wget -q http://cdn.mysql.com/Downloads/MySQLGUITools/mysql-workbench-community[8].0.12-1ubuntu18.04_amd64.deb -O mysql-workbench-community.deb && \
+ 			sudo dpkg -i mysql-workbench-community.deb && \
+ 			sudo apt -f install";
 	# -----------------------------------------------------------------------------------------						
-	Nome[34]="postgresql";
-	Description[34]="";
-	version[34]="";
-	Homepage[34]="";
-	Install[34]="sudo apt install postgresql -${Yn}";
+	Nome[77]="postgresql";
+	Description[77]="";
+	version[77]="";
+	Homepage[77]="";
+	Install[77]="sudo apt install postgresql -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[35]="postgresql-contrib";
-	Description[35]="";
-	version[35]="";
-	Homepage[35]="";
-	Install[35]="sudo apt install postgresql-contrib -${Yn}";
+	Nome[78]="postgresql-contrib";
+	Description[78]="";
+	version[78]="";
+	Homepage[78]="";
+	Install[78]="sudo apt install postgresql-contrib -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[36]="mysql-server",
-	Description[36]="";
-	version[36]="";
-	Homepage[36]="";
-	Install[36]="sudo apt install mysql-server -${Yn}";
+	Nome[79]="mysql-server",
+	Description[79]="";
+	version[79]="";
+	Homepage[79]="";
+	Install[79]="sudo apt install mysql-server -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[37]="php7.2";
-	Description[37]="";
-	version[37]="";
-	Homepage[37]="";
-	Install[37]="sudo apt install php7.2 -${Yn} && \
+	Nome[80]="php7.2";
+	Description[80]="";
+	version[80]="";
+	Homepage[80]="";
+	Install[80]="sudo apt install php7.2 -${Yn} && \
 		sudo a2enmod php7.2 && \
 		sudo systemctl restart apache2 && \
 		sudo cp info.php /var/www/html/";
 	# -----------------------------------------------------------------------------------------						
-	Nome[38]="phppgadmin";
-	Description[38]="";
-	version[38]="";
-	Homepage[38]="";
-	Install[38]="sudo apt install phppgadmin -${Yn}";
+	Nome[81]="phppgadmin";
+	Description[81]="";
+	version[81]="";
+	Homepage[81]="";
+	Install[81]="sudo apt install phppgadmin -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[39]="php7.2-pgsql";
-	Description[39]="";
-	version[39]="";
-	Homepage[39]="";
-	Install[39]="sudo apt install php7.2-pgsql -${Yn}";
+	Nome[82]="php7.2-pgsql";
+	Description[82]="";
+	version[82]="";
+	Homepage[82]="";
+	Install[82]="sudo apt install php7.2-pgsql -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[40]="php-gettext";
-	Description[40]="";
-	version[40]="";
-	Homepage[40]="";
-	Install[40]="sudo apt install php-gettext -${Yn}";
+	Nome[83]="php-gettext";
+	Description[83]="";
+	version[83]="";
+	Homepage[83]="";
+	Install[83]="sudo apt install php-gettext -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[41]="libapache2-mod-php7.2";
-	Description[41]="";
-	version[41]="";
-	Homepage[41]="";
-	Install[41]="sudo apt install libapache2-mod-php7.2 -${Yn}";
+	Nome[84]="libapache2-mod-php7.2";
+	Description[84]="";
+	version[84]="";
+	Homepage[84]="";
+	Install[84]="sudo apt install libapache2-mod-php7.2 -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[42]="php7.2-mysql";
-	Description[42]="";
-	version[42]="";
-	Homepage[42]="";
-	Install[42]="sudo apt install php7.2-mysql -${Yn}";
+	Nome[85]="php7.2-mysql";
+	Description[85]="";
+	version[85]="";
+	Homepage[85]="";
+	Install[85]="sudo apt install php7.2-mysql -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[43]="php-common";
-	Description[43]="";
-	version[43]="";
-	Homepage[43]="";
-	Install[43]="sudo apt install php-common -${Yn}";
+	Nome[86]="php-common";
+	Description[86]="";
+	version[86]="";
+	Homepage[86]="";
+	Install[86]="sudo apt install php-common -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[44]="php7.2-cli";
-	Description[44]="";
-	version[44]="";
-	Homepage[44]="";
-	Install[44]="sudo apt install php7.2-cli -${Yn}";
+	Nome[87]="php7.2-cli";
+	Description[87]="";
+	version[87]="";
+	Homepage[87]="";
+	Install[87]="sudo apt install php7.2-cli -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[45]="php7.2-common";
-	Description[45]="";
-	version[45]="";
-	Homepage[45]="";
-	Install[45]="sudo apt install php7.2-common -${Yn}";
+	Nome[88]="php7.2-common";
+	Description[88]="";
+	version[88]="";
+	Homepage[88]="";
+	Install[88]="sudo apt install php7.2-common -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[46]="php7.2-json";
-	Description[46]="";
-	version[46]="";
-	Homepage[46]="";
-	Install[46]="sudo apt install php7.2-json -${Yn}";
+	Nome[89]="php7.2-json";
+	Description[89]="";
+	version[89]="";
+	Homepage[89]="";
+	Install[89]="sudo apt install php7.2-json -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[47]="php7.2-readline";
-	Description[47]="";
-	version[47]="";
-	Homepage[47]="";
-	Install[47]="sudo apt install php7.2-readline -${Yn}";
+	Nome[90]="php7.2-readline";
+	Description[90]="";
+	version[90]="";
+	Homepage[90]="";
+	Install[90]="sudo apt install php7.2-readline -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[48]="php7.2-opcache";
-	Description[48]="";
-	version[48]="";
-	Homepage[48]="";
-	Install[48]="sudo apt install php7.2-opcache -${Yn}";
+	Nome[91]="php7.2-opcache";
+	Description[91]="";
+	version[91]="";
+	Homepage[91]="";
+	Install[91]="sudo apt install php7.2-opcache -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[49]="libav-tools";
-	Description[49]="";
-	version[49]="";
-	Homepage[49]="";
-	Install[49]="sudo apt install libav-tools -${Yn}";
+	Nome[92]="libav-tools";
+	Description[92]="";
+	version[92]="";
+	Homepage[92]="";
+	Install[92]="sudo apt install libav-tools -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[50]="x11-xserver-utils";
-	Description[50]="";
-	version[50]="";
-	Homepage[50]="";
-	Install[50]="sudo apt install x11-xserver-utils -${Yn}";
+	Nome[93]="x11-xserver-utils";
+	Description[93]="";
+	version[93]="";
+	Homepage[93]="";
+	Install[93]="sudo apt install x11-xserver-utils -${Yn}";
 	# -----------------------------------------------------------------------------------------								
-	Nome[51]="xdotool";
-	Description[51]="";
-	version[51]="";
-	Homepage[51]="";
-	Install[51]="sudo apt install xdotool -${Yn}";
+	Nome[94]="xdotool";
+	Description[94]="";
+	version[94]="";
+	Homepage[94]="";
+	Install[94]="sudo apt install xdotool -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[52]="wininfo";
-	Description[52]="";
-	version[52]="";
-	Homepage[52]="";
-	Install[52]="sudo apt install wininfo -${Yn}";
+	Nome[95]="wininfo";
+	Description[95]="";
+	version[95]="";
+	Homepage[95]="";
+	Install[95]="sudo apt install wininfo -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[53]="wmctrl";
-	Description[53]="";
-	version[53]="";
-	Homepage[53]="";
-	Install[53]="sudo apt install wmctrl -${Yn}";
+	Nome[96]="wmctrl";
+	Description[96]="";
+	version[96]="";
+	Homepage[96]="";
+	Install[96]="sudo apt install wmctrl -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[54]="python-gobject";
-	Description[54]="";
-	version[54]="";
-	Homepage[54]="";
-	Install[54]="sudo apt install python-gobject -${Yn}";
+	Nome[97]="python-gobject";
+	Description[97]="";
+	version[97]="";
+	Homepage[97]="";
+	Install[97]="sudo apt install python-gobject -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[55]="python-cairo";
-	Description[55]="";
-	version[55]="";
-	Homepage[55]="";
-	Install[55]="sudo apt install python-cairo -${Yn}";
+	Nome[98]="python-cairo";
+	Description[98]="";
+	version[98]="";
+	Homepage[98]="";
+	Install[98]="sudo apt install python-cairo -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[56]="xdg-utils";
-	Description[56]="";
-	version[56]="";
-	Homepage[56]="";
-	Install[56]="sudo apt install xdg-utils -${Yn}";
+	Nome[99]="xdg-utils";
+	Description[99]="";
+	version[99]="";
+	Homepage[99]="";
+	Install[99]="sudo apt install xdg-utils -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[57]="yad";
-	Description[57]="";
-	version[57]="";
-	Homepage[57]="";
-	Install[57]="sudo apt install yad -${Yn}";
+	Nome[100]="yad";
+	Description[100]="";
+	version[100]="";
+	Homepage[100]="";
+	Install[100]="sudo apt install yad -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[58]="silentcast";
-	Description[58]="";
-	version[58]="";
-	Homepage[58]="";
-	Install[58]="sudo apt install silentcast -${Yn}";
+	Nome[101]="silentcast";
+	Description[101]="";
+	version[101]="";
+	Homepage[101]="";
+	Install[101]="sudo apt install silentcast -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[59]="vim";
-	Description[59]="";
-	version[59]="";
-	Homepage[59]="";
-	Install[59]="sudo apt install vim -${Yn}";
+	Nome[102]="vim";
+	Description[102]="";
+	version[102]="";
+	Homepage[102]="";
+	Install[102]="sudo apt install vim -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[60]="handbrake-cli";
-	Description[60]="";
-	version[60]="";
-	Homepage[60]="";
-	Install[60]="sudo apt install handbrake-cli -${Yn}";
+	Nome[103]="handbrake-cli";
+	Description[103]="";
+	version[103]="";
+	Homepage[103]="";
+	Install[103]="sudo apt install handbrake-cli -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[61]="rvm";
-	Description[61]="";
-	version[61]="";
-	Homepage[61]="";
-	Install[61]="sudo apt install rvm -${Yn}";
+	Nome[104]="rvm";
+	Description[104]="";
+	version[104]="";
+	Homepage[104]="";
+	Install[104]="sudo apt install rvm -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[62]="autoconf";
-	Description[62]="";
-	version[62]="";
-	Homepage[62]="";
-	Install[62]="sudo apt install autoconf -${Yn}";
+	Nome[105]="autoconf";
+	Description[105]="";
+	version[105]="";
+	Homepage[105]="";
+	Install[105]="sudo apt install autoconf -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[63]="bison";
-	Description[63]="";
-	version[63]="";
-	Homepage[63]="";
-	Install[63]="sudo apt install bison -${Yn}";
+	Nome[106]="bison";
+	Description[106]="";
+	version[106]="";
+	Homepage[106]="";
+	Install[106]="sudo apt install bison -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[64]="build-essential";
-	Description[64]="";
-	version[64]="";
-	Homepage[64]="";
-	Install[64]="sudo apt install build-essential -${Yn}";
+	Nome[107]="build-essential";
+	Description[107]="";
+	version[107]="";
+	Homepage[107]="";
+	Install[107]="sudo apt install build-essential -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[65]="libssl-dev";
-	Description[65]="";
-	version[65]="";
-	Homepage[65]="";
-	Install[65]="sudo apt install libssl-dev -${Yn}";
+	Nome[108]="libssl-dev";
+	Description[108]="";
+	version[108]="";
+	Homepage[108]="";
+	Install[108]="sudo apt install libssl-dev -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[66]="libyaml-dev";
-	Description[66]="";
-	version[66]="";
-	Homepage[66]="";
-	Install[66]="sudo apt install libyaml-dev -${Yn}";
+	Nome[109]="libyaml-dev";
+	Description[109]="";
+	version[109]="";
+	Homepage[109]="";
+	Install[109]="sudo apt install libyaml-dev -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[67]="libreadline6-dev";
-	Description[67]="";
-	version[67]="";
-	Homepage[67]="";
-	Install[67]="sudo apt install libreadline6-dev -${Yn}";
+	Nome[110]="libreadline6-dev";
+	Description[110]="";
+	version[110]="";
+	Homepage[110]="";
+	Install[110]="sudo apt install libreadline6-dev -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[68]="libncurses5-dev";
-	Description[68]="";
-	version[68]="";
-	Homepage[68]="";
-	Install[68]="sudo apt install libncurses5-dev -${Yn}";
+	Nome[111]="libncurses5-dev";
+	Description[111]="";
+	version[111]="";
+	Homepage[111]="";
+	Install[111]="sudo apt install libncurses5-dev -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[69]="libffi-dev";
-	Description[69]="";
-	version[69]="";
-	Homepage[69]="";
-	Install[69]="sudo apt install libffi-dev -${Yn}";
+	Nome[112]="libffi-dev";
+	Description[112]="";
+	version[112]="";
+	Homepage[112]="";
+	Install[112]="sudo apt install libffi-dev -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[70]="libgdbm3";
-	Description[70]="";
-	version[70]="";
-	Homepage[70]="";
-	Install[70]="sudo apt install libgdbm3 -${Yn}";
+	Nome[113]="libgdbm3";
+	Description[113]="";
+	version[113]="";
+	Homepage[113]="";
+	Install[113]="sudo apt install libgdbm3 -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	# Nome[[71]="libgdbm-dev";
-	# Description[[71]="";
-	# version[[71]="";
-	# Homepage[[71]="";
-	# Install[[71]="sudo apt install libgdbm-dev -${Yn}";
+	Nome[114]="libgdbm-dev";
+	Description[114]="";
+	version[114]="";
+	Homepage[114]="";
+	Install[114]="sudo apt install libgdbm-dev -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[72]="zlib1g-dev";
-	Description[72]="";
-	version[72]="";
-	Homepage[72]="";
-	Install[72]="sudo apt install zlib1g-dev -${Yn}";
+	Nome[115]="zlib1g-dev";
+	Description[115]="";
+	version[115]="";
+	Homepage[115]="";
+	Install[115]="sudo apt install zlib1g-dev -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[73]="ansible";
-	Description[73]="";
-	version[73]="";
-	Homepage[73]="";
-	Install[73]="sudo apt install ansible -${Yn}";
+	Nome[116]="ansible";
+	Description[116]="";
+	version[116]="";
+	Homepage[116]="";
+	Install[116]="sudo apt install ansible -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[74]="tmux-xpanes";
-	Description[74]="";
-	version[74]="";
-	Homepage[74]="";
-	Install[74]="sudo apt install tmux-xpanes -${Yn}";
+	Nome[117]="tmux-xpanes";
+	Description[117]="";
+	version[117]="";
+	Homepage[117]="";
+	Install[117]="sudo apt install tmux-xpanes -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[75]="gource";
-	Description[75]="Software projects are displayed by Gource as an animated tree with the root directory of the project at its centre.";
-	version[75]="0.49";
-	Homepage[75]="https://gource.io/";
-	Install[75]="sudo apt-get install gource -${Yn}";
+	Nome[118]="gource";
+	Description[118]="Software projects are displayed by Gource as an animated tree with the root directory of the project at its centre.";
+	version[118]="0.49";
+	Homepage[118]="https://gource.io/";
+	Install[118]="sudo apt-get install gource -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[76]="npm";
-	Description[76]="O npm é um gerenciador de pacotes para a linguagem de programação JavaScript. Node.js";
-	version[76]="6.9.0";
-	Homepage[76]="https://npm.org";
-	Install[76]="sudo apt install npm -${Yn}";
+	Nome[119]="npm";
+	Description[119]="O npm é um gerenciador de pacotes para a linguagem de programação JavaScript. Node.js";
+	version[119]="6.9.0";
+	Homepage[119]="https://npm.org";
+	Install[119]="sudo apt install npm -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[77]="ffmpeg";
-	Description[77]="player";
-	version[77]="3.4.6-0ubuntu0.18.04.1 Copyright (c) 2000-2019 the FFmpeg developers";
-	Homepage[77]="https://gource.io/";
-	Install[77]="sudo apt-get install ffmpeg -${Yn}";
+	Nome[120]="ffmpeg";
+	Description[120]="player";
+	version[120]="3.4.6-0ubuntu0.18.04.1 Copyright (c) 2000-2019 the FFmpeg developers";
+	Homepage[120]="https://gource.io/";
+	Install[120]="sudo apt-get install ffmpeg -${Yn}";
 	# -----------------------------------------------------------------------------------------						
-	Nome[78]="sublime-merge";
-	Description[78]="git";
-	version[78]="git";
-	Homepage[78]="https://sublime-merge.com/";
-	Install[78]="wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - && \
+	Nome[121]="sublime-merge";
+	Description[121]="git";
+	version[121]="git";
+	Homepage[121]="https://sublime-merge.com/";
+	Install[121]="wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - && \
 		sudo apt-get install apt-transport-https && \
 		echo 'deb https://download.sublimetext.com/ apt/stable/' | sudo tee /etc/apt/sources.list.d/sublime-text.list && \
 		sudo apt-get update && \
 		sudo apt-get install sublime-merge";
 	# -----------------------------------------------------------------------------------------						
-	Nome[79]="boxes";
-	Description[79]="ascii";
-	version[79]="";
-	Homepage[79]="";
-	Install[79]="sudo apt install boxes -${Yn}";
+	Nome[122]="boxes";
+	Description[122]="ascii";
+	version[122]="";
+	Homepage[122]="";
+	Install[122]="sudo apt install boxes -${Yn}";
 	# -----------------------------------------------------------------------------------------								
-	
+	Nome[123]="tasksel";
+	Description[123]="Mostra todos os grupos possiveis para seu perfil e instala se requerido.";
+	version[123]="";
+	Homepage[123]="";
+	Install[123]="sudo apt install tasksel -${Yn} &&
+		sudo tasksel --list-tasks";
+	# -----------------------------------------------------------------------------------------								
+	Nome[124]="synaptics";
+	Description[124]="Instalador de programas";
+	version[124]="";
+	Homepage[124]="";
+	Install[124]="sudo apt install synaptics -${Yn}";
+	# -----------------------------------------------------------------------------------------								
+	Nome[124]="KDE";
+	Description[124]="Session KDE";
+	version[124]="5.12";
+	Homepage[124]="";
+	Install[124]="sudo tasksel install kubuntu-desktop -${Yn}";
 }
 
 

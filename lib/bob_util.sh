@@ -426,6 +426,23 @@ function Class_Bob(){
         gource --background-image $HOME/projetos/bob/doc/sky.jpg;
         Principal;
     }
+    function bp(){
+        # barra vazia
+        echo -n '[.................................................]  0%'
+
+        passo='#####'
+
+        for i in 10 20 30 40 50 60 70 80 90 100; do
+            sleep 1
+            pos=$((i/2-5))           # calcula a posição atual da barra
+            echo -ne '\033[G'        # vai para o começo da linha
+            echo -ne "\033[${pos}C"  # vai para a posição atual da barra
+            echo -n  "$passo"        # preenche mais um passo
+            echo -ne '\033[53G'      # vai para a posição da porcentagem
+            echo -n  "$i"            # mostra a porcentagem
+        done
+        echo
+    }
     # -----------------------------------------------------------------------------------------
                                                                        # REVIEW  (function dp )
     # -----------------------------------------------------------------------------------------
@@ -448,7 +465,7 @@ function Class_Bob(){
             "postgresql-contrib" "mysql-workbench" "tree" "telnet" "sl" "thefuck"  "silversearcher-ag" 
             "nmap" "mercurial" "jq" "imagemagick" "id3tool" "hollywood" "groff" "git-core" "docker.io"
             "docker-compose" "curl" "cowsay" "cmatrix" "build-essential"  "awscli"  "neofetch"  "htop" 
-            "tput" "kdevelop" );
+            "tput" "kdevelop" "tasksel" "synaptics" "KDE" "__Instalador");
         l=${#__dp[@]};
         for ((i=0;i<=l;i++)); do
              clicked[$i]="[ ]"
@@ -475,89 +492,62 @@ function Class_Bob(){
             if [ "${clicked[${c}]}" = "[$(e_success)]" ] ; then
                 Titulo_Inicial; printf "\n\n\n\n"
                 e_arrow "Iniciando instalação dependências. $(e_success)"
-                #echo "c=${c}, __dp=${__dp[${c}]}, click=${clicked[${c}]}"
                 which ${__dp[${c}]} &>/dev/null ||
                     seek_confirmation "${USER}, permite a instalação do pacote  ${__dp[${c}]}, no sistema ?" 
                     if is_confirmed; then
                         ___Dependencia; e_success "Carregado ... dependências";   
-                        e_arrow -d "Atualizando cache ... & Instalando : ${__dp[${c}]}."
-                        sudo apt update && sudo apt upgrade && sudo apt autoremove
-                        #echo ${#desenvolvimentoNome[@]}
-                        for ((j=0;j<=${#desenvolvimentoNome[@]};j++)); do
-                            if [ "${__dp[${c}]}" = "${desenvolvimentoNome[$j]}" ] ; then
-                                echo "${desenvolvimentoNome[$j]}"
-                                echo "${desenvolvimentoDescription[$j]}"
-                                echo "${desenvolvimentoversion[$j]}"
-                                echo "${desenvolvimentoHomepage[$j]}"
-                                echo "${desenvolvimentoInstall[$j]}"
-                                if [ ${__dp[${c}]} = "python3" ] ; then      # colcocar escolhas
-                                    for ((a=0;a<=${#desenvolvimentoInstall_11[@]};a++)); do 
-                                        echo ${desenvolvimentoInstall_11[$a]} # 3        
-                                        ${desenvolvimentoInstall_11[$a]}
+                        e_arrow "Atualizando cache [update]"
+                        sudo apt -qq update
+                        e_success "Atualizado cache!"
+                        e_arrow "Atualizando system [upgrade]"
+                        sudo apt -qy upgrade
+                        e_success "Atualizado system!"
+                        sudo apt autoremove
+                        e_success "Removido pacotes system!"
+                        for ((j=0;j<=${#Nome[@]};j++)); do
+                            if [ "${__dp[${c}]}" = "${Nome[$j]}" ] ; then
+                                e_arrow "Instalando  pacote : ${Nome[$j]}"
+                                e_arrow "Descrição   pacote : ${Description[$j]}"
+                                e_arrow "Versão      pacote : ${version[$j]}"
+                                e_arrow "Homepage    pacote : ${Homepage[$j]}"
+                                e_arrow "Comando instalação : ${Install[$j]}"
+                                if [ ${__dp[${c}]} = "python3" ] ; then      
+                                    for ((a=0;a<=${#Install_11[@]};a++)); do 
+                                        echo ${Install_11[$a]} # 3        
+                                        ${Install_11[$a]}
                                     done                                                 
-                                    for ((b=0;b<=${#desenvolvimentoInstall_11A[@]};b++)); do
-                                        echo ${desenvolvimentoInstall_11A[$b]} # 5          
-                                        ${desenvolvimentoInstall_11A[$b]}
+                                    for ((b=0;b<=${#Install_11A[@]};b++)); do
+                                        echo ${Install_11A[$b]} # 5          
+                                        ${Install_11A[$b]}
                                     done                                                    
-                                    for ((c=0;c<=${#desenvolvimentoInstall_11B[@]};c++)); do
-                                        echo ${desenvolvimentoInstall_11B[$c]} # 16         
-                                        ${desenvolvimentoInstall_11B[$c]}
+                                    for ((c=0;c<=${#Install_11B[@]};c++)); do
+                                        echo ${Install_11B[$c]} # 16         
+                                        ${Install_11B[$c]}
                                     done                                                    
-                                    for ((d=0;d<=${#desenvolvimentoInstall_11C[@]};d++)); do
-                                        echo ${desenvolvimentoInstall_11C[$d]} # 21         
-                                        ${desenvolvimentoInstall_11C[$d]}
-                                    done                            
+                                    for ((d=0;d<=${#Install_11C[@]};d++)); do
+                                        echo ${Install_11C[$d]} # 21         
+                                        ${Install_11C[$d]}
+                                    done 
                                 else
-                                    ${desenvolvimentoInstall[$j]}                        
+                                    e_arrow "Instalando pacotes no system!"
+                                    ${Install[$j]}
+                                    e_success "Pacote instalado, pronto !"
                                 fi                                                          
                             fi
                         done
                         #echo ${#browsersNome[@]}
-                        for ((j=0;j<=${#browsersNome[@]};j++)); do
-                            if [ "${__dp[${c}]}" = "${browsersNome[$j]}" ] ; then
-                                echo "${browsersNome[$j]}"
-                                echo "${browsersDescription[$j]}"
-                                echo "${browsersversion[$j]}"
-                                echo "${browsersHomepage[$j]}"
-                                echo "${browsersInstall[$j]}"
-                                ${browsersInstall[$j]}
-                            fi
-                        done
-                        #echo ${#codecsNome[@]}
-                        for ((j=0;j<=${#codecsNome[@]};j++)); do
-                            if [ "${__dp[${c}]}" = "${codecsNome[$j]}" ] ; then
-                                echo "${codecsNome[$j]}"
-                                echo "${codecsDescription[$j]}"
-                                echo "${codecsversion[$j]}"
-                                echo "${codecsHomepage[$j]}"
-                                echo "${codecsInstall[$j]}"
-                                ${codecsInstall[$j]}
-                            fi
-                        done
-                        ##echo ${#diversosNome[@]}
-                        for ((j=0;j<=${#diversosNome[@]};j++)); do
-                            if [ "${__dp[${c}]}" = "${diversosNome[$j]}" ] ; then
-                                echo "${diversosNome[$j]}"
-                                echo "${diversosDescription[$j]}"
-                                echo "${diversosversion[$j]}"
-                                echo "${diversosHomepage[$j]}"
-                                echo "${diversosInstall[$j]}"
-                                ${diversosInstall[$j]}
-                            fi
-                        done
-                        #echo ${#Nome[@]}
-                        for ((j=0;j<=${#Nome[@]};j++)); do
-                            if [ "${__dp[${c}]}" = "${Nome[$j]}" ] ; then
-                                echo "${Nome[$j]}"
-                                echo "${Description[$j]}"
-                                echo "${version[$j]}"
-                                echo "${Homepage[$j]}"
-                                echo "${Install[$j]}"
-                                ${Install[$j]}
-                            fi
-                        done
-
                     else
+                        for ((j=0;j<=${#Nome[@]};j++)); do
+                            if [ ${__dp[${c}]} = "tasksel" ] ; then
+                                sudo tasksel
+                            elif [ ${__dp[${c}]} = "aptitude" ] ; then
+                                sudo aptitude
+                            elif [ ${__dp[${c}]} = "__Instalador" ] ; then
+                                __Instalador
+                            elif [ ${__dp[${c}]} = "synaptics" ] ; then
+                                synaptics
+                            fi
+                        done
                         e_success "O pacote ${__dp[${c}]} escolhido, esta instalado em $(which ${__dp[${c}]})."
                     fi
                     e_arrow "Configuração dependência ${__dp[${c}]} terminada. $(e_success)"
@@ -571,8 +561,7 @@ function Class_Bob(){
                                                                         # Função Instalador
     # -----------------------------------------------------------------------------------------
     function __Instalador(){
-        which yad || Dependencias yad; clear;
-        
+        clear;
         e_arrow "O ${red}${reset}${blue}   ${reset} instala vários aplicativos,
             conforme o usuários faz uso do software."
         printf "\n"; apt-cache stats; printf "\n"; read -p "Digite, qq tecla para continuar ...";

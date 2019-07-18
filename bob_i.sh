@@ -183,9 +183,10 @@ function ColorSchemeGnomeTerminal(){
 			gogh
 			e_arrow "Configuração screen style terminal pronta, click esquerdo / perfil \
 				escolha. $(e_success)"
+			e_arrow "Configuração screen style terminal pronta. $(e_success)"
 		fi
 	else
-		e_arrow "Configuração screen style terminal pronta. $(e_success)"
+		e_arrow "Configuração screen style não carregada. $(e_success)"
 	fi
 }
 # ----------------------------------------------------------------------------------------
